@@ -1,0 +1,25 @@
+<div class="resume-details experience-section" id="experience-details" style="display: none;">
+        <div class="resume-block">
+          <h3 class="resume-title">Software Engineer Intern</h3>
+          <h4 class="resume-subtitle">Tech Innovations Ltd, Accra</h4>
+          <p class="resume-description">
+            During my internship at Tech Innovations, I worked on the development of web applications using JavaScript and Python, contributing to the design and implementation of key features that improved the user experience. I collaborated with the engineering team to troubleshoot and debug existing systems and was involved in the integration of new APIs, enhancing the overall functionality of client solutions.
+          </p>
+        </div>
+      
+        <div class="resume-block">
+          <h3 class="resume-title">Junior Web Developer</h3>
+          <h4 class="resume-subtitle">Dev Solutions, Accra</h4>
+          <p class="resume-description">
+            As a Junior Web Developer at Dev Solutions, I contributed to building responsive websites using HTML, CSS, and JavaScript. I focused on ensuring cross-browser compatibility and improving performance by optimizing code. My role also included collaborating with clients to ensure their needs were met and providing timely updates on project milestones.
+          </p>
+        </div>
+      
+        <div class="resume-block">
+          <h3 class="resume-title">Graphic Design Intern</h3>
+          <h4 class="resume-subtitle">Creative Minds Studio, Accra</h4>
+          <p class="resume-description">
+            As an intern at Creative Minds Studio, I worked on creating branding materials, including logos, brochures, and digital assets for marketing campaigns. I collaborated closely with the senior designers and contributed to projects from concept to completion, honing my skills in visual design software such as Adobe Illustrator and Photoshop.
+          </p>
+        </div>
+      </div>

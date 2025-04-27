@@ -1,0 +1,2466 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  position: relative; /* Add this if it's not already */
+  font-family: 'Poppins', sans-serif;
+  color: #FFFFFF; /* White text */
+} 
+
+/* Style for active link */
+.active {
+color: #5B5FE9; /* Gold color */
+font-weight: bold;
+}
+
+
+/* Ensure the header stays above other content */
+header {
+position: fixed;
+top: 0;
+left: 0;
+width: 100vw;
+background-color:#121424;
+transform: translateY(-100%);
+animation: slideDown 1.8s ease-in-out forwards;
+z-index: 1000; /* Lower than .circle-bg-alt, but still above content */
+}
+
+@keyframes slideDown {
+from {
+    transform: translateY(-100%);
+    opacity: 0;
+}
+to {
+    transform: translateY(0);
+    opacity: 1;
+}
+} 
+
+
+/* Container keeps content centered */
+.container {
+width: 90%;
+max-width: 1200px;
+margin: 15px auto 0 auto; /* Moves it down by 20px */
+position: relative;
+display: flex;
+align-items: center;
+justify-content: space-between;
+padding: 20px 0;
+box-sizing: border-box; /* Ensures padding does not affect width */
+}
+
+
+
+.brand {
+display: flex;
+align-items: center;
+color: #ffffff;
+font-size: 1.5rem; /* Slightly bigger */
+font-weight: 800; /* Even bolder */
+text-transform: uppercase;
+cursor: pointer;
+letter-spacing: 1.2px;
+text-shadow: 2px 2px 6px rgba(255, 255, 255, 0.2);
+transition: transform 0.3s ease, text-shadow 0.3s ease;
+} 
+
+
+/* Logo inside a circle */
+.brand-logo img {
+width: 50px;
+height: 50px;
+border-radius: 50%; /* Makes it circular */
+border: 2px solid #fff; /* White border */
+margin-right: 12px;
+transition: transform 0.3s ease, border-color 0.3s ease;
+}
+/* Position the circle background overlay */
+.circle-bg-alt {
+position: absolute;
+top: -120px; /* Position it further above */
+right: 85%; /* Positioned further right */
+width: 400px;
+height: 400px;
+border: 1px solid rgba(255, 255, 255, 0.3); /* White semi-transparent border */
+border-radius: 50%;
+z-index: 999999; /* Set a very high z-index */
+transform: translate(0%, 20%); /* Move it slightly down */
+}
+
+
+/* First inner circle */
+.circle-bg-alt::after {
+content: '';
+position: absolute;
+width: 300px;
+height: 300px;
+border: 1px solid rgba(255, 255, 255, 0.2); /* First inner circle */
+border-radius: 50%;
+top: 25px;
+left: 25px;
+}
+
+/* Second inner circle with gold tint */
+.circle-bg-alt::before {
+content: '';
+position: absolute;
+width: 200px;
+height: 200px;
+border: 1px solid rgba(255, 255, 255, 0.1); /* Second inner circle with gold tint */
+border-radius: 50%;
+top: 50px;
+left: 50px;
+}
+
+
+/* Hover effects */
+.brand:hover {
+transform: scale(1.05);
+text-shadow: 3px 3px 10px rgba(255, 255, 255, 0.5);
+}
+
+.brand-logo img:hover {
+transform: rotate(360deg); /* Spins smoothly */
+border-color: #ffd700; /* Changes border to gold */
+}
+
+
+/* Navigation links */
+nav ul {
+display: flex;
+list-style: none;
+gap: 30px;
+}
+
+nav a {
+text-decoration: none;
+color: #ffffff;
+font-weight: 400;
+transition: color 0.3s ease;
+}
+
+nav a:hover {
+color: #bbb; /* Subtle hover color */
+}
+
+/* "Hire Me" button in the nav */
+.hire-me-btn {
+background-color: #5B5FE9;
+color: #ffffff;
+padding: 10px 20px;
+border-radius: 4px;
+text-decoration: none;
+font-weight: 500;
+transition: background-color 0.3s ease;
+}
+
+.hire-me-btn:hover {
+background-color: #4B4FD8;
+}
+
+/* Styling for when the navbar is sticky (ensuring no horizontal shift) */
+header.sticky {
+position: fixed;
+top: 0;
+right: 0;
+width: 100%;
+z-index: 9999;
+background-color:#121424;
+z-index: 10000; /* Sticky header, higher z-index */
+}
+
+/* Optional styling for the brand and navigation when scrolled */
+header.scrolled .brand {
+color: #ffffff;
+text-shadow: 2px 2px 8px rgba(255, 255, 255, 0.3);
+}
+
+header.scrolled nav a {
+color: #ffffff;
+}
+
+header.scrolled .hire-me-btn {
+background-color: #5B5FE9;
+color: #ffffff;
+}
+
+header.scrolled .hire-me-btn:hover {
+background-color: #4B4FD8;
+} 
+
+/* Default: Hide the hamburger icon */
+.hamburger {
+display: none;
+flex-direction: column;
+justify-content: space-between;
+width: 30px;
+height: 25px;
+cursor: pointer;
+position: absolute;
+right: 20px;
+top: 20px;
+z-index: 1000;
+}
+
+/* Hamburger bars */
+.hamburger span {
+display: block;
+width: 100%;
+height: 3px;
+background-color: #fff;
+transition: all 0.3s ease;
+}
+
+@media (min-width: 1024px) {
+#mainNav ul li i,
+.custom-social-link i {
+    display: none; /* Hide icons in desktop view */
+}
+}
+
+@media (min-width: 1024px) {
+  #mainNav ul li i,
+  .custom-social-link i {
+      display: none; /* Hide icons in desktop view */
+  }
+}
+
+/* Active link styling for mobile menu */
+@media (max-width: 1023px) {
+  .active {
+    color: #5B5FE9; /* Gold color */
+    font-weight: bold;
+  }
+
+  .hamburger {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+  }
+
+  .hamburger span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background: white;
+    border-radius: 2px;
+  }
+
+  #mainNav {
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    width: 0;
+    overflow: hidden;
+    background-color: #121424;
+    transition: width 0.8s ease;
+    z-index: 999;
+  }
+
+  #mainNav ul {
+    flex-direction: column;
+    gap: 40px; /* Reduce the gap to make the links closer */
+    padding: 80px 20px;
+    opacity: 0;
+    transition: opacity 0.6s ease 0.3s;
+    display: flex;
+  }
+
+  #mainNav ul li {
+    font-size: 24px; /* Increase font size */
+    transition: font-size 0.3s ease, transform 0.3s ease; /* Smooth transition for both font size and downward movement */
+    transform: translateY(80px); /* Move the list items slightly downwards */
+  }
+
+  #mainNav ul li a {
+    display: flex;
+    align-items: center; /* Keep text and icon aligned */
+    text-decoration: none;
+    color: inherit;
+    width: 100%; /* Make sure anchor takes full width */
+  }
+
+  #mainNav ul li a.active {
+    color: #5B5FE9; /* Gold color */
+    font-weight: bold;
+  }
+
+  #mainNav ul li i {
+    font-size: 18px; /* Size of the icon */
+    margin-left: auto; /* Push icon to the far right */
+  }
+
+  /* Icon Colors */
+  .icon-home {
+    color: #00b894; /* Greenish-teal */
+  }
+
+  .icon-service {
+    color: #e17055; /* Soft orange-red */
+  }
+
+  .icon-blog {
+    color: #6c5ce7; /* Light purple */
+  }
+
+  .icon-pages {
+    color: #0984e3; /* Bright blue */
+  }
+
+  .icon-contact {
+    color: #fd79a8; /* Vibrant pink */
+  }
+
+  /* Hover Effect (makes the icon pop) */
+  nav ul li a:hover i {
+    transform: translateY(-3px) scale(1.1);
+  }
+
+  .custom-social-links {
+    display: flex; /* Align items in a row */
+    gap: 20px; /* Space between social icons */
+    justify-content: center; /* Center the icons horizontally */
+    padding-top: 20px; /* Add some space above the social media icons */
+    margin-top: 50px; /* Push the icons further down */
+  }
+
+  .custom-social-link {
+    font-size: 20px;
+    color: inherit;
+    text-decoration: none;
+    background-color: #1F2127;
+    border: 1px solid #5B5FE9;
+    border-radius: 50%;
+    padding: 21px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+  }
+
+  /* Hover Effect: General (icon turns black) */
+  .custom-social-link:hover {
+    color: white; /* Icon becomes black */
+    transform: scale(1.1);
+  }
+
+  /* Hover Effects for Each Social Link */
+  .custom-social-link.facebook:hover {
+    background-color: #25D366; /* WhatsApp Green */
+  }
+
+  .custom-social-link.website:hover {
+    background-color: red; /* Vibrant Orange */
+  }
+
+  .custom-social-link.linkedin:hover {
+    background-color: #0077B5; /* LinkedIn Blue */
+  }
+
+  .custom-social-link.twitter:hover {
+    background-color: #000000; /* Twitter Black */
+  }
+
+  /* When nav is shown */
+  #mainNav.show-nav {
+    width: 55%;
+  }
+
+  #mainNav.show-nav ul {
+    opacity: 1;
+  }
+
+  .hire-me-btn {
+    display: none;
+  }
+
+  header.sticky {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100%;
+    z-index: 9999;
+    background-color: #0F1116;
+  }
+
+  .custom-social-link.animate {
+    transform: scale(1.1);
+    box-shadow: 0 0 15px rgba(91, 95, 233, 0.6);
+    animation: pulseGlow 1.5s ease-in-out infinite; 
+  }
+
+  .custom-social-link.facebook.animate {
+    background-color: #25D366; /* WhatsApp Green */
+    box-shadow: 0 0 15px rgba(37, 211, 102, 0.6);
+  }
+
+  .custom-social-link.website.animate {
+    background-color: #FF0000; /* YouTube red */
+    box-shadow: 0 0 15px rgba(255, 0, 0, 0.6);
+  }
+
+  .custom-social-link.linkedin.animate {
+    background-color: #0077B5;
+    box-shadow: 0 0 15px rgba(0, 119, 181, 0.6);
+  }
+
+  .custom-social-link.twitter.animate {
+    background-color: #000000;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
+  }
+
+  @keyframes pulseGlow {
+    0% {
+      box-shadow: 0 0 5px rgba(91, 95, 233, 0.3);
+    }
+    50% {
+      box-shadow: 0 0 15px rgba(91, 95, 233, 0.7);
+    }
+    100% {
+      box-shadow: 0 0 5px rgba(91, 95, 233, 0.3);
+    }
+  }
+
+  .no-scroll {
+    height: 100vh;      /* Prevents the body from exceeding the viewport height */
+    overflow: hidden;   /* Hides any overflow, preventing scrolling */
+  }
+}
+
+/* Tablet Nav Styles */
+@media (min-width: 401px) and (max-width: 760px) {
+  /* Ensure hamburger is visible */
+  .hamburger {
+    display: flex;
+    width: 18px;
+    height: 15px;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+  }
+
+  .hamburger span {
+    display: block;
+    background: white;
+    border-radius: 2px;
+  }
+ 
+ 
+  #mainNav {
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    width: 0;
+    overflow: hidden;
+    background-color: #121424;
+    transition: width 0.8s ease;
+    z-index: 999;
+  }
+  #mainNav ul {
+    flex-direction: column;
+    gap: 30px; /* Reduced gap for a tighter layout */
+    padding: 30px 10px; /* Adjusted padding for smaller screens */
+    opacity: 0;
+    transition: opacity 0.6s ease 0.3s;
+    display: flex;
+  }
+
+  #mainNav ul li {
+    font-size: 16px; /* Increase font size */
+    transition: font-size 0.3s ease, transform 0.3s ease; /* Smooth transition for both font size and downward movement */
+    transform: translateY(80px); /* Move the list items slightly downwards */
+  }
+
+  #mainNav ul li a {
+    display: flex;
+    align-items: center; /* Keep text and icon aligned */
+    text-decoration: none;
+    color: inherit;
+    width: 100%; /* Make sure anchor takes full width */
+  }
+  
+  #mainNav ul li i {
+    font-size: 15px; /* Size of the icon */
+    margin-left: auto; /* Push icon to the far right */
+  }
+
+  .custom-social-links {
+    display: flex; /* Align items in a row */
+    gap: 18px; /* Space between social icons */
+    justify-content: center; /* Center the icons horizontally */
+    padding-top: 20px; /* Add some space above the social media icons */
+    margin-top: 85px; /* Push the icons further down */
+  }
+  
+  .custom-social-link {
+    font-size: 18px;
+    color: inherit;
+    text-decoration: none;
+    background-color: #1F2127;
+    border: 1px solid #5B5FE9;
+    border-radius: 50%;
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+  }
+
+    /* When nav is shown */
+    #mainNav.show-nav {
+      width: 80%;
+      
+    }
+
+  /* Hide "Let's Talk" button */
+  .hire-me-btn {
+    display: none;
+  }
+
+  /* Show the nav menu when toggled */
+  #mainNav.show-nav ul {
+    display: flex;
+  }
+ /* Tablet Styles */
+
+  .brand-logo img {
+    width: 35px; /* Reduce size */
+    height: 35px;
+   
+  }
+
+  .brand {
+    font-size: 1.2rem; /* Slightly smaller */
+    letter-spacing: 1px;
+    text-shadow: 1.5px 1.5px 4px rgba(255, 255, 255, 0.2);
+    margin-top: -15px; /* Move upwards */
+  }
+
+
+}
+
+@media (min-width: 351px) and (max-width: 400px) {
+  /* Ensure hamburger is visible */
+  .hamburger {
+   display: flex;
+   width: 15px;
+   height: 11px;
+   flex-direction: column;
+   gap: 3px;
+   cursor: pointer;
+ }
+ 
+ .hamburger span {
+   display: block;
+   background: white;
+   border-radius: 2px;
+ }
+ 
+ #mainNav {
+   position: fixed;
+   top: 0;
+   right: 0;
+   height: 100vh;
+   width: 0;
+   overflow: hidden;
+   background-color: #121424;
+   transition: width 0.8s ease;
+   z-index: 999;
+ }
+ 
+ #mainNav ul {
+   flex-direction: column;
+   gap: 30px; /* Reduced gap for a tighter layout */
+   padding: 30px 10px; /* Adjusted padding for smaller screens */
+   opacity: 0;
+   transition: opacity 0.6s ease 0.3s;
+   display: flex;
+ }
+ 
+ 
+ #mainNav ul li {
+   font-size: 14px; /* Increase font size */
+   transition: font-size 0.3s ease, transform 0.3s ease; /* Smooth transition for both font size and downward movement */
+   transform: translateY(80px); /* Move the list items slightly downwards */
+ }
+ 
+ #mainNav ul li a {
+   display: flex;
+   align-items: center; /* Keep text and icon aligned */
+   text-decoration: none;
+   color: inherit;
+   width: 100%; /* Make sure anchor takes full width */
+ }
+ 
+ #mainNav ul li i {
+   font-size: 14px; /* Size of the icon */
+   margin-left: auto; /* Push icon to the far right */
+ }
+ 
+ .custom-social-links {
+   display: flex; /* Align items in a row */
+   gap: 18px; /* Space between social icons */
+   justify-content: center; /* Center the icons horizontally */
+   padding-top: 20px; /* Add some space above the social media icons */
+   margin-top: 88px; /* Push the icons further down */
+ }
+ 
+ .custom-social-link {
+   font-size: 15px;
+   color: inherit;
+   text-decoration: none;
+   background-color: #1F2127;
+   border: 1px solid #5B5FE9;
+   border-radius: 50%;
+   padding: 15px;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   transition: all 0.3s ease;
+ }
+ 
+   /* When nav is shown */
+   #mainNav.show-nav {
+     width: 85%;
+     
+   }
+ 
+ /* Hide "Let's Talk" button */
+ .hire-me-btn {
+   display: none;
+ }
+ 
+ /* Show the nav menu when toggled */
+ #mainNav.show-nav ul {
+   display: flex;
+ }
+ .brand-logo img {
+   width: 35px; /* Reduce size */
+   height: 35px;
+  
+ }
+ 
+ .brand {
+   font-size: 1.0rem; /* Slightly smaller */
+   letter-spacing: 1px;
+   text-shadow: 1.5px 1.5px 4px rgba(255, 255, 255, 0.2);
+   margin-top: -15px; /* Move upwards */
+ }
+ }
+
+/* Mobile Nav Styles (max-width 360px) */
+@media (max-width: 350px) {
+  /* Ensure hamburger is visible */
+ /* Ensure hamburger is visible */
+ .hamburger {
+  display: flex;
+  width: 11px;
+  height: 12px;
+  flex-direction: column;
+  gap: 2px;
+  cursor: pointer;
+}
+
+.hamburger span {
+  display: block;
+  background: white;
+  border-radius: 2px;
+}
+
+#mainNav {
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100vh;
+  width: 0;
+  overflow: hidden;
+  background-color: #121424;
+  transition: width 0.8s ease;
+  z-index: 999;
+}
+
+#mainNav ul {
+  flex-direction: column;
+  gap: 30px; /* Reduced gap for a tighter layout */
+  padding: 30px 10px; /* Adjusted padding for smaller screens */
+  opacity: 0;
+  transition: opacity 0.6s ease 0.3s;
+  display: flex;
+}
+
+
+#mainNav ul li {
+  font-size: 14px; /* Increase font size */
+  transition: font-size 0.3s ease, transform 0.3s ease; /* Smooth transition for both font size and downward movement */
+  transform: translateY(80px); /* Move the list items slightly downwards */
+}
+
+#mainNav ul li a {
+  display: flex;
+  align-items: center; /* Keep text and icon aligned */
+  text-decoration: none;
+  color: inherit;
+  width: 100%; /* Make sure anchor takes full width */
+}
+
+#mainNav ul li i {
+  font-size: 14px; /* Size of the icon */
+  margin-left: auto; /* Push icon to the far right */
+}
+
+.custom-social-links {
+  display: flex; /* Align items in a row */
+  gap: 15px; /* Space between social icons */
+  justify-content: center; /* Center the icons horizontally */
+  padding-top: 15px; /* Add some space above the social media icons */
+  margin-top: 75px; /* Push the icons further down */
+}
+
+.custom-social-link {
+  font-size: 12px;
+  color: inherit;
+  text-decoration: none;
+  background-color: #1F2127;
+  border: 1px solid #5B5FE9;
+  border-radius: 50%;
+  padding: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+  /* When nav is shown */
+  #mainNav.show-nav {
+    width: 85%;
+    
+  }
+
+/* Hide "Let's Talk" button */
+.hire-me-btn {
+  display: none;
+}
+
+
+  /* Mobile-specific adjustments for brand logo */
+  .brand-logo img {
+    width: 30px; /* Smaller size */
+    height: 30px;
+  }
+
+  .brand {
+    font-size: 1.0rem; /* Smaller text */
+    letter-spacing: 0.8px;
+    text-shadow: 1px 1px 3px rgba(255, 255, 255, 0.2);
+    margin-top: -10px; /* Move upwards a bit */
+  }
+}
+
+
+  
+/* Add padding-top to avoid overlap */
+.services-section {
+    position: relative;
+    background-color:#121424;
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    z-index: 0;
+    padding-top: 80px; /* Adjust based on your header height */
+  }
+  
+  .title {
+    font-family: 'Georgia', serif;
+    color: #ffffff;
+    font-size: 70px;
+    margin-bottom: 30px;
+    font-weight: 400; /* or use lighter for even softer look */
+    z-index: 2;
+  }
+  
+  .button-group {
+    display: inline-flex;               /* Display buttons side-by-side */
+    align-items: center;               /* Vertically center contents */
+    background-color: #2c2e3f;         /* Dark but soft background */
+    border-radius: 40px;               /* Smooth pill-shaped corners */
+    padding: 10px 24px;                /* Padding for breathing room */  
+    position: relative;                /* Needed for layering with z-index */
+    z-index: 2;                        /* Ensure it stays above background items */
+    gap: 20px;                         /* Space between buttons */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+    transition: background-color 0.3s ease;   /* Smooth background transition */
+  }
+  
+  .button {
+    color: #777c96;
+    padding: 8px 16px;
+    font-size: 18px;
+    font-weight: 500;
+    border-radius: 30px;
+  }
+  
+  .button.active {
+    color: #ffffff;
+  }
+  
+  .divider {
+    color: #555;
+    margin: 0 10px;
+    font-weight: bold;
+  }
+  /* Add the slide-up animation */
+  @keyframes slideUp {
+    0% {
+      transform: translateY(30px); /* Start from below the screen */
+      opacity: 0; /* Make it invisible at the start */
+    }
+    100% {
+      transform: translateY(0); /* End at the normal position */
+      opacity: 1; /* Make it fully visible */
+    }
+  }
+  
+  /* Apply animation to the title and button group */
+  .title, .button-group {
+    animation: slideUp 1s ease-out; /* Slide in from the bottom */
+    animation-fill-mode: both; /* Ensure the final state remains after animation */
+  }
+  
+  /* Delay the animation for each element */
+  .title {
+    animation-delay: 0.3s; /* Delay for title */
+  }
+  
+  .button-group {
+    animation-delay: 0.6s; /* Delay for button group */
+  }
+  
+  
+  
+  
+  @media (max-width: 1023px) {
+     
+  /* Add padding-top to avoid overlap */
+  .services-section {
+    position: relative;
+    background-color:#121424;
+    height: 40vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    z-index: 0;
+    padding-top: 80px; /* Adjust based on your header height */
+  }
+  
+  .title {
+    font-family: 'Georgia', serif;
+    color: #ffffff;
+    font-size: 50px;
+    margin-bottom: 30px;
+    font-weight: 400; /* or use lighter for even softer look */
+    z-index: 2;
+  }
+  
+  .button-group {
+    display: inline-flex;
+    align-items: center;
+    background-color: #1c1e2f;
+    border-radius: 40px;
+    padding: 10px 20px;
+    z-index: 2;
+    position: relative;
+  }
+  
+  .button {
+    color: #777c96;
+    padding: 8px 16px;
+    font-size: 18px;
+    font-weight: 500;
+    border-radius: 30px;
+  }
+  
+  .button.active {
+    color: #ffffff;
+  }
+  
+  .divider {
+    color: #555;
+    margin: 0 10px;
+    font-weight: bold;
+  }
+  }
+  
+  
+  @media (min-width: 401px) and (max-width: 760px){ 
+    .services-section {
+      height: 60vh; 
+    }
+      /* Adjust title size */
+      .title {
+        font-size: 40px; /* Decrease font size */
+        margin-bottom: 20px; /* Reduce margin for tighter layout */
+      }
+    
+      /* Adjust button group layout */
+      .button-group {
+        padding: 8px 15px; /* Reduce padding */
+      }
+    
+      /* Adjust individual button size */
+      .button {
+        font-size: 18px; /* Reduce font size */
+        padding: 6px 12px; /* Reduce padding */
+      }
+      
+      /* Optional: Adjust button spacing */
+      .divider {
+        font-size: 18px; /* Make divider smaller */
+        margin: 0 8px; /* Adjust margin for tighter spacing */
+      }
+      .circle-bg-alt {
+        top: -80px; /* Adjust position if needed */
+        right: 80%; /* Adjust to position more centered */
+        width: 300px; /* Reduce size for smaller screens */
+        height: 300px;
+        transform: translate(0%, 10%); /* Adjust to move it down slightly */
+      }
+    
+      /* First inner circle */
+      .circle-bg-alt::after {
+        width: 250px; /* Adjust size for the smaller screen */
+        height: 250px;
+        top: 25px;
+        left: 25px;
+      }
+    
+      /* Second inner circle with gold tint */
+      .circle-bg-alt::before {
+        width: 200px; /* Adjust size for the smaller screen */
+        height: 200px;
+        top: 50px;
+        left: 50px;
+      }
+  }
+  
+  @media (min-width: 351px) and (max-width: 400px) {
+    .services-section {
+      height: 60vh; 
+    }
+      /* Adjust title size */
+      .title {
+        font-size: 40px; /* Decrease font size */
+        margin-bottom: 20px; /* Reduce margin for tighter layout */
+      }
+    
+      /* Adjust button group layout */
+      .button-group {
+        padding: 8px 15px; /* Reduce padding */
+      }
+    
+      /* Adjust individual button size */
+      .button {
+        font-size: 18px; /* Reduce font size */
+        padding: 6px 12px; /* Reduce padding */
+      }
+      
+      /* Optional: Adjust button spacing */
+      .divider {
+        font-size: 18px; /* Make divider smaller */
+        margin: 0 8px; /* Adjust margin for tighter spacing */
+      }
+      .circle-bg-alt {
+        top: -80px; /* Adjust position if needed */
+        right: 80%; /* Adjust to position more centered */
+        width: 300px; /* Reduce size for smaller screens */
+        height: 300px;
+        transform: translate(0%, 10%); /* Adjust to move it down slightly */
+      }
+    
+      /* First inner circle */
+      .circle-bg-alt::after {
+        width: 250px; /* Adjust size for the smaller screen */
+        height: 250px;
+        top: 25px;
+        left: 25px;
+      }
+    
+      /* Second inner circle with gold tint */
+      .circle-bg-alt::before {
+        width: 200px; /* Adjust size for the smaller screen */
+        height: 200px;
+        top: 50px;
+        left: 50px;
+      }
+  }
+  
+  @media (max-width: 350px) {
+    .services-section {
+      height: 70vh; 
+    }
+      /* Adjust title size */
+  .title {
+    font-size: 28px; /* Decrease font size */
+    margin-bottom: 15px; /* Reduce margin for tighter layout */
+  }
+  
+  /* Adjust button group layout */
+  .button-group {
+    padding: 6px 12px; /* Reduce padding */
+  }
+  
+  /* Adjust individual button size */
+  .button {
+    font-size: 16px; /* Reduce font size */
+    padding: 5px 10px; /* Reduce padding */
+  }
+  
+  /* Optional: Adjust button spacing */
+  .divider {
+    font-size: 16px; /* Make divider smaller */
+    margin: 0 6px; /* Adjust margin for tighter spacing */
+  }
+  
+  .circle-bg-alt {
+    top: -60px; /* Adjust position for tighter placement */
+    right: 75%; /* Adjust to position more centered */
+    width: 250px; /* Adjust size for smaller screens */
+    height: 250px;
+    transform: translate(0%, 10%); /* Adjust to move it down slightly */
+  }
+  
+  /* First inner circle */
+  .circle-bg-alt::after {
+    width: 200px; /* Adjust size for the smaller screen */
+    height: 200px;
+    top: 25px;
+    left: 25px;
+  }
+  
+  /* Second inner circle with gold tint */
+  .circle-bg-alt::before {
+    width: 150px; /* Adjust size for the smaller screen */
+    height: 150px;
+    top: 50px;
+    left: 50px;
+  }
+  
+  } 
+  
+ 
+  
+ .contact {
+    background-color:  #2a2c39;/* Overall dark background */
+    color: #bfc0d1;            /* Light text color */
+    line-height: 1.6;
+}
+
+
+    /* CONTAINER FOR THE ENTIRE CONTACT SECTION */
+    .contact-section {
+      width: 90%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 40px 0;
+    }
+
+    /* MAP SECTION */
+    .contact-map {
+        width: 100%;
+        height: 500px;
+        margin-top: 100px;      /* ⬅️ Added this line to move it downwards */
+        margin-bottom: 40px;   /* spacing between map and content */
+        border-radius: 8px;
+        overflow: hidden;      /* ensures rounded corners on iframe */
+      }
+      
+    .contact-map iframe {
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+
+/* CONTACT CONTENT WRAPPER (INFO + FORM) */
+
+.contact-content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 40px 20px;
+  align-items: flex-start; /* ensures both columns align at the top */
+  margin-top: -20px; /* adjust value as needed */
+}
+
+  
+ /* LEFT COLUMN: CONTACT INFO */
+ /* LEFT COLUMN: CONTACT INFO */
+ .contact-info {
+  display: flex;
+  flex-direction: column;  /* Stack the boxes vertically */
+  width: 400px;            /* Set a fixed width */
+  background-color: #1e1f2f;
+  padding: 40px 28px;
+  border-radius: 10px;
+  margin-top: -270px;
+  transform: translateX(-20px); /* moves it left without affecting layout flow */
+  gap: 20px; /* increases space between the boxes */
+}
+
+/* CONTACT INFO BOXES (PHONE, EMAIL, WEBSITE, ADDRESS) */
+.contact-info .info-box {
+  background-color: #2a2b3c;
+  padding: 16px 20px;
+  border-radius: 8px;
+  width: 270px;
+  height: 120px;
+  margin: 0 auto;
+  word-wrap: break-word;  /* Force wrapping */
+  overflow-wrap: break-word; /* Better compatibility */
+  text-align: center; /* Optional: center the email */
+}
+
+
+.contact-info .info-box h4 {
+  color: #ffffff;
+  font-weight: 600;
+  margin-bottom: 8px;
+  font-size: 1.1rem;
+}
+
+.contact-info .info-box p {
+  color: #bfc0d1;
+  font-size: 0.95rem;
+  margin: 0;
+}
+
+/* Custom Icon Colors */
+.contact-info .info-box .fas.fa-phone {
+  background: linear-gradient(145deg, #ff5e62, #ff9966); /* Phone icon: Gradient from pink to orange */
+  background-clip: text; /* Standard property */
+  -webkit-background-clip: text; /* Webkit prefix for Safari */
+  -moz-background-clip: text; /* Firefox prefix */
+  color: transparent;
+}
+
+.contact-info .info-box .fas.fa-envelope {
+  background: linear-gradient(145deg, #ff8c00, #ffcc00); /* Envelope icon: Gradient from orange to yellow */
+  background-clip: text; /* Standard property */
+  -webkit-background-clip: text; /* Webkit prefix for Safari */
+  -moz-background-clip: text; /* Firefox prefix */
+  color: transparent;
+}
+
+.contact-info .info-box .fas.fa-globe {
+  background: linear-gradient(145deg, #1e3c72, #2a5298); /* Globe icon: Gradient from deep blue to lighter blue */
+  background-clip: text; /* Standard property */
+  -webkit-background-clip: text; /* Webkit prefix for Safari */
+  -moz-background-clip: text; /* Firefox prefix */
+  color: transparent;
+}
+
+.contact-info .info-box .fas.fa-map-marker-alt {
+  background: linear-gradient(145deg, #66b3ff, #3399ff); /* Map icon: Gradient from light blue to dark blue */
+  background-clip: text; /* Standard property */
+  -webkit-background-clip: text; /* Webkit prefix for Safari */
+  -moz-background-clip: text; /* Firefox prefix */
+  color: transparent;
+}
+
+
+
+/* FOLLOW ME SECTION */
+.contact-info .follow-me {
+  background-color: #2a2b3c;
+  padding: 28px 20px;
+  border-radius: 8px;
+  margin-top: 30px;
+  text-align: center;
+}
+.contact-info .follow-me h4 {
+  color: #ffffff;
+  font-size: 1.2rem;
+  margin-bottom: 16px;
+  font-weight: 600;
+}
+.contact-info .follow-icons {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+}
+
+.follow-icons a {
+  color: #bfc0d1;
+  font-size: 1.2rem;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #1e1f2f;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: color 0.3s ease, background-color 0.3s ease, transform 0.3s ease;
+  text-decoration: none;
+}
+
+/* Specific hover effects */
+.social-link.facebook:hover {
+  background-color: #3b5998;
+  transform: scale(1.1);
+}
+
+.social-link.website:hover {
+  background-color: #FF4500;
+  transform: scale(1.1);
+}
+
+.social-link.linkedin:hover {
+  background-color: #0077B5;
+  transform: scale(1.1);
+}
+
+.social-link.twitter:hover {
+  background-color: #000000;
+  transform: scale(1.1);
+}
+
+/* Animate Class */
+.social-link.animate {
+  transform: scale(1.1);
+  box-shadow: 0 0 15px rgba(91, 95, 233, 0.6);
+  animation: pulseGlow 1.7s ease-in-out infinite;
+}
+
+.social-link.facebook.animate {
+  background-color: #3b5998;
+  box-shadow: 0 0 15px rgba(59, 89, 152, 0.6);
+}
+
+.social-link.website.animate {
+  background-color: #FF4500;
+  box-shadow: 0 0 15px rgba(255, 69, 0, 0.6);
+}
+
+.social-link.linkedin.animate {
+  background-color: #0077B5;
+  box-shadow: 0 0 15px rgba(0, 119, 181, 0.6);
+}
+
+.social-link.twitter.animate {
+  background-color: #000000;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
+}
+
+/* Optional pulse animation */
+@keyframes pulseGlow {
+  0% {
+    box-shadow: 0 0 15px rgba(91, 95, 233, 0.6);
+  }
+  50% {
+    box-shadow: 0 0 25px rgba(91, 95, 233, 0.9);
+  }
+  100% {
+    box-shadow: 0 0 15px rgba(91, 95, 233, 0.6);
+  }
+}
+
+
+.contact-info .info-box i {
+  color: #ffffff; /* Default icon color is white */
+  font-size: 1.5rem; /* Larger icons for better visibility */
+  margin-right: 12px; /* Space between icon and text */
+}
+.contact-info .info-box i {
+  color: #ffffff; /* Default icon color */
+  font-size: 1.5rem; /* Larger icons for better visibility */
+  margin-right: 12px; /* Space between icon and text */
+  text-decoration: none; /* Ensures no underline */
+}
+
+
+.contact-form {
+  flex: 1;
+  min-width: 300px;
+  padding: 30px;
+  margin-left: 80px; /* Keep this if you want horizontal shift */
+  position: relative;
+  
+}
+
+
+.contact-form .form-subtitle {
+  display: inline-block;
+  font-size: 1.1rem;
+  color: #9899ad;
+  margin-bottom: 15px;
+}
+
+.contact-form h2 {
+  font-size: 3rem;
+  font-weight: 600;
+  color: #ffffff;
+  margin-bottom: 15px;
+  line-height: 1.5;
+}
+
+.contact-form p {
+  font-size: 1.1rem;
+  color: #bfc0d1;
+  line-height: 1.8;
+  margin-bottom: 30px;
+  max-width: 600px;
+}
+
+/* CSS */
+.email-link {
+  color: inherit; /* Inherits text color from the parent */
+  text-decoration: none; /* Removes the underline */
+}
+
+.email-link:hover {
+  color: #0077b5; /* LinkedIn's brand color or any other color you prefer */
+  text-decoration: underline; /* Optional: underline on hover for clarity */
+}
+
+.portfolio-link {
+  color: inherit; /* Inherits the color from the surrounding text */
+  text-decoration: none; /* Removes underline */
+  font-weight: 500; /* Slightly bold for visibility (optional) */
+}
+
+.portfolio-link:hover {
+  color: #0077b5; /* LinkedIn's brand color or any other color you prefer */
+  text-decoration: underline;
+}
+
+.phone-link {
+  color: inherit;
+  text-decoration: none;
+}
+
+.phone-link:hover {
+  color:  #0077b5; /* LinkedIn's brand color or any other color you prefer */
+  text-decoration: underline;
+}
+
+
+
+/* Form rows side-by-side */
+.form-row {
+  display: flex;
+  gap: 25px;
+  margin-bottom: 25px;
+}
+
+.form-row input {
+  flex: 1;
+  padding: 16px;
+  background-color: transparent;
+  border: 1px solid #40425a;
+  border-radius: 6px;
+  color: #ffffff;
+  font-size: 1.1rem;
+  outline: none;
+}
+
+textarea {
+  width: 100%;
+  padding: 16px;
+  background-color: transparent;
+  border: 1px solid #40425a;
+  border-radius: 6px;
+  color: #ffffff;
+  font-size: 1.1rem;
+  resize: vertical;
+  min-height: 240px;
+  margin-bottom: 25px;
+}
+
+
+input::placeholder,
+textarea::placeholder {
+  color: #9899ad;
+  font-size: 1.05rem;
+}
+
+/* Submit Button */
+.submit-btn {
+  display: inline-block;
+  padding: 16px 32px;
+  background-color: transparent;
+  border: 2px solid #ffffff;
+  color: #ffffff;
+  border-radius: 40px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.submit-btn:hover {
+  background-color: #ffffff;
+  color: #2a2c3c;
+} 
+
+@media screen and (max-width: 1026px) {
+  .contact-content {
+    flex-direction: column;
+    align-items: flex-start; /* Align left */
+    padding: 20px 10px;
+    margin-top: 0;
+  }
+
+  .contact-map {
+    order: 1;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    height: 400px;
+  }
+  .contact-form {
+    flex: 1;
+    min-width: 300px;
+    padding: 20px; /* Reduced padding */
+    margin-left: 0; /* Align to the left */
+    position: relative;
+  }
+  
+  .contact-form .form-subtitle {
+    font-size: 1rem; /* Adjusted font size */
+    margin-bottom: 10px; /* Reduced margin */
+  }
+
+  .contact-form h2 {
+    font-size: 2.5rem; /* Reduced font size */
+    margin-bottom: 12px; /* Reduced margin */
+  }
+
+  .contact-form p {
+    font-size: 1rem; /* Adjusted font size */
+    margin-bottom: 20px; /* Reduced margin */
+    max-width: 500px; /* Reduced max-width */
+  }
+
+  .form-row {
+    display: flex;
+    flex-wrap: wrap; /* Allow wrapping */
+    gap: 15px; /* Reduced gap */
+    margin-bottom: 20px; /* Reduced margin */
+  }
+
+  .form-row input {
+    flex: 1;
+    padding: 14px; /* Reduced padding */
+    font-size: 1rem; /* Adjusted font size */
+  }
+
+  textarea {
+    width: 100%;
+    padding: 14px; /* Reduced padding */
+    font-size: 1rem; /* Adjusted font size */
+    min-height: 200px; /* Reduced min-height */
+    margin-bottom: 20px; /* Reduced margin */
+  }
+
+  .submit-btn {
+    padding: 14px 28px; /* Reduced padding */
+    font-size: 1rem; /* Adjusted font size */
+  }
+  .contact-info {
+    order: 3;
+    margin-top: 20px;
+    transform: none;
+    width: 100%;
+    padding: 20px;
+    align-items: flex-start; /* Align left */
+    text-align: left;        /* Ensure text is also aligned */
+  }
+  
+  .contact-info .info-box {
+    width: 100%;
+    max-width: none;
+    box-sizing: border-box;
+    text-align: left;        /* Text inside info-box left-aligned */
+  }
+
+  .contact-info .follow-me {
+    order: 4;
+    margin-top: 30px;
+    width: 100%;
+    max-width: none;
+    box-sizing: border-box;
+    align-items: flex-start;
+    text-align: left;        /* Align text and icons to the left */
+  }
+
+  .contact-info .info-box:not(:last-child) {
+    margin-bottom: 15px;
+  }
+
+  .follow-me .follow-icons {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; /* Left-align the icons */
+    gap: 15px; /* Space between icons */
+  }
+
+  .follow-me .social-link {
+    font-size: 20px; /* Adjust icon size if needed */
+    color: white;    /* Icon color */
+  }
+
+  .follow-me .social-link:hover {
+    color: #007bff; /* Hover effect color */
+  }
+
+} 
+
+
+@media screen and (max-width: 770px) {
+  .contact-content {
+    flex-direction: column;
+    align-items: flex-start; /* Align left */
+    padding: 15px 8px; /* Further reduced padding */
+    margin-top: 0;
+  }
+
+  .contact-map {
+    order: 1;
+    margin-top: 15px; /* Reduced margin */
+    margin-bottom: 15px; /* Reduced margin */
+    height: 300px; /* Reduced height */
+  }
+
+  .contact-form {
+    flex: 1;
+    min-width: 300px;
+    padding: 15px; /* Reduced padding */
+    margin-left: 0; /* Align to the left */
+    position: relative;
+  }
+  
+  .contact-form .form-subtitle {
+    font-size: 0.95rem; /* Further reduced font size */
+    margin-bottom: 8px; /* Reduced margin */
+  }
+
+  .contact-form h2 {
+    font-size: 2rem; /* Further reduced font size */
+    margin-bottom: 10px; /* Reduced margin */
+  }
+
+  .contact-form p {
+    font-size: 0.95rem; /* Adjusted font size */
+    margin-bottom: 15px; /* Reduced margin */
+    max-width: 450px; /* Further reduced max-width */
+  }
+
+  .form-row {
+    display: flex;
+    flex-wrap: wrap; /* Allow wrapping */
+    gap: 12px; /* Reduced gap */
+    margin-bottom: 15px; /* Reduced margin */
+  }
+
+  .form-row input {
+    flex: 1;
+    padding: 12px; /* Reduced padding */
+    font-size: 0.95rem; /* Adjusted font size */
+  }
+
+  textarea {
+    width: 100%;
+    padding: 12px; /* Reduced padding */
+    font-size: 0.95rem; /* Adjusted font size */
+    min-height: 180px; /* Reduced min-height */
+    margin-bottom: 15px; /* Reduced margin */
+  }
+
+  .submit-btn {
+    padding: 12px 24px; /* Reduced padding */
+    font-size: 0.95rem; /* Adjusted font size */
+  }
+
+  .contact-info {
+    order: 3;
+    margin-top: 20px;
+    transform: none;
+    width: 100%;
+    padding: 15px; /* Reduced padding */
+    align-items: flex-start; /* Align left */
+    text-align: left;
+  }
+
+  .contact-info .info-box {
+    width: 100%;
+    max-width: none;
+    box-sizing: border-box;
+    text-align: left;
+  }
+
+  .contact-info .follow-me {
+    order: 4;
+    margin-top: 20px; /* Reduced margin */
+    width: 100%;
+    max-width: none;
+    box-sizing: border-box;
+    align-items: flex-start;
+    text-align: left;
+  }
+
+  .contact-info .info-box:not(:last-child) {
+    margin-bottom: 10px; /* Reduced margin */
+  }
+
+  .follow-me .follow-icons {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; /* Left-align the icons */
+    gap: 12px; /* Reduced gap */
+  }
+
+  .follow-me .social-link {
+    font-size: 18px; /* Adjusted icon size */
+    color: white;
+  }
+
+  .follow-me .social-link:hover {
+    color: #007bff; /* Hover effect color */
+  }
+}
+
+@media screen and (max-width: 370px) {
+  .contact-content {
+    flex-direction: column;
+    align-items: flex-start; /* Align left */
+    padding: 10px 5px; /* Further reduced padding */
+    margin-top: 0;
+  }
+
+  .contact-map {
+    order: 1;
+    margin-top: 10px; /* Further reduced margin */
+    margin-bottom: 10px; /* Further reduced margin */
+    height: 250px; /* Reduced height */
+  }
+
+  .contact-form {
+    flex: 1;
+    min-width: 250px; /* Reduced min-width */
+    padding: 10px; /* Further reduced padding */
+    margin-left: 0; /* Align to the left */
+    position: relative;
+  }
+
+  .contact-form .form-subtitle {
+    font-size: 0.9rem; /* Further reduced font size */
+    margin-bottom: 5px; /* Reduced margin */
+  }
+
+  .contact-form h2 {
+    font-size: 1.8rem; /* Further reduced font size */
+    margin-bottom: 8px; /* Reduced margin */
+  }
+
+  .contact-form p {
+    font-size: 0.9rem; /* Adjusted font size */
+    margin-bottom: 10px; /* Reduced margin */
+    max-width: 400px; /* Further reduced max-width */
+  }
+
+  .form-row {
+    display: flex;
+    flex-wrap: wrap; /* Allow wrapping */
+    gap: 8px; /* Reduced gap */
+    margin-bottom: 10px; /* Reduced margin */
+  }
+
+  .form-row input {
+    flex: 1;
+    padding: 10px; /* Further reduced padding */
+    font-size: 0.9rem; /* Adjusted font size */
+  }
+
+  textarea {
+    width: 100%;
+    padding: 10px; /* Further reduced padding */
+    font-size: 0.9rem; /* Adjusted font size */
+    min-height: 150px; /* Reduced min-height */
+    margin-bottom: 10px; /* Reduced margin */
+  }
+
+  .submit-btn {
+    padding: 10px 20px; /* Further reduced padding */
+    font-size: 0.9rem; /* Adjusted font size */
+  }
+
+  .contact-info {
+    order: 3;
+    margin-top: 10px; /* Reduced margin */
+    transform: none;
+    width: 100%;
+    padding: 10px; /* Further reduced padding */
+    align-items: flex-start; /* Align left */
+    text-align: left;
+  }
+
+  .contact-info .info-box {
+    width: 100%;
+    max-width: none;
+    box-sizing: border-box;
+    text-align: left;
+  }
+
+  .contact-info .follow-me {
+    order: 4;
+    margin-top: 15px; /* Reduced margin */
+    width: 100%;
+    max-width: none;
+    box-sizing: border-box;
+    align-items: flex-start;
+    text-align: left;
+  }
+
+  .contact-info .info-box:not(:last-child) {
+    margin-bottom: 8px; /* Reduced margin */
+  }
+
+  .follow-me .follow-icons {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; /* Left-align the icons */
+    gap: 8px; /* Further reduced gap */
+  }
+
+  .follow-me .social-link {
+    font-size: 16px; /* Reduced icon size */
+    color: white;
+  }
+
+  .follow-me .social-link:hover {
+    color: #007bff; /* Hover effect color */
+  }
+}
+
+
+/* CONTAINER */
+.newsletter-section {
+  position: relative;
+  width: 100%;
+  padding: 80px 20px;
+  text-align: center;
+  overflow: hidden; /* Hide any extra circle overflow */
+  background-color: #121424; /* Dark background */
+  color: white; /* Ensure text remains visible */
+}
+
+/* FAINT CIRCULAR LINES (4 corners) */
+.circle {
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.07); /* Very faint line */
+  z-index: 1;
+}
+/* Outer Circle */
+.circle.top-left {
+  position: absolute;
+  top: -250px;
+  left: -250px;
+  width: 500px; /* Adjusted for visibility */
+  height: 500px;
+  background-color: rgba(255, 255, 255, 0.2); /* Light overlay */
+  border-radius: 50%;
+}
+
+/* Inner Circle */
+.circle.top-left .inner-circle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* Center the inner circle */
+  width: 70%; /* Inner circle is smaller */
+  height: 70%;
+  background-color: rgba(255, 255, 255, 0.3); /* Slightly different transparency */
+  border-radius: 50%;
+}
+
+/* Outer Circle */
+.circle.top-right {
+  position: absolute;
+  top: -250px;
+  right: -250px;
+  width: 500px; /* Adjust size */
+  height: 500px;
+  background-color: rgba(255, 255, 255, 0.2); /* Light transparency */
+  border-radius: 50%;
+}
+
+/* Inner Circle */
+.circle.top-right .inner-circle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* Centers the inner circle */
+  width: 70%; /* Adjust inner circle size */
+  height: 70%;
+  background-color: rgba(255, 255, 255, 0.3); /* Slightly different shade */
+  border-radius: 50%;
+}
+
+.circle.bottom-left {
+  bottom: -310px;
+  left: -310px;
+}
+.circle.bottom-right {
+  bottom: -310px;
+  right: -310px;
+}
+
+/* SMALL LABEL */
+.small-label {
+  position: relative;
+  z-index: 2;
+  font-size: 1.1rem; /* Increased font size */
+  color: #9A9A9A;
+  margin-bottom: 8px;
+  display: inline-block;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+/* MAIN HEADING (SERIF) */
+.newsletter-title {
+  position: relative;
+  z-index: 2;
+  font-family: 'Georgia', serif; /* Adjust to match your actual serif font */
+  font-size: 4.2rem; /* Increased font size */
+  font-weight: 350; /* Decreased font weight */
+  margin-top: 20px; /* Added margin to move it down */
+  margin-bottom: 40px;
+  color: #FFFFFF;
+}
+
+
+
+/* NEWSLETTER FORM WRAPPER */
+.newsletter-form {
+  position: relative;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  margin-bottom: 60px;
+  margin-top: 45px; /* Added margin to move it down */
+}
+.newsletter-form input[type="email"] {
+  width: 500px; /* Increased width */
+  max-width: 90vw; /* Adjusted max-width */
+  padding: 18px 22px; /* Increased padding */
+  border-radius: 30px; /* Rounded corners */
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background-color: transparent;
+  color: #FFFFFF;
+  font-size: 1.2rem; /* Increased font size */
+  outline: none;
+  margin-right: 10px;
+}
+
+.newsletter-form input[type="email"]::placeholder {
+  color: #9A9A9A;
+  font-size: 1.1rem; /* Increased font size */
+}
+
+.newsletter-form button {
+  padding: 18px 28px; /* Increased padding */
+  border-radius: 30px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  font-size: 1.2rem; /* Increased font size */
+  cursor: pointer;
+  background-color: rgba(28, 30, 39, 0.5); /* Slight transparency */
+  color: #FFFFFF;
+  transition: background-color 0.3s ease;
+}
+.newsletter-form button:hover {
+  background-color: rgba(255, 255, 255, 0.3)
+}
+
+
+
+@media (max-width: 1028px) {
+  .newsletter-section {
+    padding: 100px 15px 60px 15px; /* Increased top padding to move it down */
+  }
+  
+  .circle {
+    width: 400px; /* Reduce size */
+    height: 400px;
+  }
+
+  .circle.top-left,
+  .circle.top-right {
+    width: 400px;
+    height: 400px;
+    top: -200px;
+  }
+
+  .circle.bottom-left,
+  .circle.bottom-right {
+    bottom: -250px;
+    left: -250px;
+    right: -250px;
+  }
+
+  .newsletter-title {
+    font-size: 3.5rem; /* Decrease heading size */
+  }
+
+  .newsletter-form input[type="email"] {
+    width: 400px; /* Reduce input field width */
+    padding: 16px 20px;
+  }
+
+  .newsletter-form button {
+    padding: 16px 24px;
+    font-size: 1.1rem;
+  }
+
+  
+}
+
+
+@media (max-width: 768px) {
+  .newsletter-section {
+    padding: 80px 12px 50px 12px; /* Increase top padding */
+  }
+
+  .circle {
+    width: 350px; /* Reduce size */
+    height: 350px;
+  }
+
+  .circle.top-left,
+  .circle.top-right {
+    width: 350px;
+    height: 350px;
+    top: -180px;
+  }
+
+  .circle.bottom-left,
+  .circle.bottom-right {
+    bottom: -220px;
+    left: -220px;
+    right: -220px;
+  }
+  .news{
+    margin-top: 40px;
+  }
+  
+
+  .small-label {
+    margin-top: 10px; /* Reduce top margin */
+    font-size: 0.8rem;
+  }
+  
+  .newsletter-title {
+    margin-top: 8px; /* Reduce spacing from small label */
+    font-size: 1.8rem; /* Slightly smaller heading */
+    margin-bottom: 15px; /* Reduce bottom margin */
+  }
+  
+  .newsletter-form {
+    flex-direction: column;
+    gap: 8px; /* Reduce space between input and button */
+    align-items: center;
+  }
+  
+  
+  .newsletter-form input[type="email"] {
+    width: 350px; /* Increase input field width */
+    max-width: 90%;
+    padding: 16px 20px;
+  }
+
+  .newsletter-form button {
+    width: 180px; /* Decrease button width */
+    padding: 12px 18px;
+    font-size: 1rem;
+  }
+}
+
+
+@media (max-width: 360px) {
+  .newsletter-section {
+    padding: 80px 8px 35px 8px; /* Keep top padding separate */
+    position: relative;
+    overflow: hidden;
+  }
+
+
+
+  .news {
+    margin-top: 25px;
+  }
+
+  .small-label {
+    margin-top: 3px;
+    font-size: 0.65rem;
+  }
+
+  .newsletter-title {
+    margin-top: 3px;
+    font-size: 1.3rem;
+    margin-bottom: 8px;
+  }
+
+  .newsletter-form {
+    flex-direction: column;
+    gap: 5px;
+    align-items: center;
+  }
+
+  .newsletter-form input[type="email"] {
+    width: 90%; /* Keep it responsive */
+    padding: 12px 16px;
+  }
+
+  .newsletter-form button {
+    width: 140px; /* Slightly smaller button */
+    padding: 8px 12px;
+    font-size: 0.85rem;
+  }
+}
+
+
+
+
+/* CONTACT ROW CONTAINER */
+.contact-row {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;  /* Center the items horizontally */
+  align-items: center;
+  gap: 60px;                /* Spacing between groups (phone, email, socials) */
+  margin-bottom: 40px;
+  margin-top: 50px;         /* Space above the row */
+}
+
+/* EACH CONTACT ITEM (phone, email, or social group) */
+.contact-item {
+  display: flex;
+  align-items: center;
+  color: #FFFFFF;
+  font-size: 1.6rem;
+  opacity: 0.9;
+  margin-top: 15px; 
+  gap: 10px;                /* Spacing between the circle icon and the text */
+}
+
+
+/* ICON CIRCLES */
+.icon-circle {
+  width: 70px;
+  height: 70px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.4rem; /* Icon size inside the circle */
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+/* Default Icon Color */
+.icon-circle i {
+  color: white;
+  transition: color 0.3s ease;
+}
+
+/* Hover Effect ONLY for Call & Email Icons */
+.contact-item .icon-circle:hover {
+  background-color: white;
+  border-color: white;
+}
+
+.contact-item .icon-circle:hover i {
+  color: #1C1E27; /* Dark icon color for better visibility */
+}
+
+/* Social Media Icons - Background changes to brand colors, icons turn white */
+.social-icons .icon-circle:hover {
+  border-color: transparent; /* Remove the white border */
+}
+
+.social-icons .icon-circle:hover i {
+  color: white; /* Make the icon white */
+}
+
+/* Facebook */
+.social-icons .icon-circle:hover:nth-child(1) {
+  background-color: #1877F2;
+}
+
+/* Website (Globe) - Green */
+.social-icons .icon-circle:hover:nth-child(2) {
+  background-color: red;
+}
+
+/* LinkedIn */
+.social-icons .icon-circle:hover:nth-child(3) {
+  background-color: #0077B5;
+}
+
+/* Twitter (X) - Black */
+.social-icons .icon-circle:hover:nth-child(4) {
+  background-color: #000000;
+}
+
+
+
+/* SOCIAL ICONS WRAPPER (Optional extra styling if needed) */
+.social-icons {
+  gap: 15px; /* spacing between each social circle */
+}
+
+/* Initial state: hidden & positioned below */
+.scroll-animation {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+/* When in view, animate in */
+.scroll-animation.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (max-width: 1024px) {
+  .contact-row {
+    justify-content: flex-start; /* Aligns the row to the left */
+    margin-left: 50px; /* Moves the entire row slightly to the left */
+    gap: 100px; /* Increase spacing between phone and email */
+  }
+
+  .contact-item {
+    font-size: 1.5rem; /* Slightly reduce text size for better fit */
+    
+  }
+
+  .icon-circle {
+    width: 65px; /* Slightly reduce icon size */
+    height: 65px;
+    font-size: 1.3rem;
+  }
+
+  .social-icons {
+    gap: 12px; /* Slightly reduce spacing between icons */
+  }
+}
+
+
+@media (max-width: 768px) {
+  .contact-row {
+    justify-content: flex-start; /* Aligns row to the left */
+    margin-left: 5px; /* Moves the entire row even further left */
+    gap: 25px; /* Maintain a balanced gap */
+  }
+
+  .contact-item {
+    font-size: 1.0rem; /* Keep text readable */
+    gap: 8px; /* Slightly reduce space between icon and text */
+  }
+
+  .icon-circle {
+    width: 50px; /* Reduce icon size slightly */
+    height: 50px;
+    font-size: 0.9rem;
+  }
+
+  .social-icons {
+    gap: 6px; /* Reduce spacing between social icons */
+    margin-left: 3px; /* Move social icons further left */
+  }
+}
+
+
+
+
+@media (max-width: 360px) {
+  .contact-row {
+    justify-content: flex-start; /* Align row to the left */
+    margin-left: 2px; /* Move entire row further left */
+    gap: 15px; /* Reduce gap slightly */
+  }
+
+  .contact-item {
+    font-size: 0.8rem; /* Decrease text size slightly */
+    gap: 5px; /* Reduce space between icon and text */
+  }
+
+  .icon-circle {
+    width: 35px; /* Reduce icon size */
+    height: 35px;
+    font-size: 0.8rem;
+  }
+
+  .social-icons {
+    gap: 4px; /* Reduce spacing between social icons */
+    margin-left: 2px; /* Move social icons further left */
+  }
+}
+
+.contact-link {
+  color: inherit;
+  text-decoration: none;
+}
+
+.contact-link:hover {
+  color: #007bff; /* You can replace this with your brand color */
+  text-decoration: underline;
+}
+
+
+
+.footer-info {
+  position: relative;
+  z-index: 2;
+  font-size: 1rem;
+  color: #9A9A9A;
+  margin-top: 40px; /* Moves the footer down */
+  padding-top: 20px;
+  padding-bottom: 10px;
+  display: flex;
+  justify-content: space-between; /* Keeps the same gap */
+  align-items: center;
+  width: 80%; /* Keeps the same footer width */
+  margin: 0 auto; /* Centers the footer */
+}
+
+/* Horizontal Line */
+.footer-divider {
+  width: 100%; /* Makes the line full-width */
+  height: 1px;
+  background-color: rgba(255, 255, 255, 0.2); /* Light transparent line */
+  margin-bottom: 20px; /* Moves the footer content down */
+}
+
+.footer-left {
+  flex: 1;
+  text-align: left;
+  margin-right: 20%; /* Keeps the gap */
+}
+
+.footer-right {
+  flex: 1;
+  text-align: right;
+}
+
+/* Adjusting Footer Position */
+.footer-container {
+  margin-top: 80px; /* Moves everything down */
+}
+
+.footer-brand {
+  display: flex;
+  align-items: center;
+  gap: 15px; /* Increased spacing between logo and text */
+  margin-left: 300px; /* Moves the whole brand slightly to the right */
+}
+
+.footer-brand-logo img {
+  width: 45px; /* Adjust logo size as needed */
+  height: 45px;
+  border-radius: 50%; /* Makes the logo round */
+  object-fit: cover; /* Ensures the image fits well inside the circle */
+}
+
+.footer-brand-name {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #9A9A9A; /* Adjust color to match your theme */
+}
+
+/* Universal box-sizing to prevent overflow */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+@media (max-width: 1024px) {
+  .footer-info {
+    width: 87%; /* Slightly increased width */
+    font-size: 1rem; /* Increased font size */
+  }
+
+  .footer-left {
+    margin-right: 14%; /* Adjust gap */
+  }
+
+  .footer-brand {
+    margin-left: 200px; /* Move brand slightly more to the right */
+    gap: 14px; /* Slightly increased spacing */
+  }
+
+  .footer-brand-logo img {
+    width: 44px; /* Slightly increased logo size */
+    height: 44px;
+  }
+
+  .footer-brand-name {
+    font-size: 1.15rem; /* Slightly larger text */
+  }
+
+  .footer-divider {
+    margin-bottom: 20px; /* Restore original spacing */
+  }
+}
+
+@media (max-width: 768px) {
+  .footer-info {
+    width: 90%;
+    font-size: 1.05rem;
+    display: flex;
+    flex-direction: column-reverse; /* Swap positions */
+    text-align: center;
+    margin-top: 50px; /* Increase margin to move footer down */
+    padding-top: 25px; /* Increase top padding */
+    padding-bottom: 15px; /* Increase bottom padding */
+  }
+
+  .footer-left {
+    text-align: center;
+    margin: 15px 0; /* Increase spacing */
+  }
+
+  .footer-right {
+    text-align: center;
+    margin: 15px 0; /* Increase spacing */
+  }
+
+  .footer-brand {
+    margin-left: 0;
+    justify-content: center;
+    gap: 18px; /* Slightly increased gap */
+  }
+
+  .footer-brand-logo img {
+    width: 46px;
+    height: 46px;
+  }
+
+  .footer-brand-name {
+    font-size: 1.2rem;
+  }
+
+  .footer-divider {
+    margin-top: 80px; /* Add margin above to move it down */
+    margin-bottom: 60px; /* Increase bottom spacing */
+  }
+
+  .footer-container {
+    margin-top: 100px; /* Push entire footer section down */
+  }
+}
+
+@media (max-width: 480px) {
+  .footer-info {
+    width: 95%; /* Make it slightly wider for better fit */
+    font-size: 1rem; /* Slightly decrease font size */
+    display: flex;
+    flex-direction: column-reverse; /* Swap positions */
+    text-align: center;
+    margin-top: 60px; /* Move footer further down */
+    padding-top: 20px; /* Adjust padding */
+    padding-bottom: 10px;
+  }
+
+  .footer-left,
+  .footer-right {
+    text-align: center;
+    margin: 10px 0; /* Reduce spacing */
+  }
+
+  .footer-brand {
+    margin-left: 0;
+    justify-content: center;
+    gap: 15px; /* Reduce gap */
+  }
+
+  .footer-brand-logo img {
+    width: 42px; /* Slightly reduce logo size */
+    height: 42px;
+  }
+
+  .footer-brand-name {
+    font-size: 1.1rem; /* Slightly decrease text size */
+  }
+
+  .footer-divider {
+    margin-top: 60px; /* Move it further down */
+    margin-bottom: 50px; /* Increase bottom spacing */
+  }
+
+  .footer-container {
+    margin-top: 120px; /* Push entire footer section further down */
+  }
+}
+@media (max-width: 360px) {
+  .footer-info {
+    width: 98%; /* Make it slightly wider to fit small screens */
+    font-size: 0.95rem; /* Decrease font size for better readability */
+    display: flex;
+    flex-direction: column-reverse; /* Swap positions */
+    text-align: center;
+    margin-top: 70px; /* Move footer further down */
+    padding-top: 18px; /* Adjust padding */
+    padding-bottom: 8px;
+  }
+
+  .footer-left,
+  .footer-right {
+    text-align: center;
+    margin: 8px 0; /* Reduce spacing */
+  }
+
+  .footer-brand {
+    margin-left: 0;
+    justify-content: center;
+    gap: 12px; /* Reduce gap */
+  }
+
+  .footer-brand-logo img {
+    width: 38px; /* Slightly reduce logo size */
+    height: 38px;
+  }
+
+  .footer-brand-name {
+    font-size: 1rem; /* Slightly decrease text size */
+  }
+
+  .footer-divider {
+    margin-top: 40px; /* Move it further down */
+    margin-bottom: 55px; /* Increase bottom spacing */
+  }
+
+  .footer-container {
+    margin-top: 130px; /* Push entire footer section further down */
+  }
+}
+
+
+
+

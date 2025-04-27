@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1.0"
+        />
+        <title>My Blog Page</title>
+        <link rel="icon" href="Logo2.png" type="image/png">
+        <!-- Google Fonts (Optional) -->
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link
+          rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap"
+        />
+        <link 
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"  />
+
+        <!-- Font Awesome CDN -->
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+      
+        <!-- Main CSS -->
+        <link rel="stylesheet" href="styles.css" />
+    </head> 
+
+<body>
+
+    <header>
+        <div class="container">
+          <div class="brand">
+            <div class="brand-logo">
+              <img src="Logo.jpg" alt="A+ Softek Logo">
+            </div>
+            <span class="brand-name">A+ SOFTEK</span>
+          </div>
+      
+          <div class="hamburger" onclick="toggleNav()">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+      
+          <nav id="mainNav">
+            
+            <ul>
+              <li><a href="../index.html" id="homeLink">Home <i class="fas fa-home icon-home"></i></a></li>
+              <li><a href="../services/service.html" id="serviceLink">Service <i class="fas fa-cogs icon-service"></i></a></li>
+              <li><a href="../Blog/blog.html" id="blogLink">Blog <i class="fas fa-blog icon-blog"></i></a></li>
+              <li><a href="../About%20Us/about.html" id="aboutLink">About Us <i class="fas fa-user icon-pages"></i></a></li>
+              <li><a href="../Contact%20Us/contact.html" id="contactLink">Contact <i class="fas fa-phone icon-contact"></i></a></li>
+            </ul>
+    
+            <script>
+              // Get the current page URL
+              const currentPage = window.location.pathname.split("/").pop();
+            
+              // Select all navigation links by their IDs
+              const homeLink = document.getElementById("homeLink");
+              const serviceLink = document.getElementById("serviceLink");
+              const contactLink = document.getElementById("contactLink");
+              const blogLink = document.getElementById("blogLink");
+            
+              // Add 'active' class to the corresponding link based on the current page
+              if (currentPage === "index.html") {
+                homeLink.classList.add("active");
+              } else if (currentPage === "service.html") {
+                serviceLink.classList.add("active");
+              } else if (currentPage === "contact.html") {
+                contactLink.classList.add("active");
+              } else if (currentPage === "blog.html") {
+                blogLink.classList.add("active");
+              }
+            </script>
+            
+              
+            
+      
+            <!-- Unique social media links -->
+            <div class="custom-social-links">
+              <a href="https://wa.me/233534829203" class="custom-social-link facebook" target="_blank">  <i class="fab fa-whatsapp"></i> </a>
+              <a href="https://youtube.com/@asoftekitconsult?si=2nksTSydQtCHQztC" class="custom-social-link website"><i class="fab fa-youtube"></i></a>
+              <a href="#" class="custom-social-link linkedin"><i class="fab fa-linkedin-in"></i></a>
+              <a href="#" class="custom-social-link twitter"><i class="fab fa-x-twitter"></i></a>
+            </div>
+      
+            <script>
+              const customIcons = document.querySelectorAll('.custom-social-link');
+              let customIndex = 0;
+              let customInterval;
+              let customPaused = false;
+            
+              function animateCustomIcon() {
+                if (customPaused) return;
+            
+                // Remove 'animate' from all
+                customIcons.forEach(icon => icon.classList.remove('animate'));
+            
+                // Add 'animate' to current
+                customIcons[customIndex].classList.add('animate');
+            
+                // Remove after delay
+                setTimeout(() => {
+                  if (!customPaused) {
+                    customIcons[customIndex].classList.remove('animate');
+                  }
+                }, 2000); // icon stays active for 1.5s
+            
+                customIndex = (customIndex + 1) % customIcons.length;
+              }
+            
+              function startCustomAnimation() {
+                customInterval = setInterval(animateCustomIcon, 3000); // slower cycle
+              }
+            
+              function stopCustomAnimation() {
+                clearInterval(customInterval);
+              }
+            
+              // Pause when hovered
+              customIcons.forEach(icon => {
+                icon.addEventListener('mouseenter', () => {
+                  customPaused = true;
+                  stopCustomAnimation();
+                  customIcons.forEach(i => i.classList.remove('animate'));
+                });
+            
+                icon.addEventListener('mouseleave', () => {
+                  customPaused = false;
+                  startCustomAnimation();
+                });
+              });
+            
+              // Start on load
+              startCustomAnimation();
+            </script>
+          
+          </nav>
+      
+          <a href="../Hire%20Me/hire.html" class="hire-me-btn">Let's Talk</a>
+        </div>
+      </header>
+    
+      <script>
+        function toggleNav() {
+          const nav = document.getElementById("mainNav");
+          const body = document.body;
+      
+          // Check if the page is at the top (scroll position is 0)
+          if (window.scrollY === 0) {
+            // Lock scroll if at the top of the page
+            body.classList.add("no-scroll");
+          } else {
+            // Allow scroll if not at the top of the page
+            body.classList.remove("no-scroll");
+          }
+      
+          // Toggle the 'show-nav' class to show or hide the navigation
+          nav.classList.toggle("show-nav");
+      
+          // If nav is being closed, unlock the scroll
+          if (!nav.classList.contains("show-nav")) {
+            body.classList.remove("no-scroll");
+          }
+        }
+      </script>
+    
+    
+    <section class="services-section">
+        <div class="circle-bg-alt"></div>
+        <h1 class="title">My Blog</h1>
+        <div class="button-group">
+          <span class="button">Home</span>
+          <span class="divider">||</span>
+          <span class="button active">Blog</span>
+        </div>
+
+        <script>
+          /**
+           * Set dynamic viewport height to handle mobile browser UI shifts,
+           * especially useful for PWAs and fullscreen experiences.
+           */
+          function setFullVh() {
+            const vh = window.visualViewport
+              ? window.visualViewport.height * 0.01
+              : window.innerHeight * 0.01;
+            document.documentElement.style.setProperty('--vh', `${vh}px`);
+          }
+        
+          // Run once when the page loads
+          window.addEventListener('load', setFullVh);
+        
+          // Recalculate on device orientation change (e.g., portrait to landscape)
+          window.addEventListener('orientationchange', () => {
+            // Delay ensures visualViewport has updated dimensions
+            setTimeout(setFullVh, 300);
+          });
+        </script>
+    </section> 
+
+
+
+
+
+    <div class="contain-wrapper">
+      <div class="contain">
+        <!-- SIDEBAR START -->
+        <aside class="sidebar">
+          
+          <!-- Search Box -->
+          <div class="search-box">
+            <form action="#" class="search-form">
+              <input type="text" placeholder="Search here" />
+              <button type="submit"><i class="fas fa-search"></i></button>
+            </form>
+          </div>
+          
+          <!-- Category Section -->
+          <div class="widget category-widget">
+            <h2>Category</h2>
+            <ul>
+              <li><a href="#">Technology</a></li>
+              <li><a href="#">Productivity</a></li>
+              <li><a href="#">Business</a></li>
+            </ul>
+          </div>
+          
+          <!-- Resume Section -->
+          <div class="widget resume-widget">
+            <h2>Resume</h2>
+            <ul>
+              <li>
+                <a href="#" download>
+                  <i class="fa-solid fa-file-pdf" style="color: #e74c3c;"></i> Get resume.pdf
+                </a>
+              </li>
+              <li>
+                <a href="#" download>
+                  <i class="fa-solid fa-file-word" style="color: #2980b9;"></i> Get resume.DOC
+                </a>
+              </li>
+              <li>
+                <a href="#" download>
+                  <i class="fa-solid fa-file-powerpoint" style="color: #e67e22;"></i> Get resume.PPT
+                </a>
+              </li>
+            </ul>
+          </div>
+          
+          <!-- Recent Post Section -->
+          <div class="widget recent-post-widget">
+            <h2>Recent Post</h2>
+            
+            <div class="recent-post-item">
+              <div class="rp-img">
+                <img src="../Blog/recent_post/Ai.webp" alt="Post 1" />
+              </div>
+              <div class="rp-info">
+                <a href="#">Exploring the Future of Artificial Intelligence</a> <!-- Title of the post -->
+                <span>20 Apr, 2025</span> <!-- Date the post was published -->
+              </div>
+            </div>
+            
+            <div class="recent-post-item">
+              <div class="rp-img">
+                <img src="../Blog/recent_post/cloud.jpg" alt="Post 2" />
+              </div>
+              <div class="rp-info">
+                <a href="#">Understanding the Basics of Web Development</a> <!-- Title of the post -->
+                <span>18 Apr, 2025</span> <!-- Date the post was published -->
+              </div>
+            </div>
+            
+            <div class="recent-post-item">
+              <div class="rp-img">
+                <img src="../Blog/recent_post/Wed.jpg" alt="Post 3" />
+              </div>
+              <div class="rp-info">
+                <a href="#">Why Cloud Computing is the Future</a> <!-- Title of the post -->
+                <span>15 Apr, 2025</span> <!-- Date the post was published -->
+              </div>
+            </div>
+            
+          </div>
+          
+          <!-- Follow Me -->
+          <div class="widget follow-me-widget">
+            <h2>Follow Me</h2>
+            <ul>
+              <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+              <li><a href="#"><i class="fab fa-x-twitter"></i></a></li> <!-- updated to X -->
+              <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+              <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
+            </ul>
+          </div>
+    
+        </aside>
+        <!-- SIDEBAR END -->
+    
+        <!-- MAIN CONTENT START -->
+        <main class="main-content">
+          
+          <!-- Example Blog Post 1 -->
+          <article class="blog-card">
+            <div class="blog-image">
+              <img src="blog images/business - Copy.webp" alt="Business Man" />
+            </div>
+            <div class="blog-info">
+              <div class="blog-meta">
+                <span class="category">Productivity</span>
+                <span class="dot">-</span>
+                <span class="date">19 April, 2025</span>
+              </div>
+              <h2 class="blog-title">Mastering Time: The Morning Routine of Successful Developers</h2>
+              <div class="blog-footer">
+                <span class="author">
+                  <i class="fa fa-user"></i> Rolland Abell
+                </span>
+                <span class="likes">
+                  <i class="fa fa-heart"></i> 5,678
+                </span>
+                <span class="comments">
+                  <i class="fa fa-comment"></i> 2,567
+                </span>
+              </div>
+            </div>
+          </article>
+    
+          <article class="blog-card">
+            <div class="blog-image">
+              <img src="blog images/work.jpg" alt="Startup Concept" />
+            </div>
+            <div class="blog-info">
+              <div class="blog-meta">
+                <span class="category">Startups</span>
+                <span class="dot">-</span>
+                <span class="date">15 March, 2021</span>
+              </div>
+              <h2 class="blog-title">Start before you're ready. Perfection comes later.</h2>
+              <div class="blog-footer">
+                <span class="author">
+                  <i class="fa fa-user"></i> Amara Kwame
+                </span>
+                <span class="likes">
+                  <i class="fa fa-heart"></i> 4,213
+                </span>
+                <span class="comments">
+                  <i class="fa fa-comment"></i> 1,104
+                </span>
+              </div>
+            </div>
+          </article>
+    
+          <article class="blog-card">
+            <div class="blog-image">
+              <img src="blog images/money.webp" alt="Teamwork" />
+            </div>
+            <div class="blog-info">
+              <div class="blog-meta">
+                <span class="category">Leadership</span>
+                <span class="dot">-</span>
+                <span class="date">09 April, 2021</span>
+              </div>
+              <h2 class="blog-title">Leadership starts by inspiring those around you.</h2>
+              <div class="blog-footer">
+                <span class="author">
+                  <i class="fa fa-user"></i> Nana Adjei
+                </span>
+                <span class="likes">
+                  <i class="fa fa-heart"></i> 6,889
+                </span>
+                <span class="comments">
+                  <i class="fa fa-comment"></i> 3,097
+                </span>
+              </div>
+            </div>
+          </article>
+    
+          <article class="blog-card">
+            <div class="blog-image">
+              <img src="blog images/Ai.webp" alt="Finance Tips" />
+            </div>
+            <div class="blog-info">
+              <div class="blog-meta">
+                <span class="category">Artificial Intelligence</span>
+                <span class="dot">-</span>
+                <span class="date">05 January, 2025</span>
+              </div>
+              <h2 class="blog-title">AI is shaping the future: What you need to know.</h2>
+              <div class="blog-footer">
+                <span class="author">
+                  <i class="fa fa-user"></i> Selina Boateng
+                </span>
+                <span class="likes">
+                  <i class="fa fa-heart"></i> 3,452
+                </span>
+                <span class="comments">
+                  <i class="fa fa-comment"></i> 982
+                </span>
+              </div>
+            </div>
+          </article>
+    
+          <article class="blog-card">
+            <div class="blog-image">
+              <img src="blog images/business - Copy.webp" alt="Innovation" />
+            </div>
+            <div class="blog-info">
+              <div class="blog-meta">
+                <span class="category">Innovation</span>
+                <span class="dot">-</span>
+                <span class="date">05 June, 2021</span>
+              </div>
+              <h2 class="blog-title">Innovation is seeing what everybody has seen and thinking what nobody has thought.</h2>
+              <div class="blog-footer">
+                <span class="author">
+                  <i class="fa fa-user"></i> Daniel Owusu
+                </span>
+                <span class="likes">
+                  <i class="fa fa-heart"></i> 7,021
+                </span>
+                <span class="comments">
+                  <i class="fa fa-comment"></i> 1,243
+                </span>
+              </div>
+            </div>
+          </article>
+    
+          <!-- PAGINATION -->
+          <div class="pagination">
+            <a href="#" class="active">1</a>
+            <a href="#">2</a>
+            <a href="#">3</a>
+            <a href="#">Next</a>
+          </div>
+    
+        </main>
+        <!-- MAIN CONTENT END -->
+      </div>
+    
+      <script>
+        // JavaScript to detect when an element enters the viewport
+        function handleScroll() {
+          const widgets = document.querySelectorAll('.widget, .search-box, .resume-widget, .recent-post-widget, .follow-me-widget');
+          
+          widgets.forEach(widget => {
+            const rect = widget.getBoundingClientRect();
+            
+            // Check if the element is within the viewport
+            if (rect.top <= window.innerHeight && rect.bottom >= 0) {
+              // Add the 'slide-in' class to trigger the animation
+              widget.classList.add('slide-in');
+            }
+          });
+        }
+    
+        // Add scroll event listener
+        window.addEventListener('scroll', handleScroll);
+    
+        // Initial call to handle the elements that are already in view
+        handleScroll();
+    
+        // Observer for blog cards
+        const observer = new IntersectionObserver((entries, observer) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              // Add the 'is-visible' class to trigger the animation
+              entry.target.classList.add('is-visible');
+              observer.unobserve(entry.target); // Stop observing once the animation is triggered
+            }
+          });
+        }, { threshold: 0.2 }); // Trigger when 20% of the element is in the viewport
+    
+        // Select all blog cards
+        const blogCards = document.querySelectorAll('.blog-card');
+        
+        // Observe each blog card
+        blogCards.forEach(card => {
+          observer.observe(card);
+        });
+    
+        // Observer for sidebar widgets
+        const widgetObserver = new IntersectionObserver((entries, observer) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('slide-in');
+              observer.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.2 });
+        
+        // Select all sidebar widgets and search box
+        const sidebarElements = document.querySelectorAll('.sidebar .widget, .sidebar .search-box');
+        
+        // Observe each one
+        sidebarElements.forEach(el => widgetObserver.observe(el));
+      </script>
+    </div>
+     
+
+
+    
+<div class="newsletter-section">
+  <!-- Circles -->
+  <div class="circle top-left">
+    <div class="inner-circle"></div>
+  </div>
+
+  <div class="circle top-right">
+    <div class="inner-circle"></div>
+  </div>
+
+  <div class="circle bottom-left"></div>
+  <div class="circle bottom-right"></div>
+
+  <div class="news">
+          <!-- Small label / tagline -->
+     <div class="small-label scroll-animation">|| Get Latest Updates</div>
+
+        <!-- Main heading -->
+     <h2 class="newsletter-title scroll-animation">Subscribe For Newsletter</h2>
+
+      <!-- Newsletter form -->
+     <form class="newsletter-form scroll-animation">
+        <input type="email" placeholder="E-mail @gmail.com" required />
+        <button type="submit">Subscribe Now</button>
+      </form>
+
+  </div>
+
+  
+
+  <!-- Contact row -->
+  <div class="contact-row scroll-animation">
+    <!-- Phone -->
+    <div class="contact-item">
+      <div class="icon-circle">
+        <i class="fa fa-phone"></i>
+      </div>
+      <span><a href="tel:+233534829603" class="contact-link">+233 53 482 9603</a></span>
+    </div>
+    
+    <!-- Email -->
+    <div class="contact-item">
+      <div class="icon-circle">
+        <i class="fa fa-envelope"></i>
+      </div>
+      <span><a href="mailto:lawrenceantwi63@gmail.com" class="contact-link">lawrenceantwi63@gmail.com</a></span>
+    </div>
+
+    <!-- Social Icons -->
+    <div class="contact-item social-icons scroll-animation">
+      <div class="icon-circle">
+        <i class="fab fa-facebook-f"></i>
+      </div>
+      <div class="icon-circle">
+        <i class="fab fa-youtube"></i> <!-- Updated to YouTube icon -->
+      </div>
+      <div class="icon-circle">
+        <i class="fab fa-linkedin-in"></i>
+      </div>
+      <div class="icon-circle">
+        <i class="fab fa-x-twitter"></i>
+      </div>
+    </div>
+  </div>
+
+  
+
+  <!-- Footer -->
+  <div class="footer-container">
+    <div class="footer-divider"></div> <!-- Full-width line -->
+    <div class="footer-info">
+      <div class="footer-left">
+        © 2025 A+ Softek. Made with <span style="color: red;">&#10084;</span> by Lawrence
+      </div>
+      <div class="footer-right">
+        <div class="footer-brand">
+          <div class="footer-brand-logo">
+            <img src="Logo.jpg" alt="A+ Softek Logo">
+          </div>
+          <span class="footer-brand-name">A+ SOFTEK</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+ 
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+  const elements = document.querySelectorAll(".scroll-animation");
+
+  function checkScroll() {
+    elements.forEach((el) => {
+      const rect = el.getBoundingClientRect();
+      if (rect.top < window.innerHeight * 0.85) {
+        el.classList.add("show"); // Add class to trigger animation
+      }
+    });
+  }
+
+  window.addEventListener("scroll", checkScroll);
+  checkScroll(); // Run once on load
+});
+
+  </script>
+
+  
+
+
+
+  <!-- Font Awesome Icons (for file icons, social icons, etc.) -->
+  <script
+    src="https://kit.fontawesome.com/your_kit_code.js"
+    crossorigin="anonymous"
+  ></script>
+</body>
+</html>

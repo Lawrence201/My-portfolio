@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Services</title>
+  <link rel="icon" href="Logo2.png" type="image/png">
+    <!-- Example Google Font import (Replace with whichever font is actually used) -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    integrity="sha512-..."
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+    />
+    <!-- Font Awesome CDN -->
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+     
+  <link rel="stylesheet" href="styles.css">
+ 
+   
+   
+    
+    
+    
+    
+</head>
+<body>
+
+  <header>
+    <div class="container">
+      <div class="brand">
+        <div class="brand-logo">
+          <img src="Logo.jpg" alt="A+ Softek Logo">
+        </div>
+        <span class="brand-name">A+ SOFTEK</span>
+      </div>
+  
+      <div class="hamburger" onclick="toggleNav()">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+  
+      <nav id="mainNav">
+        
+        <ul>
+          <li><a href="../index.html" id="homeLink">Home <i class="fas fa-home icon-home"></i></a></li>
+          <li><a href="../services/service.html" id="serviceLink">Service <i class="fas fa-cogs icon-service"></i></a></li>
+          <li><a href="../Blog/blog.html" id="blogLink">Blog <i class="fas fa-blog icon-blog"></i></a></li>
+          <li><a href="../About%20Us/about.html" id="aboutLink">About Us <i class="fas fa-user icon-pages"></i></a></li>
+          <li><a href="../Contact%20Us/contact.html" id="contactLink">Contact <i class="fas fa-phone icon-contact"></i></a></li> 
+        </ul>
+
+        <script>
+          // Get the current page URL
+          const currentPage = window.location.pathname.split("/").pop();
+        
+          // Select all navigation links
+          const homeLink = document.getElementById("homeLink");
+          const serviceLink = document.getElementById("serviceLink");
+        
+          // Add 'active' class to the corresponding link based on the current page
+          if (currentPage === "index.html") {
+            homeLink.classList.add("active");
+          } else if (currentPage === "service.html") {
+            serviceLink.classList.add("active");
+          }
+        </script>
+        
+  
+        <!-- Unique social media links -->
+        <div class="custom-social-links">
+          <a href="https://wa.me/233534829203" class="custom-social-link facebook" target="_blank">  <i class="fab fa-whatsapp"></i> </a>
+          <a href="https://youtube.com/@asoftekitconsult?si=2nksTSydQtCHQztC" class="custom-social-link website"><i class="fab fa-youtube"></i></a>
+          <a href="#" class="custom-social-link linkedin"><i class="fab fa-linkedin-in"></i></a>
+          <a href="#" class="custom-social-link twitter"><i class="fab fa-x-twitter"></i></a>
+        </div>
+  
+        <script>
+          const customIcons = document.querySelectorAll('.custom-social-link');
+          let customIndex = 0;
+          let customInterval;
+          let customPaused = false;
+        
+          function animateCustomIcon() {
+            if (customPaused) return;
+        
+            // Remove 'animate' from all
+            customIcons.forEach(icon => icon.classList.remove('animate'));
+        
+            // Add 'animate' to current
+            customIcons[customIndex].classList.add('animate');
+        
+            // Remove after delay
+            setTimeout(() => {
+              if (!customPaused) {
+                customIcons[customIndex].classList.remove('animate');
+              }
+            }, 2000); // icon stays active for 1.5s
+        
+            customIndex = (customIndex + 1) % customIcons.length;
+          }
+        
+          function startCustomAnimation() {
+            customInterval = setInterval(animateCustomIcon, 3000); // slower cycle
+          }
+        
+          function stopCustomAnimation() {
+            clearInterval(customInterval);
+          }
+        
+          // Pause when hovered
+          customIcons.forEach(icon => {
+            icon.addEventListener('mouseenter', () => {
+              customPaused = true;
+              stopCustomAnimation();
+              customIcons.forEach(i => i.classList.remove('animate'));
+            });
+        
+            icon.addEventListener('mouseleave', () => {
+              customPaused = false;
+              startCustomAnimation();
+            });
+          });
+        
+          // Start on load
+          startCustomAnimation();
+        </script>
+      
+      </nav>
+  
+      <a href="../Hire%20Me/hire.html" class="hire-me-btn">Let's Talk</a>
+    </div>
+  </header>
+
+  <script>
+    function toggleNav() {
+      const nav = document.getElementById("mainNav");
+      const body = document.body;
+  
+      // Check if the page is at the top (scroll position is 0)
+      if (window.scrollY === 0) {
+        // Lock scroll if at the top of the page
+        body.classList.add("no-scroll");
+      } else {
+        // Allow scroll if not at the top of the page
+        body.classList.remove("no-scroll");
+      }
+  
+      // Toggle the 'show-nav' class to show or hide the navigation
+      nav.classList.toggle("show-nav");
+  
+      // If nav is being closed, unlock the scroll
+      if (!nav.classList.contains("show-nav")) {
+        body.classList.remove("no-scroll");
+      }
+    }
+  </script>
+
+  <section class="services-section">
+    <div class="circle-bg-alt"></div>
+    <h1 class="title">Services</h1>
+    <div class="button-group">
+      <span class="button">Service</span>
+      <span class="divider">||</span>
+      <span class="button active">Service List</span>
+    </div>
+
+    <script>
+      /**
+       * Set dynamic viewport height to handle mobile browser UI shifts,
+       * especially useful for PWAs and fullscreen experiences.
+       */
+      function setFullVh() {
+        const vh = window.visualViewport
+          ? window.visualViewport.height * 0.01
+          : window.innerHeight * 0.01;
+        document.documentElement.style.setProperty('--vh', `${vh}px`);
+      }
+    
+      // Run once when the page loads
+      window.addEventListener('load', setFullVh);
+    
+      // Recalculate on device orientation change (e.g., portrait to landscape)
+      window.addEventListener('orientationchange', () => {
+        // Delay ensures visualViewport has updated dimensions
+        setTimeout(setFullVh, 300);
+      });
+    </script>
+    
+  </section> 
+
+  <section class="unique-services-section">
+    <div class="unique-services-wrapper">
+      <div class="unique-service-box">
+        <div class="unique-service-icon">
+          <i class="fa-solid fa-laptop-code"></i> <!-- Laptop Code Icon -->
+        </div>
+        <h3>Mobile & Web Development</h3>
+        <ul>
+          <li>>>&nbsp;iOS & Android Apps</li>
+          <li>>>&nbsp;Web Apps</li>
+          <li>>>&nbsp;Responsive Websites</li>
+          <li>>>&nbsp;PWA Apps</li>
+          <li>>>&nbsp;Site Maintenance</li>
+          <li>>>&nbsp;And More</li>
+        </ul>
+      </div>
+  
+      <div class="unique-service-box">
+        <div class="unique-service-icon">
+          <i class="fa-solid fa-diagram-project"></i>
+        </div>
+        <h3>Software Solutions</h3>
+        <ul>
+          <li>>>&nbsp;Custom Software</li>
+          <li>>>&nbsp;System Integration</li>
+          <li>>>&nbsp;ERP & CRM Tools</li>
+          <li>>>&nbsp;App Testing</li>
+          <li>>>&nbsp;And More</li>
+        </ul>
+      </div>
+      
+      <div class="unique-service-box">
+        <div class="unique-service-icon">
+          <i class="fa-solid fa-headset"></i> <!-- Icon changed to represent IT support -->
+        </div>
+        <h3>IT Support Solutions</h3>
+        <ul>
+          <li>>>&nbsp;Remote/Onsite Support</li>
+          <li>>>&nbsp;Troubleshooting</li>
+          <li>>>&nbsp;System Updates</li>
+          <li>>>&nbsp;Backup & Recovery</li>
+          <li>>>&nbsp;And More</li>
+        </ul>
+      </div>
+      
+      <div class="unique-service-box">
+        <div class="unique-service-icon">
+          <i class="fa-solid fa-cloud"></i> <!-- Cloud Icon -->
+        </div>
+        <h3>Cloud Solutions</h3>
+        <ul>
+          <li>>>&nbsp;Cloud Migration</li>
+          <li>>>&nbsp;Data Backup & Recovery</li>
+          <li>>>&nbsp;Cloud Storage Setup</li>
+          <li>>>&nbsp;Infrastructure as a Service</li>
+          <li>>>&nbsp;And More</li>
+        </ul>
+      </div>
+      
+      <div class="unique-service-box">
+        <div class="unique-service-icon">
+          <i class="fa-solid fa-shield-halved"></i> <!-- Security Icon -->
+        </div>
+        <h3>Cybersecurity</h3>
+        <ul>
+          <li>>>&nbsp;Threat Detection</li>
+          <li>>>&nbsp;Penetration Testing</li>
+          <li>>>&nbsp;Firewall Configuration</li>
+          <li>>>&nbsp;Incident Response</li>
+          <li>>>&nbsp;And More</li>
+        </ul>
+      </div>
+      
+      <div class="unique-service-box">
+        <div class="unique-service-icon">
+          <i class="fa-solid fa-chalkboard-user"></i> <!-- Training Icon -->
+        </div>
+        <h3>Training & Tutorial</h3>
+        <ul>
+          <li>>>&nbsp;Tech Bootcamps</li>
+          <li>>>&nbsp;One-on-One Coaching</li>
+          <li>>>&nbsp;Online Courses</li>
+          <li>>>&nbsp;Certifications Prep</li>
+          <li>>>&nbsp;And More</li>
+        </ul>
+      </div>
+      
+      <div class="unique-service-box">
+        <div class="unique-service-icon">
+          <i class="fa-solid fa-flask"></i> <!-- Research Icon -->
+        </div>
+        <h3>Research & Development</h3>
+        <ul>
+          <li>>>&nbsp;Prototype Development</li>
+          <li>>>&nbsp;Emerging Tech Exploration</li>
+          <li>>>&nbsp;Innovation Projects</li>
+          <li>>>&nbsp;Feasibility Analysis</li>
+          <li>>>&nbsp;And More</li>
+        </ul>
+      </div>
+      <div class="unique-service-box">
+        <div class="unique-service-icon">
+          <i class="fa-solid fa-user-tie"></i> <!-- Consultancy Icon -->
+        </div>
+        <h3>IT Consultancy</h3>
+        <ul>
+          <li>>>&nbsp;Tech Strategy Planning</li>
+          <li>>>&nbsp;System Analysis</li>
+          <li>>>&nbsp;IT Infrastructure Advisory</li>
+          <li>>>&nbsp;Business Process Automation</li>
+          <li>>>&nbsp;And More</li>
+        </ul>
+      </div>
+
+      <div class="unique-service-box">
+        <div class="unique-service-icon">
+          <i class="fa-solid fa-chart-line"></i> <!-- Analytics Icon -->
+        </div>
+        <h3>Data Analytics</h3>
+        <ul>
+          <li>>>&nbsp;Data Visualization</li>
+          <li>>>&nbsp;Business Intelligence</li>
+          <li>>>&nbsp;Predictive Analysis</li>
+          <li>>>&nbsp;Data Cleaning & Prep</li>
+          <li>>>&nbsp;And More</li>
+        </ul>
+      </div>
+    </div>
+ 
+    <script>
+      const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('show');
+            observer.unobserve(entry.target); // Remove this line if you want repeated animation
+          }
+        });
+      }, {
+        threshold: 0.1
+      });
+    
+      document.querySelectorAll('.unique-service-box').forEach(box => {
+        observer.observe(box);
+      });
+    </script>
+    
+  </section>
+
+  <section class="stats-section">
+    <!-- Happy Clients -->
+    <div class="stat-box">
+      <div class="stat-icon-wrapper">
+        <i class="fas fa-user stat-icon"></i>
+      </div>
+      <span class="stat-number count" data-count="75">0</span><span>+</span>
+      <div class="stat-label">Happy Clients</div>
+    </div>
+  
+    <!-- Project Complete -->
+    <div class="stat-box">
+      <div class="stat-icon-wrapper">
+        <i class="fas fa-globe stat-icon"></i>
+      </div>
+      <span class="stat-number count" data-count="120">0</span><span>+</span>
+      <div class="stat-label">Projects Completed</div>
+    </div>
+  
+    <!-- Years of Experience -->
+    <div class="stat-box">
+      <div class="stat-icon-wrapper">
+        <i class="fas fa-calendar-alt stat-icon"></i>
+      </div>
+      <span class="stat-number count" data-count="3">0</span><span>+</span>
+      <div class="stat-label">Years of Experience</div>
+    </div>
+
+    <div class="stat-box">
+      <div class="stat-icon-wrapper">
+        <i class="fas fa-code stat-icon"></i>
+      </div>
+      <span class="stat-number count" data-count="10">0</span><span>+</span>
+      <div class="stat-label">Technologies Mastered</div>
+    </div>
+    <script>
+      const counters = document.querySelectorAll('.count');
+
+const options = {
+  root: null,
+  rootMargin: '0px',
+  threshold: 0.2
+};
+
+const callback = (entries, observerInstance) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const counter = entry.target;
+      const updateCount = () => {
+        const target = +counter.getAttribute('data-count');
+        const current = +counter.innerText;
+        const increment = Math.ceil(target / 100);
+
+        if (current < target) {
+          counter.innerText = current + increment;
+          setTimeout(updateCount, 30);
+        } else {
+          counter.innerText = target;
+        }
+      };
+
+      updateCount();
+      observerInstance.unobserve(counter);
+    }
+  });
+};
+
+const countObserver = new IntersectionObserver(callback, options);
+counters.forEach(counter => countObserver.observe(counter));
+
+    </script>
+  </section>
+
+
+  <!-- START OF TRUSTED COMPANY SECTION -->
+<div class="trusted-company-section">
+  
+  <div class="content-wrapper">
+    <p class="favourite-clients-label">|| Favourite Clients</p>
+    
+    <!-- Main heading -->
+    <h2 class="trusted-company-heading">Work With Trusted Company.</h2>
+    
+    <!-- Carousel container for mobile -->
+    <div class="logos-carousel-container">
+      <div class="logos-row">
+        <!-- Logo item #1 -->
+        <div class="logo-item active">
+          <img src="logos/divshot.svg" alt="Divshot Logo">
+          <p>Divshot COMPANY</p>
+        </div>
+        
+        <!-- Logo item #2 -->
+        <div class="logo-item">
+          <img src="logos/f1-1.svg" alt="F1-1 Logo">
+          <p>F1 Enterprise</p>
+        </div>
+        
+        <!-- Logo item #3 -->
+        <div class="logo-item">
+          <img src="logos/gatsby.svg" alt="Gatsby Logo">
+          <p>COMPANY</p>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+  
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+    const elements = document.querySelectorAll(".logos-row, .content-wrapper");
+
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add("show");
+            }
+        });
+    }, { threshold: 0.2 });
+
+    elements.forEach(el => observer.observe(el));
+});
+
+  </script>
+
+     <script>
+      
+
+// JavaScript sliding of the logo (Phone Mode Only)
+document.addEventListener('DOMContentLoaded', function () {
+  const logos = document.querySelectorAll('.logos-row .logo-item');
+  let currentIndex = 0;
+
+  function isPhoneMode() {
+    return window.innerWidth <= 768; // Adjust as needed
+  }
+
+  // Function to display the active logo
+  function showLogo(index) {
+    logos.forEach((logo, i) => {
+      if (i === index) {
+        logo.classList.add('active');
+        logo.style.display = "flex"; // Ensure the current one is visible
+      } else {
+        logo.classList.remove('active');
+        logo.style.display = "none"; // Hide others
+      }
+    });
+  }
+
+  // Initialize: Show only the first logo
+  if (isPhoneMode()) {
+    showLogo(currentIndex);
+  }
+
+  // Variables to track touch positions
+  let touchstartX = 0;
+  let touchendX = 0;
+  const threshold = 50; // Minimum swipe distance to register
+
+  const logosRow = document.querySelector('.logos-row');
+
+  function addTouchListeners() {
+    if (isPhoneMode()) {
+      logosRow.addEventListener('touchstart', touchStartHandler);
+      logosRow.addEventListener('touchend', touchEndHandler);
+    } else {
+      logosRow.removeEventListener('touchstart', touchStartHandler);
+      logosRow.removeEventListener('touchend', touchEndHandler);
+    }
+  }
+
+  function touchStartHandler(e) {
+    touchstartX = e.touches[0].clientX; // Get initial touch X position
+  }
+
+  function touchEndHandler(e) {
+    touchendX = e.changedTouches[0].clientX; // Get final touch X position
+    handleSwipe();
+  }
+
+  // Handle swipe logic
+  function handleSwipe() {
+    if (!isPhoneMode()) return; // Ensure function only runs in phone mode
+
+    let swipeDistance = touchendX - touchstartX;
+
+    if (swipeDistance < -threshold) {
+      // Swipe Left: Show next logo
+      currentIndex = (currentIndex + 1) % logos.length; // Loop to the beginning
+      showLogo(currentIndex);
+    } else if (swipeDistance > threshold) {
+      // Swipe Right: Show previous logo
+      currentIndex = (currentIndex - 1 + logos.length) % logos.length; // Loop to the end
+      showLogo(currentIndex);
+    }
+  }
+
+  // Run once on page load
+  addTouchListeners();
+
+  // Check for screen size changes (e.g., resizing the window)
+  window.addEventListener('resize', addTouchListeners);
+});
+
+
+
+     </script>
+</div>
+
+<!-- END OF TRUSTED COMPANY SECTION -->
+
+
+<div class="newsletter-section">
+  <!-- Circles -->
+  <div class="circle top-left">
+    <div class="inner-circle"></div>
+  </div>
+
+  <div class="circle top-right">
+    <div class="inner-circle"></div>
+  </div>
+
+  <div class="circle bottom-left"></div>
+  <div class="circle bottom-right"></div>
+
+  <div class="news">
+          <!-- Small label / tagline -->
+     <div class="small-label scroll-animation">|| Get Latest Updates</div>
+
+        <!-- Main heading -->
+     <h2 class="newsletter-title scroll-animation">Subscribe For Newsletter</h2>
+
+      <!-- Newsletter form -->
+     <form class="newsletter-form scroll-animation">
+        <input type="email" placeholder="E-mail @gmail.com" required />
+        <button type="submit">Subscribe Now</button>
+      </form>
+
+  </div>
+
+  
+
+  <!-- Contact row -->
+  <div class="contact-row scroll-animation">
+    
+    <div class="contact-item">
+      <div class="icon-circle">
+        <i class="fa fa-phone"></i>
+      </div>
+      <span><a href="tel:+233534829603" class="contact-link">+233 53 482 9603</a></span>
+    </div>
+    
+    <!-- Email -->
+    <div class="contact-item">
+      <div class="icon-circle">
+        <i class="fa fa-envelope"></i>
+      </div>
+      <span><a href="mailto:lawrenceantwi63@gmail.com" class="contact-link">lawrenceantwi63@gmail.com</a></span>
+    </div>
+
+    <!-- Social Icons -->
+    <div class="contact-item social-icons scroll-animation">
+      <div class="icon-circle">
+        <i class="fab fa-facebook-f"></i>
+      </div>
+      <div class="icon-circle">
+        <i class="fab fa-youtube"></i> <!-- Updated to YouTube icon -->
+      </div>
+      <div class="icon-circle">
+        <i class="fab fa-linkedin-in"></i>
+      </div>
+      <div class="icon-circle">
+        <i class="fab fa-x-twitter"></i>
+      </div>
+    </div>
+  </div>
+
+  
+
+  <!-- Footer -->
+  <div class="footer-container">
+    <div class="footer-divider"></div> <!-- Full-width line -->
+    <div class="footer-info">
+      <div class="footer-left">
+        © 2025 A+ Softek. Made with <span style="color: red;">&#10084;</span> by Lawrence
+      </div>
+      <div class="footer-right">
+        <div class="footer-brand">
+          <div class="footer-brand-logo">
+            <img src="Logo.jpg" alt="A+ Softek Logo">
+          </div>
+          <span class="footer-brand-name">A+ SOFTEK</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+ 
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+  const elements = document.querySelectorAll(".scroll-animation");
+
+  function checkScroll() {
+    elements.forEach((el) => {
+      const rect = el.getBoundingClientRect();
+      if (rect.top < window.innerHeight * 0.85) {
+        el.classList.add("show"); // Add class to trigger animation
+      }
+    });
+  }
+
+  window.addEventListener("scroll", checkScroll);
+  checkScroll(); // Run once on load
+});
+
+  </script>
+
+  
+  
+ 
+  
+</body>
+</html>
