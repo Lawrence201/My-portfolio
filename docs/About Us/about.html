@@ -207,10 +207,10 @@
     
     <div class="hero-left">
       <div class="left-bg">
-        <div class="play-button scroll-slide-up" id="openVideo">
+        <div class="play-button" id="openVideo">
           <div class="play-icon"></div>
         </div>
-      
+        
         <div class="video-overlay" id="videoOverlay">
           <div class="video-content">
             <button class="close-btn" id="closeVideo">×</button>
@@ -220,33 +220,31 @@
             </video>
           </div>
         </div>
-      
-        <a href="#" class="resume-button scroll-slide-up">
+        <script>
+          const openBtn = document.getElementById('openVideo'); // the play-button
+          const closeBtn = document.getElementById('closeVideo');
+          const overlay = document.getElementById('videoOverlay');
+          const video = document.getElementById('popupVideo');
+        
+          openBtn.addEventListener('click', () => {
+            overlay.style.display = 'flex';
+            video.currentTime = 0;
+            video.play();
+          });
+        
+          closeBtn.addEventListener('click', () => {
+            overlay.style.display = 'none';
+            video.pause();
+            video.currentTime = 0;
+          });
+        </script>
+        
+
+
+        <a href="#" class="resume-button">
           Get Resume <i class="fa fa-download"></i>
         </a>
       </div>
-
-      <script>
-        // Create a new Intersection Observer instance
-        const leftBgObserver = new IntersectionObserver((entries) => {
-          entries.forEach(entry => {
-            // When the element is in the viewport, add the 'active' class
-            if (entry.isIntersecting) {
-              entry.target.classList.add('active');
-            }
-          });
-        }, {
-          threshold: 0.4 // Trigger when 20% of the element is visible
-        });
-      
-        // Observe all elements with the 'scroll-slide-up' class
-        document.querySelectorAll('.scroll-slide-up').forEach(el => {
-          leftBgObserver.observe(el);
-        });
-      </script>
-      
-      
-      
     </div>
       
   

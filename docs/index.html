@@ -180,188 +180,144 @@
    
 
   <!-- HERO SECTION -->
+
   <section class="hero container">
+    <!-- Background Circle -->
     <div class="circle-bg-alt"></div>
+  
+    <!-- Hero Content -->
     <div class="hero-content">
-      <h1 class="slide-up">
-        Hello! I’m <span>Lawrence Egyin</span>
-      </h1>
-     
-
-      <p class="animated-text slide-up">
-        Programmer & Web Developer passionate about coding and innovation. I build dynamic, user-friendly websites and explore tech to create impactful digital experiences.<br>
-        You can contact me on <a href="tel:+233534829203" class="phone-glow">(+233534829203)</a>on all my social media platforms.
-        
+      <h1>Hello! I’m <span>Lawrence Egyin</span></h1>
+  
+      <p class="animated-text">
+        Programmer & Web Developer passionate about coding and innovation.
+        I build dynamic, user-friendly websites and explore tech to create impactful digital experiences.<br>
+        You can contact me on <a href="tel:+233534829203" class="phone-glow">(+233534829203)</a> on all my social media platforms.
       </p>
-      
-      
-      <div class="hero-buttons slide-up">
+  
+      <!-- Hero Buttons -->
+      <div class="hero-buttons">
         <button class="resume-btn">
-            Get-My-CV <i class="fa-solid fa-download"></i>
+          Get-My-CV <i class="fa-solid fa-download"></i>
         </button>
-
+  
         <div class="watch-video" id="openVideo">
           <div class="play-circle">▶</div>
           <span>Watch Video</span>
         </div>
-
-        <!-- Video Modal Structure -->
-
-        <div class="video-overlay" id="videoOverlay">
-          <div class="video-content">
-            <button class="close-btn" id="closeVideo">×</button>
-            <video controls id="popupVideo">
-              <source src="Our Service.MP4" type="video/mp4">
-              Your browser does not support the video tag.
-            </video>
-          </div>
-        </div>
-        
-        
-
-
-        
-        
-        <!-- Font Awesome for the play icon -->
-        <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
-         
-        
       </div>
-
-      <script>
-        const openBtn = document.querySelector('.watch-video');
-        const closeBtn = document.getElementById('closeVideo');
-        const overlay = document.getElementById('videoOverlay');
-        const video = document.getElementById('popupVideo'); // the <video> element
-      
-        openBtn.addEventListener('click', () => {
-          overlay.style.display = 'flex';
-          video.currentTime = 0; // optional: start from beginning
-          video.play();
-        });
-      
-        closeBtn.addEventListener('click', () => {
-          overlay.style.display = 'none';
-          video.pause();
-          video.currentTime = 0; // reset video
-        });
-      </script>
-      
-     
+  
+      <!-- Video Modal -->
+      <div class="video-overlay" id="videoOverlay">
+        <div class="video-content">
+          <button class="close-btn" id="closeVideo">×</button>
+          <video controls id="popupVideo">
+            <source src="Our Service.MP4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+        </div>
+      </div>
     </div>
-    
-
+  
+    <!-- Hero Image and Social Icons -->
     <div class="hero-image">
-         
-         <!-- Replace the src with your actual image path -->
-      <img src="self.PNG" alt="Mirta Akins" />
-      <!-- Circles / lines behind the main image -->
+      <img src="self.PNG" alt="Lawrence Egyin" />
       <div class="circle-bg"></div>
-      <!-- Social links on the right side (floating) -->
+  
       <div class="social-links">
         <a href="https://wa.me/233534829203" class="social-link facebook" target="_blank"><i class="fab fa-whatsapp"></i></a>
-        <a href="https://youtube.com/@asoftekitconsult?si=2nksTSydQtCHQztC" class="social-link website" target="_blank" rel="noopener noreferrer">
-          <i class="fab fa-youtube"></i>
-        </a>
-        
-        <a href="#" class="social-link linkedin" target="_blank" rel="noopener noreferrer">
-          <i class="fab fa-linkedin-in"></i>
-        </a>
-        
-        <a href="#" class="social-link twitter"><i class="fab fa-x-twitter"></i></a>
+        <a href="https://youtube.com/@asoftekitconsult?si=2nksTSydQtCHQztC" class="social-link website" target="_blank"><i class="fab fa-youtube"></i></a>
+        <a href="#" class="social-link linkedin" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+        <a href="#" class="social-link twitter" target="_blank"><i class="fab fa-x-twitter"></i></a>
       </div>
-
-      <script>
-        const icons = document.querySelectorAll('.social-link');
-        let index = 0;
-        let interval;
-        let isPaused = false;
-      
-        function animateIcon() {
-          if (isPaused) return;
-      
-          // Remove 'animate' from all
-          icons.forEach(icon => icon.classList.remove('animate'));
-      
-          // Add 'animate' to current
-          icons[index].classList.add('animate');
-      
-          // Remove after delay
-          setTimeout(() => {
-            if (!isPaused) {
-              icons[index].classList.remove('animate');
-            }
-          }, 2000); // keep the animation longer (1.5s)
-      
-          index = (index + 1) % icons.length;
-        }
-      
-        function startAnimationCycle() {
-          interval = setInterval(animateIcon, 3000); // run slower (every 2.5s)
-        }
-      
-        function stopAnimationCycle() {
-          clearInterval(interval);
-        }
-      
-        // Pause on any hover
-        icons.forEach(icon => {
-          icon.addEventListener('mouseenter', () => {
-            isPaused = true;
-            stopAnimationCycle();
-            icons.forEach(i => i.classList.remove('animate'));
-          });
-      
-          icon.addEventListener('mouseleave', () => {
-            isPaused = false;
-            startAnimationCycle();
-          });
-        });
-      
-        // Start on load
-        startAnimationCycle();
-      </script>
-
-
-
-
-      <script>
-        /**
-         * Set dynamic viewport height to handle mobile browser UI shifts,
-         * especially useful for PWAs and fullscreen experiences.
-         */
-        function setFullVh() {
-          const vh = window.visualViewport
-            ? window.visualViewport.height * 0.01
-            : window.innerHeight * 0.01;
-          document.documentElement.style.setProperty('--vh', `${vh}px`);
-        }
-      
-        // Run once when the page loads
-        window.addEventListener('load', setFullVh);
-      
-        // Recalculate on device orientation change (e.g., portrait to landscape)
-        window.addEventListener('orientationchange', () => {
-          // Delay ensures visualViewport has updated dimensions
-          setTimeout(setFullVh, 300);
-        });
-      </script>
-
-
-
-
-
-
-         
-      
-       
-    </div> 
-
-    
-
-
+    </div>
+  
+    <!-- Background Wave -->
     <div class="wave-bg"></div>
-  </section> 
+  
+    <!-- Scripts -->
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  
+    <script>
+      // Video Modal Logic
+      const openBtn = document.querySelector('.watch-video');
+      const closeBtn = document.getElementById('closeVideo');
+      const overlay = document.getElementById('videoOverlay');
+      const video = document.getElementById('popupVideo');
+  
+      openBtn.addEventListener('click', () => {
+        overlay.style.display = 'flex';
+        video.currentTime = 0;
+        video.play();
+      });
+  
+      closeBtn.addEventListener('click', () => {
+        overlay.style.display = 'none';
+        video.pause();
+        video.currentTime = 0;
+      });
+    </script>
+  
+    <script>
+      // Social Icons Animation Logic
+      const icons = document.querySelectorAll('.social-link');
+      let index = 0;
+      let interval;
+      let isPaused = false;
+  
+      function animateIcon() {
+        if (isPaused) return;
+  
+        icons.forEach(icon => icon.classList.remove('animate'));
+        icons[index].classList.add('animate');
+  
+        setTimeout(() => {
+          if (!isPaused) icons[index].classList.remove('animate');
+        }, 2000);
+  
+        index = (index + 1) % icons.length;
+      }
+  
+      function startAnimationCycle() {
+        interval = setInterval(animateIcon, 3000);
+      }
+  
+      function stopAnimationCycle() {
+        clearInterval(interval);
+      }
+  
+      icons.forEach(icon => {
+        icon.addEventListener('mouseenter', () => {
+          isPaused = true;
+          stopAnimationCycle();
+          icons.forEach(i => i.classList.remove('animate'));
+        });
+  
+        icon.addEventListener('mouseleave', () => {
+          isPaused = false;
+          startAnimationCycle();
+        });
+      });
+  
+      startAnimationCycle();
+    </script>
+  
+    <script>
+      // Full viewport height fix for mobile
+      function setFullVh() {
+        const vh = window.visualViewport
+          ? window.visualViewport.height * 0.01
+          : window.innerHeight * 0.01;
+        document.documentElement.style.setProperty('--vh', `${vh}px`);
+      }
+  
+      window.addEventListener('load', setFullVh);
+      window.addEventListener('orientationchange', () => {
+        setTimeout(setFullVh, 300);
+      });
+    </script>
+  </section>
+  
 
 
 
@@ -371,14 +327,13 @@
     <p class="services-subtitle">// My Services</p>
     <h2 class="services-title">Service Provide For My Clients.</h2>
     <div class="services-wrapper">
+  
       <div class="service-box">
-        <div class="service-icon slide-up">
+        <div class="service-icon">
           <i class="fa-solid fa-laptop-code"></i> <!-- Laptop Code Icon -->
         </div>
-        
-        <h3 class="slide-up">Mobile & Web Development</h3>
-        
-        <ul class="slide-up-list">
+        <h3>Mobile & Web Development</h3>
+        <ul>
           <li>>>&nbsp;iOS & Android Apps</li>
           <li>>>&nbsp;Web Apps</li>
           <li>>>&nbsp;Responsive Websites</li>
@@ -386,51 +341,42 @@
           <li>>>&nbsp;Site Maintenance</li>
           <li>>>&nbsp;And More</li>
         </ul>
-        
       </div>
     
       <div class="service-box">
-        <div class="service-icon slide-up">
+        <div class="service-icon">
           <i class="fa-solid fa-diagram-project"></i>
         </div>
-        
-        <h3 class="slide-up">Software Solutions</h3>
-        
-        <ul class="slide-up-list">
+        <h3>Software Solutions</h3>
+        <ul>
           <li>>>&nbsp;Custom Software</li>
           <li>>>&nbsp;System Integration</li>
           <li>>>&nbsp;ERP & CRM Tools</li>
           <li>>>&nbsp;App Testing</li>
           <li>>>&nbsp;And More</li>
         </ul>
-        
       </div>
     
       <div class="service-box">
-        <div class="service-icon slide-up">
+        <div class="service-icon">
           <i class="fa-solid fa-headset"></i> <!-- Icon changed to represent IT support -->
         </div>
-        
-        <h3 class="slide-up">IT Support Solutions</h3>
-        
-        <ul class="slide-up-list">
+        <h3>IT Support Solutions</h3>
+        <ul>
           <li>>>&nbsp;Remote/Onsite Support</li>
           <li>>>&nbsp;Troubleshooting</li>
           <li>>>&nbsp;System Updates</li>
           <li>>>&nbsp;Backup & Recovery</li>
           <li>>>&nbsp;And More</li>
         </ul>
-        
       </div>
     
       <div class="service-box">
-        <div class="service-icon slide-up">
+        <div class="service-icon">
           <i class="fa-solid fa-signal"></i> <!-- Signal Icon -->
         </div>
-        
-        <h3 class="slide-up">Network Solutions</h3>
-        
-        <ul class="slide-up-list">
+        <h3>Network Solutions</h3>
+        <ul>
           <li>>>&nbsp;Network Setup</li>
           <li>>>&nbsp;Wired/Wireless Setup</li>
           <li>>>&nbsp;Security Monitoring</li>
