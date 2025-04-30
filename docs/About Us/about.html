@@ -206,55 +206,82 @@
   <div class="hero-section">
     
     <div class="hero-left">
-        <div class="left-bg">
-          <div class="play-button" id="openVideo">
-            <div class="play-icon"></div>
-          </div>
-          
-          <div class="video-overlay" id="videoOverlay">
-            <div class="video-content">
-              <button class="close-btn" id="closeVideo">×</button>
-              <video controls id="popupVideo">
-                <source src="Our Service.MP4" type="video/mp4">
-                Your browser does not support the video tag.
-              </video>
-            </div>
-          </div>
-          <script>
-            const openBtn = document.getElementById('openVideo'); // the play-button
-            const closeBtn = document.getElementById('closeVideo');
-            const overlay = document.getElementById('videoOverlay');
-            const video = document.getElementById('popupVideo');
-          
-            openBtn.addEventListener('click', () => {
-              overlay.style.display = 'flex';
-              video.currentTime = 0;
-              video.play();
-            });
-          
-            closeBtn.addEventListener('click', () => {
-              overlay.style.display = 'none';
-              video.pause();
-              video.currentTime = 0;
-            });
-          </script>
-          
-
-
-          <a href="#" class="resume-button">
-            Get Resume <i class="fa fa-download"></i>
-          </a>
+      <div class="left-bg">
+        <div class="play-button scroll-slide-up" id="openVideo">
+          <div class="play-icon"></div>
         </div>
+      
+        <div class="video-overlay" id="videoOverlay">
+          <div class="video-content">
+            <button class="close-btn" id="closeVideo">×</button>
+            <video controls id="popupVideo">
+              <source src="Our Service.MP4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+          </div>
+        </div>
+      
+        <a href="#" class="resume-button scroll-slide-up">
+          Get Resume <i class="fa fa-download"></i>
+        </a>
+      </div>
+
+      <script>
+        // Create a new Intersection Observer instance
+        const leftBgObserver = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            // When the element is in the viewport, add the 'active' class
+            if (entry.isIntersecting) {
+              entry.target.classList.add('active');
+            }
+          });
+        }, {
+          threshold: 0.4 // Trigger when 20% of the element is visible
+        });
+      
+        // Observe all elements with the 'scroll-slide-up' class
+        document.querySelectorAll('.scroll-slide-up').forEach(el => {
+          leftBgObserver.observe(el);
+        });
+      </script>
+      
+      
+      
     </div>
       
   
     <div class="hero-right">
-      <h1>I’m Lawrence Egyin</h1>
-      <h2>Tech Enthusiast & Developer</h2>
-      <h3>Specializing in Programming, Web, and App Development</h3>
-      <p>Driven by a passion for technology, I’m focused on crafting innovative solutions through programming and development. With a keen interest in both web and app development, I’m constantly expanding my skills to create seamless, user-friendly experiences. Whether it’s building responsive websites or developing dynamic applications, I’m committed to pushing the boundaries of what’s possible in tech.</p>
-
+      <h1 class="scroll-slide-up">I’m Lawrence Egyin</h1>
+      <h2 class="scroll-slide-up">Tech Enthusiast & Developer</h2>
+      <h3 class="scroll-slide-up">Specializing in Programming, Web, and App Development</h3>
+      <p class="scroll-slide-up">
+        Driven by a passion for technology, I’m focused on crafting innovative solutions through programming and development. 
+        With a keen interest in both web and app development, I’m constantly expanding my skills to create seamless, user-friendly experiences. 
+        Whether it’s building responsive websites or developing dynamic applications, I’m committed to pushing the boundaries of what’s possible in tech.
+      </p>
     </div>
+
+    <script>
+      // Create a new Intersection Observer instance
+      const heroRightObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          // When the element is in the viewport, add the 'active' class
+          if (entry.isIntersecting) {
+            entry.target.classList.add('active');
+          }
+        });
+      }, {
+        threshold: 0.2 // Trigger when 20% of the element is visible
+      });
+    
+      // Observe all elements with the 'scroll-slide-up' class
+      document.querySelectorAll('.scroll-slide-up').forEach(el => {
+        heroRightObserver.observe(el);
+      });
+    </script>
+    
+    
+    
 
   </div>
 
@@ -263,27 +290,69 @@
   <div class="resume-wrapper">
     <div class="resume-section">
       <div class="resume-tabs">
-        <div class="resume-tab tab-selected">Education</div>
-        <div class="resume-tab">Experience</div>
+        <div class="resume-tab scroll-slide-up tab-selected">Education</div>
+        <div class="resume-tab scroll-slide-up">Experience</div>
       </div>
+
+      <script>
+        // Create a new Intersection Observer instance
+        const resumeTabObserver = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            // When the element is in the viewport, add the 'active' class
+            if (entry.isIntersecting) {
+              entry.target.classList.add('active');
+            }
+          });
+        }, {
+          threshold: 0.2 // Trigger when 20% of the element is visible
+        });
+      
+        // Observe all elements with the 'scroll-slide-up' class
+        document.querySelectorAll('.scroll-slide-up').forEach(el => {
+          resumeTabObserver.observe(el);
+        });
+      </script>
+      
+      
 
       <div class="resume-content" id="education-details">
 
         <div class="resume-content">
           <div class="resume-timeline-container">
             <div class="resume-timeline">
-              <div class="resume-time time-1">2021 – 2023</div>
-              <div class="resume-time time-2">2024 – 2025</div>
-              <div class="resume-time time-3">2015 – 2018</div>
+              <div class="resume-time scroll-slide-up time-1">2021 – 2023</div>
+              <div class="resume-time scroll-slide-up time-2">2024 – 2025</div>
+              <div class="resume-time scroll-slide-up time-3">2015 – 2018</div>
             </div>
+
+            <script>
+              // Create a new Intersection Observer instance
+              const resumeTimelineObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                  // When the element is in the viewport, add the 'active' class
+                  if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                  }
+                });
+              }, {
+                threshold: 0.2 // Trigger when 20% of the element is visible
+              });
+            
+              // Observe all elements with the 'scroll-slide-up' class
+              document.querySelectorAll('.scroll-slide-up').forEach(el => {
+                resumeTimelineObserver.observe(el);
+              });
+            </script>
+            
+            
           </div>
           
     
           <div class="resume-details">
             <div class="resume-block">
-              <h3 class="resume-title">Bachelor of Science in Information Technology (Diploma)</h3>
-              <h4 class="resume-subtitle">Ghana Communication Technology University</h4>
-              <p class="resume-description">
+              <h3 class="resume-title scroll-slide-up">Bachelor of Science in Information Technology (Diploma)</h3>
+              <h4 class="resume-subtitle scroll-slide-up">Ghana Communication Technology University</h4>
+              <p class="resume-description scroll-slide-up">
                 A dynamic program that equips students with the essential knowledge and skills in Information Technology. 
                 The program focuses on the practical application of IT, preparing graduates for a broad range of technical careers. 
                 Throughout the course, students will gain experience in various areas including software development, network management, 
@@ -291,23 +360,44 @@
               </p>
             </div>
             
+            
     
             <div class="resume-block">
-              <h3 class="resume-title">Bachelor of Science in Information Technology (Degree)</h3>
-              <h4 class="resume-subtitle">Ghana Communication Technology University</h4>
-              <p class="resume-description">
+              <h3 class="resume-title scroll-slide-up">Bachelor of Science in Information Technology (Degree)</h3>
+              <h4 class="resume-subtitle scroll-slide-up">Ghana Communication Technology University</h4>
+              <p class="resume-description scroll-slide-up">
                   The BSc in Information Technology at Ghana Communication Technology University equips students with essential IT skills, covering areas like software development, network security, and database management. The program focuses on practical knowledge and problem-solving, preparing graduates for successful careers in the tech industry.
               </p>
   
             </div>
     
             <div class="resume-block">
-              <h3 class="resume-title">Bachelor of Graphic Arts</h3>
-              <h4 class="resume-subtitle">IPMC, Accra</h4>
-              <p class="resume-description">
+              <h3 class="resume-title scroll-slide-up">Bachelor of Graphic Arts</h3>
+              <h4 class="resume-subtitle scroll-slide-up">IPMC, Accra</h4>
+              <p class="resume-description scroll-slide-up">
                 Passionate about visual communication, I pursued a Bachelor of Graphic Arts to harness the power of design in transforming ideas into engaging experiences. At UC Berkeley, I explored the intersection of creativity and technology, developing innovative solutions that resonated with diverse audiences. This journey fueled my purpose to create impactful designs that solve real-world challenges, from branding to digital media. Throughout my studies, I honed skills in visual storytelling, typography, and digital design tools, preparing me for a career focused on designing meaningful experiences.
               </p>
             </div>
+
+            <script>
+              // Create a new Intersection Observer instance
+              const resumeBlockObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                  // When the element is in the viewport, add the 'active' class
+                  if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                  }
+                });
+              }, {
+                threshold: 0.2 // Trigger when 20% of the element is visible
+              });
+            
+              // Observe all elements with the 'scroll-slide-up' class
+              document.querySelectorAll('.scroll-slide-up').forEach(el => {
+                resumeBlockObserver.observe(el);
+              });
+            </script>
+            
             
           </div>
         </div>
@@ -319,28 +409,49 @@
 
       <div class="resume-details experience-section" id="experience-details" style="display: none;">
         <div class="resume">
-          <h3 class="resume-title">Software Engineer Intern</h3>
-          <h4 class="resume-subtitle">Tech Innovations Ltd, Accra</h4>
-          <p class="resume-description">
+          <h3 class="resume-title scroll-slide-up">Software Engineer Intern</h3>
+          <h4 class="resume-subtitle scroll-slide-up">Tech Innovations Ltd, Accra</h4>
+          <p class="resume-description scroll-slide-up">
             During my internship at Tech Innovations, I worked on the development of web applications using JavaScript and Python, contributing to the design and implementation of key features that improved the user experience. I collaborated with the engineering team to troubleshoot and debug existing systems and was involved in the integration of new APIs, enhancing the overall functionality of client solutions.
           </p>
         </div>
-      
+        
         <div class="resume">
-          <h3 class="resume-title">Junior Web Developer</h3>
-          <h4 class="resume-subtitle">Dev Solutions, Accra</h4>
-          <p class="resume-description">
+          <h3 class="resume-title scroll-slide-up">Junior Web Developer</h3>
+          <h4 class="resume-subtitle scroll-slide-up">Dev Solutions, Accra</h4>
+          <p class="resume-description scroll-slide-up">
             As a Junior Web Developer at Dev Solutions, I contributed to building responsive websites using HTML, CSS, and JavaScript. I focused on ensuring cross-browser compatibility and improving performance by optimizing code. My role also included collaborating with clients to ensure their needs were met and providing timely updates on project milestones.
           </p>
         </div>
-      
+        
         <div class="resume">
-          <h3 class="resume-title">Graphic Design Intern</h3>
-          <h4 class="resume-subtitle">Creative Minds Studio, Accra</h4>
-          <p class="resume-description">
+          <h3 class="resume-title scroll-slide-up">Graphic Design Intern</h3>
+          <h4 class="resume-subtitle scroll-slide-up">Creative Minds Studio, Accra</h4>
+          <p class="resume-description scroll-slide-up">
             As an intern at Creative Minds Studio, I worked on creating branding materials, including logos, brochures, and digital assets for marketing campaigns. I collaborated closely with the senior designers and contributed to projects from concept to completion, honing my skills in visual design software such as Adobe Illustrator and Photoshop.
           </p>
         </div>
+
+        <script>
+          // Create a new Intersection Observer instance
+          const resumeObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+              // When the element is in the viewport, add the 'active' class
+              if (entry.isIntersecting) {
+                entry.target.classList.add('active');
+              }
+            });
+          }, {
+            threshold: 0.2 // Trigger when 20% of the element is visible
+          });
+        
+          // Observe all elements with the 'scroll-slide-up' class
+          document.querySelectorAll('.scroll-slide-up').forEach(el => {
+            resumeObserver.observe(el);
+          });
+        </script>
+        
+        
          
       </div>
 

@@ -939,8 +939,30 @@ nav ul li a:hover i {
   }
 
 
+  .slide-up {
+    opacity: 0;
+    transform: translateY(40px);
+    animation: slideUp 1.5s ease-out forwards;
+  }
 
+  .slide-up:nth-child(1) {
+    animation-delay: 0.4s;
+  }
 
+  .slide-up:nth-child(2) {
+    animation-delay: 0.8s;
+  }
+
+  .slide-up:nth-child(3) {
+    animation-delay: 1.2s;
+  }
+
+  @keyframes slideUp {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
 
 
 /* Overlay for video popup */
@@ -2836,6 +2858,33 @@ nav ul li a:hover i {
   min-width: 320px; /* Increase minimum width */
   max-width: 380px; /* Slightly increase max width */
   height: 480px; /* Increase height */
+}
+
+.slide-up {
+  opacity: 0;
+  transform: translateY(40px);
+  animation: slideUp 1.2s ease-out forwards;
+}
+
+/* Stagger effect using nth-child for list items */
+.slide-up-list li {
+  opacity: 0;
+  transform: translateY(40px);
+  animation: slideUp 1.2s ease-out forwards;
+}
+
+.slide-up-list li:nth-child(1) { animation-delay: 0.3s; }
+.slide-up-list li:nth-child(2) { animation-delay: 0.6s; }
+.slide-up-list li:nth-child(3) { animation-delay: 0.9s; }
+.slide-up-list li:nth-child(4) { animation-delay: 1.2s; }
+.slide-up-list li:nth-child(5) { animation-delay: 1.5s; }
+.slide-up-list li:nth-child(6) { animation-delay: 1.8s; }
+
+@keyframes slideUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 

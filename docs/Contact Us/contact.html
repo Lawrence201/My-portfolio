@@ -295,29 +295,48 @@
         </div>
   
         <!-- CONTACT FORM -->
-        <div class="contact-form">
-          <small class="form-subtitle">|| Get In Touch</small>
-          <h2>If you have any project or need help. Contact me</h2>
-          <p>
+        <div class="contact-form scroll-slide-up">
+          <small class="form-subtitle scroll-slide-up">|| Get In Touch</small>
+          <h2 class="scroll-slide-up">If you have any project or need help. Contact me</h2>
+          <p class="scroll-slide-up">
             I'm passionate about turning ideas into powerful digital experiences. 
             Whether it's building responsive websites, crafting clean code, or solving real-world problems with tech — I'm here to help.
-             Let's bring your vision to life with creativity, precision, and purpose.
+            Let's bring your vision to life with creativity, precision, and purpose.
           </p>
-          
-  
-          <form action="#" method="POST">
-            <div class="form-row">
-              <input type="text" name="name" placeholder="Name" required>
-              <input type="email" name="email" placeholder="Email" required>
+        
+          <form action="#" method="POST" class="scroll-slide-up">
+            <div class="form-row scroll-slide-up">
+              <input type="text" name="name" placeholder="Name" required class="scroll-slide-up">
+              <input type="email" name="email" placeholder="Email" required class="scroll-slide-up">
             </div>
-            <div class="form-row">
-              <input type="text" name="phone" placeholder="Phone" required>
-              <input type="text" name="subject" placeholder="Subject" required>
+            <div class="form-row scroll-slide-up">
+              <input type="text" name="phone" placeholder="Phone" required class="scroll-slide-up">
+              <input type="text" name="subject" placeholder="Subject" required class="scroll-slide-up">
             </div>
-            <textarea name="comment" rows="5" placeholder="Comment" required></textarea>
-            <button type="submit" class="submit-btn">Submit Message</button>
+            <textarea name="comment" rows="5" placeholder="Comment" required class="scroll-slide-up"></textarea>
+            <button type="submit" class="submit-btn scroll-slide-up">Submit Message</button>
           </form>
         </div>
+
+        <script>
+          if (typeof scrollSlideUpObserver === 'undefined') {
+            const scrollSlideUpObserver = new IntersectionObserver((entries) => {
+              entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                  entry.target.classList.add('active');
+                }
+              });
+            }, {
+              threshold: 0.15
+            });
+        
+            document.querySelectorAll('.scroll-slide-up').forEach(el => {
+              scrollSlideUpObserver.observe(el);
+            });
+          }
+        </script>
+        
+        
       </div>
     </div>
   

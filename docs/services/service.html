@@ -195,133 +195,300 @@
   </section> 
 
   <section class="unique-services-section">
+
+    
     <div class="unique-services-wrapper">
       <div class="unique-service-box">
-        <div class="unique-service-icon">
+        <div class="unique-service-icon scroll-slide-up">
           <i class="fa-solid fa-laptop-code"></i> <!-- Laptop Code Icon -->
         </div>
-        <h3>Mobile & Web Development</h3>
+        
+        <h3 class="scroll-slide-up">Mobile & Web Development</h3>
+        
         <ul>
-          <li>>>&nbsp;iOS & Android Apps</li>
-          <li>>>&nbsp;Web Apps</li>
-          <li>>>&nbsp;Responsive Websites</li>
-          <li>>>&nbsp;PWA Apps</li>
-          <li>>>&nbsp;Site Maintenance</li>
-          <li>>>&nbsp;And More</li>
+          <li class="scroll-slide-up">>>&nbsp;iOS & Android Apps</li>
+          <li class="scroll-slide-up">>>&nbsp;Web Apps</li>
+          <li class="scroll-slide-up">>>&nbsp;Responsive Websites</li>
+          <li class="scroll-slide-up">>>&nbsp;PWA Apps</li>
+          <li class="scroll-slide-up">>>&nbsp;Site Maintenance</li>
+          <li class="scroll-slide-up">>>&nbsp;And More</li>
         </ul>
-      </div>
-  
-      <div class="unique-service-box">
-        <div class="unique-service-icon">
-          <i class="fa-solid fa-diagram-project"></i>
-        </div>
-        <h3>Software Solutions</h3>
-        <ul>
-          <li>>>&nbsp;Custom Software</li>
-          <li>>>&nbsp;System Integration</li>
-          <li>>>&nbsp;ERP & CRM Tools</li>
-          <li>>>&nbsp;App Testing</li>
-          <li>>>&nbsp;And More</li>
-        </ul>
-      </div>
-      
-      <div class="unique-service-box">
-        <div class="unique-service-icon">
-          <i class="fa-solid fa-headset"></i> <!-- Icon changed to represent IT support -->
-        </div>
-        <h3>IT Support Solutions</h3>
-        <ul>
-          <li>>>&nbsp;Remote/Onsite Support</li>
-          <li>>>&nbsp;Troubleshooting</li>
-          <li>>>&nbsp;System Updates</li>
-          <li>>>&nbsp;Backup & Recovery</li>
-          <li>>>&nbsp;And More</li>
-        </ul>
-      </div>
-      
-      <div class="unique-service-box">
-        <div class="unique-service-icon">
-          <i class="fa-solid fa-cloud"></i> <!-- Cloud Icon -->
-        </div>
-        <h3>Cloud Solutions</h3>
-        <ul>
-          <li>>>&nbsp;Cloud Migration</li>
-          <li>>>&nbsp;Data Backup & Recovery</li>
-          <li>>>&nbsp;Cloud Storage Setup</li>
-          <li>>>&nbsp;Infrastructure as a Service</li>
-          <li>>>&nbsp;And More</li>
-        </ul>
-      </div>
-      
-      <div class="unique-service-box">
-        <div class="unique-service-icon">
-          <i class="fa-solid fa-shield-halved"></i> <!-- Security Icon -->
-        </div>
-        <h3>Cybersecurity</h3>
-        <ul>
-          <li>>>&nbsp;Threat Detection</li>
-          <li>>>&nbsp;Penetration Testing</li>
-          <li>>>&nbsp;Firewall Configuration</li>
-          <li>>>&nbsp;Incident Response</li>
-          <li>>>&nbsp;And More</li>
-        </ul>
-      </div>
-      
-      <div class="unique-service-box">
-        <div class="unique-service-icon">
-          <i class="fa-solid fa-chalkboard-user"></i> <!-- Training Icon -->
-        </div>
-        <h3>Training & Tutorial</h3>
-        <ul>
-          <li>>>&nbsp;Tech Bootcamps</li>
-          <li>>>&nbsp;One-on-One Coaching</li>
-          <li>>>&nbsp;Online Courses</li>
-          <li>>>&nbsp;Certifications Prep</li>
-          <li>>>&nbsp;And More</li>
-        </ul>
-      </div>
-      
-      <div class="unique-service-box">
-        <div class="unique-service-icon">
-          <i class="fa-solid fa-flask"></i> <!-- Research Icon -->
-        </div>
-        <h3>Research & Development</h3>
-        <ul>
-          <li>>>&nbsp;Prototype Development</li>
-          <li>>>&nbsp;Emerging Tech Exploration</li>
-          <li>>>&nbsp;Innovation Projects</li>
-          <li>>>&nbsp;Feasibility Analysis</li>
-          <li>>>&nbsp;And More</li>
-        </ul>
-      </div>
-      <div class="unique-service-box">
-        <div class="unique-service-icon">
-          <i class="fa-solid fa-user-tie"></i> <!-- Consultancy Icon -->
-        </div>
-        <h3>IT Consultancy</h3>
-        <ul>
-          <li>>>&nbsp;Tech Strategy Planning</li>
-          <li>>>&nbsp;System Analysis</li>
-          <li>>>&nbsp;IT Infrastructure Advisory</li>
-          <li>>>&nbsp;Business Process Automation</li>
-          <li>>>&nbsp;And More</li>
-        </ul>
+        
       </div>
 
+      <script>
+        if (typeof scrollSlideUpObserver === 'undefined') {
+          const scrollSlideUpObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add('active');
+              }
+            });
+          }, {
+            threshold: 0.15
+          });
+      
+          document.querySelectorAll('.scroll-slide-up').forEach(el => {
+            scrollSlideUpObserver.observe(el);
+          });
+        }
+      </script>
+      
+  
       <div class="unique-service-box">
-        <div class="unique-service-icon">
-          <i class="fa-solid fa-chart-line"></i> <!-- Analytics Icon -->
+        <div class="unique-service-icon scroll-slide-up">
+          <i class="fa-solid fa-diagram-project"></i>
         </div>
-        <h3>Data Analytics</h3>
+        <h3 class="scroll-slide-up">Software Solutions</h3>
         <ul>
-          <li>>>&nbsp;Data Visualization</li>
-          <li>>>&nbsp;Business Intelligence</li>
-          <li>>>&nbsp;Predictive Analysis</li>
-          <li>>>&nbsp;Data Cleaning & Prep</li>
-          <li>>>&nbsp;And More</li>
+          <li class="scroll-slide-up">>>&nbsp;Custom Software</li>
+          <li class="scroll-slide-up">>>&nbsp;System Integration</li>
+          <li class="scroll-slide-up">>>&nbsp;ERP & CRM Tools</li>
+          <li class="scroll-slide-up">>>&nbsp;App Testing</li>
+          <li class="scroll-slide-up">>>&nbsp;And More</li>
+        </ul>
+        
+      </div>
+
+      <script>
+        if (typeof scrollSlideUpObserver === 'undefined') {
+          const scrollSlideUpObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add('active');
+              }
+            });
+          }, {
+            threshold: 0.15
+          });
+      
+          document.querySelectorAll('.scroll-slide-up').forEach(el => {
+            scrollSlideUpObserver.observe(el);
+          });
+        }
+      </script>
+      
+      <div class="unique-service-box">
+        <div class="unique-service-icon scroll-slide-up">
+          <i class="fa-solid fa-headset"></i> <!-- Icon changed to represent IT support -->
+        </div>
+        
+        <h3 class="scroll-slide-up">IT Support Solutions</h3>
+        
+        <ul>
+          <li class="scroll-slide-up">>>&nbsp;Remote/Onsite Support</li>
+          <li class="scroll-slide-up">>>&nbsp;Troubleshooting</li>
+          <li class="scroll-slide-up">>>&nbsp;System Updates</li>
+          <li class="scroll-slide-up">>>&nbsp;Backup & Recovery</li>
+          <li class="scroll-slide-up">>>&nbsp;And More</li>
+        </ul>
+        
+      </div>
+      <script>
+        if (typeof scrollSlideUpObserver === 'undefined') {
+          const scrollSlideUpObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add('active');
+              }
+            });
+          }, {
+            threshold: 0.15
+          });
+      
+          document.querySelectorAll('.scroll-slide-up').forEach(el => {
+            scrollSlideUpObserver.observe(el);
+          });
+        }
+      </script>
+      
+      <div class="unique-service-box">
+        <div class="unique-service-icon scroll-slide-up">
+          <i class="fa-solid fa-cloud"></i>
+        </div>
+        <h3 class="scroll-slide-up">Cloud Solutions</h3>
+        <ul>
+          <li class="scroll-slide-up">>>&nbsp;Cloud Migration</li>
+          <li class="scroll-slide-up">>>&nbsp;Data Backup & Recovery</li>
+          <li class="scroll-slide-up">>>&nbsp;Cloud Storage Setup</li>
+          <li class="scroll-slide-up">>>&nbsp;Infrastructure as a Service</li>
+          <li class="scroll-slide-up">>>&nbsp;And More</li>
         </ul>
       </div>
+      <script>
+        if (typeof scrollSlideUpObserver === 'undefined') {
+          const scrollSlideUpObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add('active');
+              }
+            });
+          }, {
+            threshold: 0.15
+          });
+      
+          document.querySelectorAll('.scroll-slide-up').forEach(el => {
+            scrollSlideUpObserver.observe(el);
+          });
+        }
+      </script>
+      
+      <div class="unique-service-box">
+        <div class="unique-service-icon scroll-slide-up">
+          <i class="fa-solid fa-shield-halved"></i>
+        </div>
+        <h3 class="scroll-slide-up">Cybersecurity</h3>
+        <ul>
+          <li class="scroll-slide-up">>>&nbsp;Threat Detection</li>
+          <li class="scroll-slide-up">>>&nbsp;Penetration Testing</li>
+          <li class="scroll-slide-up">>>&nbsp;Firewall Configuration</li>
+          <li class="scroll-slide-up">>>&nbsp;Incident Response</li>
+          <li class="scroll-slide-up">>>&nbsp;And More</li>
+        </ul>
+      </div>
+      <script>
+        if (typeof scrollSlideUpObserver === 'undefined') {
+          const scrollSlideUpObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add('active');
+              }
+            });
+          }, {
+            threshold: 0.15
+          });
+      
+          document.querySelectorAll('.scroll-slide-up').forEach(el => {
+            scrollSlideUpObserver.observe(el);
+          });
+        }
+      </script>
+      
+      <div class="unique-service-box">
+        <div class="unique-service-icon scroll-slide-up">
+          <i class="fa-solid fa-chalkboard-user"></i>
+        </div>
+        <h3 class="scroll-slide-up">Training & Tutorial</h3>
+        <ul>
+          <li class="scroll-slide-up">>>&nbsp;Tech Bootcamps</li>
+          <li class="scroll-slide-up">>>&nbsp;One-on-One Coaching</li>
+          <li class="scroll-slide-up">>>&nbsp;Online Courses</li>
+          <li class="scroll-slide-up">>>&nbsp;Certifications Prep</li>
+          <li class="scroll-slide-up">>>&nbsp;And More</li>
+        </ul>
+      </div>
+      <script>
+        if (typeof scrollSlideUpObserver === 'undefined') {
+          const scrollSlideUpObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add('active');
+              }
+            });
+          }, {
+            threshold: 0.15
+          });
+      
+          document.querySelectorAll('.scroll-slide-up').forEach(el => {
+            scrollSlideUpObserver.observe(el);
+          });
+        }
+      </script>
+      
+      <div class="unique-service-box">
+        <div class="unique-service-icon scroll-slide-up">
+          <i class="fa-solid fa-flask"></i>
+        </div>
+        <h3 class="scroll-slide-up">Research & Development</h3>
+        <ul>
+          <li class="scroll-slide-up">>>&nbsp;Prototype Development</li>
+          <li class="scroll-slide-up">>>&nbsp;Emerging Tech Exploration</li>
+          <li class="scroll-slide-up">>>&nbsp;Innovation Projects</li>
+          <li class="scroll-slide-up">>>&nbsp;Feasibility Analysis</li>
+          <li class="scroll-slide-up">>>&nbsp;And More</li>
+        </ul>
+      </div>
+      <script>
+        if (typeof scrollSlideUpObserver === 'undefined') {
+          const scrollSlideUpObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add('active');
+              }
+            });
+          }, {
+            threshold: 0.15
+          });
+      
+          document.querySelectorAll('.scroll-slide-up').forEach(el => {
+            scrollSlideUpObserver.observe(el);
+          });
+        }
+      </script>
+      
+      <div class="unique-service-box">
+        <div class="unique-service-icon scroll-slide-up">
+          <i class="fa-solid fa-user-tie"></i>
+        </div>
+        <h3 class="scroll-slide-up">IT Consultancy</h3>
+        <ul>
+          <li class="scroll-slide-up">>>&nbsp;Tech Strategy Planning</li>
+          <li class="scroll-slide-up">>>&nbsp;System Analysis</li>
+          <li class="scroll-slide-up">>>&nbsp;IT Infrastructure Advisory</li>
+          <li class="scroll-slide-up">>>&nbsp;Business Process Automation</li>
+          <li class="scroll-slide-up">>>&nbsp;And More</li>
+        </ul>
+      </div>
+      <script>
+        if (typeof scrollSlideUpObserver === 'undefined') {
+          const scrollSlideUpObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add('active');
+              }
+            });
+          }, {
+            threshold: 0.15
+          });
+      
+          document.querySelectorAll('.scroll-slide-up').forEach(el => {
+            scrollSlideUpObserver.observe(el);
+          });
+        }
+      </script>
+      
+      <div class="unique-service-box">
+        <div class="unique-service-icon scroll-slide-up">
+          <i class="fa-solid fa-chart-line"></i>
+        </div>
+        <h3 class="scroll-slide-up">Data Analytics</h3>
+        <ul>
+          <li class="scroll-slide-up">>>&nbsp;Data Visualization</li>
+          <li class="scroll-slide-up">>>&nbsp;Business Intelligence</li>
+          <li class="scroll-slide-up">>>&nbsp;Predictive Analysis</li>
+          <li class="scroll-slide-up">>>&nbsp;Data Cleaning & Prep</li>
+          <li class="scroll-slide-up">>>&nbsp;And More</li>
+        </ul>
+      </div>
+      <script>
+        if (typeof scrollSlideUpObserver === 'undefined') {
+          const scrollSlideUpObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add('active');
+              }
+            });
+          }, {
+            threshold: 0.15
+          });
+      
+          document.querySelectorAll('.scroll-slide-up').forEach(el => {
+            scrollSlideUpObserver.observe(el);
+          });
+        }
+      </script>
     </div>
+      
  
     <script>
       const observer = new IntersectionObserver(entries => {

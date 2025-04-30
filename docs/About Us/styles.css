@@ -1169,7 +1169,33 @@ transition: all 0.3s ease;
 
 } 
   
- 
+ /* Initial state */
+.scroll-slide-up {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 2s ease, transform 2s ease;
+}
+
+/* Active state when in view */
+.scroll-slide-up.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Initial state */
+.scroll-slide-up {
+  opacity: 0;
+  transform: translateY(30px); /* Starting below */
+  transition: opacity 2s ease, transform 2s ease; /* Increased duration to 2s */
+}
+
+/* Active state when in view */
+.scroll-slide-up.active {
+  opacity: 1;
+  transform: translateY(0); /* Slide to original position */
+}
+
+
 
  .hero-section {
     display: flex;
@@ -1564,6 +1590,18 @@ transition: all 0.3s ease;
 }
 
 
+/* Initial state */
+.scroll-slide-up {
+  opacity: 0;
+  transform: translateY(40px); /* Start below the screen */
+  transition: opacity 2s ease, transform 2s ease; /* Slow down the transition */
+}
+
+/* Active state when in view */
+.scroll-slide-up.active {
+  opacity: 1;
+  transform: translateY(0); /* Slide to original position */
+}
 
 .resume-wrapper {
   display: flex;
@@ -1647,6 +1685,18 @@ transition: all 0.3s ease;
 .time-3 {
   margin-top: 130px; /* pulls it up */
 }
+/* Initial state for sliding animation */
+.scroll-slide-up {
+  opacity: 0;
+  transform: translateY(40px); /* Starting from below */
+  transition: opacity 2s ease, transform 2s ease; /* Slow down the transition */
+}
+
+/* Active state when the element comes into view */
+.scroll-slide-up.active {
+  opacity: 1;
+  transform: translateY(0); /* Slide to its original position */
+}
 
 
 .resume-time::after {
@@ -1695,6 +1745,19 @@ transition: all 0.3s ease;
   margin-bottom: 3rem; /* Adjust the value as needed */
 }
 
+/* Initial state for sliding animation */
+.scroll-slide-up {
+  opacity: 0;
+  transform: translateY(40px); /* Start below */
+  transition: opacity 3s ease, transform 3s ease; /* Slow down the transition */
+}
+
+/* Active state when the element comes into view */
+.scroll-slide-up.active {
+  opacity: 1;
+  transform: translateY(0); /* Slide to original position */
+}
+
 
 
 #experience-details,
@@ -1706,6 +1769,18 @@ transition: all 0.3s ease;
   display: block !important;
 }
 
+/* Initial state for sliding animation */
+.scroll-slide-up {
+  opacity: 0;
+  transform: translateY(40px); /* Start from below */
+  transition: opacity 2s ease, transform 2s ease; /* Slow down the transition */
+}
+
+/* Active state when the element comes into view */
+.scroll-slide-up.active {
+  opacity: 1;
+  transform: translateY(0); /* Slide to original position */
+}
 
 
 

@@ -1330,6 +1330,16 @@ header.scrolled .hire-me-btn:hover {
   transform: translateY(0);
 }
 
+.scroll-slide-up {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 2s ease-in-out, transform 2s ease-in-out;
+}
+
+.scroll-slide-up.active {
+  opacity: 1;
+  transform: translateY(0);
+}
 
 
 @media (max-width: 1026px) {
