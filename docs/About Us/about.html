@@ -202,6 +202,88 @@
 
 
 
+  <!-- === Stats Section Start === -->
+  <section class="stats-section">
+    <!-- Happy Clients -->
+    <div class="stat-box">
+      <div class="stat-icon-wrapper">
+        <i class="fas fa-user stat-icon"></i>
+      </div>
+      <span class="stat-number count" data-count="75">0</span><span>+</span>
+      <div class="stat-label">Happy Clients</div>
+    </div>
+  
+    <!-- Project Complete -->
+    <div class="stat-box">
+      <div class="stat-icon-wrapper">
+        <i class="fas fa-globe stat-icon"></i>
+      </div>
+      <span class="stat-number count" data-count="120">0</span><span>+</span>
+      <div class="stat-label">Projects Completed</div>
+    </div>
+  
+    <!-- Years of Experience -->
+    <div class="stat-box">
+      <div class="stat-icon-wrapper">
+        <i class="fas fa-calendar-alt stat-icon"></i>
+      </div>
+      <span class="stat-number count" data-count="3">0</span><span>+</span>
+      <div class="stat-label">Years of Experience</div>
+    </div>
+
+    <div class="stat-box">
+      <div class="stat-icon-wrapper">
+        <i class="fas fa-code stat-icon"></i>
+      </div>
+      <span class="stat-number count" data-count="10">0</span><span>+</span>
+      <div class="stat-label">Technologies Mastered</div>
+    </div>
+    
+    <script>
+      
+// Grab all elements with class 'count' the counting section
+const counters = document.querySelectorAll('.count');
+  
+  // Intersection Observer to trigger counting when in view
+  const options = {
+    root: null,       // viewport
+    rootMargin: '0px',
+    threshold: 0.2    // trigger when 20% of the element is visible
+  };
+  
+  const callback = (entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        // Start counting
+        const counter = entry.target;
+        const updateCount = () => {
+          const target = +counter.getAttribute('data-count');
+          const current = +counter.innerText;
+          // You can adjust speed by changing the divisor below
+          const increment = Math.ceil(target / 100);
+  
+          if (current < target) {
+            counter.innerText = current + increment;
+            setTimeout(updateCount, 30); // 30ms for smoother animation
+          } else {
+            counter.innerText = target; // final value
+          }
+        };
+        
+        updateCount();
+        // Once counted, unobserve so it doesn't trigger again
+        observer.unobserve(counter);
+      }
+    });
+  };
+  
+  const observer = new IntersectionObserver(callback, options);
+  counters.forEach(counter => observer.observe(counter));
+  
+  
+    </script>
+</section>
+
 
 
 
