@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>About Us</title>
+  <title>Contact Us</title>
   <link rel="icon" href="Logo2.png" type="image/png">
     <!-- Example Google Font import (Replace with whichever font is actually used) -->
     <link rel="preconnect" href="https://fonts.gstatic.com" />
@@ -44,6 +44,7 @@
   
       <nav id="mainNav">
         
+        
         <ul>
           <li><a href="../index.html" id="homeLink">Home <i class="fas fa-home icon-home"></i></a></li>
           <li><a href="../services/service.html" id="serviceLink">Service <i class="fas fa-cogs icon-service"></i></a></li>
@@ -82,7 +83,7 @@
   
         <!-- Unique social media links -->
         <div class="custom-social-links">
-          <a href="https://wa.me/233534829203" class="custom-social-link facebook" target="_blank">  <i class="fab fa-whatsapp"></i> </a> 
+          <a href="https://wa.me/233534829203" class="custom-social-link facebook" target="_blank">  <i class="fab fa-whatsapp"></i> </a>
           <a href="https://youtube.com/@asoftekitconsult?si=2nksTSydQtCHQztC" class="custom-social-link website"><i class="fab fa-youtube"></i></a>
           <a href="#" class="custom-social-link linkedin"><i class="fab fa-linkedin-in"></i></a>
           <a href="#" class="custom-social-link twitter"><i class="fab fa-x-twitter"></i></a>
@@ -172,11 +173,11 @@
 
   <section class="services-section">
     <div class="circle-bg-alt"></div>
-    <h1 class="title">About Us</h1>
+    <h1 class="title">Contact Me</h1>
     <div class="button-group">
       <span class="button">Home</span>
       <span class="divider">||</span>
-      <span class="button active">About-us</span>
+      <span class="button active">Contact</span>
     </div>
     <script>
       /**
@@ -201,15 +202,276 @@
     </script>
   </section> 
 
+  <section class="contact">
+
+    <div class="contact-section">
+      <!-- MAP -->
+      <div class="contact-map">
+        <iframe 
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3151.83482473909!2d-0.2538489992666604!3d5.529156357316918!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad65d43fbf3a4ef%3A0x3d76e4f3cce6da27!2s[YourLocation]!5e0!3m2!1sen!2sgh!4v1618989200981!5m2!1sen!2sgh" 
+          allowfullscreen="" 
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+      </div>
+      
+      
+      
+      
+      
+      
+  
+      <!-- CONTENT AREA -->
+       
+      <div class="contact-content">
+        <!-- CONTACT INFO -->
+         
+        <div class="contact-info">
+          <div class="info-box">
+            <h4><i class="fas fa-phone"></i> Phone:</h4>
+            <p><a href="tel:+233534829203" class="phone-link">+233534829203</a></p>
+          </div>
+          
+          
+          <div class="info-box">
+            <h4><i class="fas fa-envelope"></i> Email:</h4>
+            <p><a href="mailto:lawrenceantwi63@gmail.com" class="email-link">lawrenceantwi63@gmail.com</a></p>
+          </div>
+          
+          <div class="info-box">
+            <h4><i class="fas fa-globe"></i> Portfolio:</h4>
+            <p><a href="https://www.linkedin.com/in/yourusername" target="_blank" class="portfolio-link">LinkedIn Profile</a></p>
+          </div>
+          
+          <div class="info-box">
+            <h4><i class="fas fa-map-marker-alt"></i> Address:</h4>
+            <p>Greater Accra Region, Ghana</p>
+          </div>
+  
+          <!-- FOLLOW ME -->
+          <div class="follow-me">
+            <h4>Follow Me</h4>
+            <div class="follow-icons">
+              <a href="#" class="social-link facebook"><i class="fab fa-facebook-f"></i></a>
+              <a href="#" class="social-link twitter"><i class="fab fa-x-twitter"></i></a> <!-- changed from fa-twitter -->
+              <a href="#" class="social-link website"><i class="fab fa-instagram"></i></a> <!-- assuming Instagram for "website" -->
+              <a href="#" class="social-link linkedin"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+          </div> 
+          <script>
+            const icons = document.querySelectorAll('.social-link');
+            let currentIndex = 0;
+            let intervalId = null;
+            let isPausedByHover = false;
+          
+            function startAnimationLoop() {
+              intervalId = setInterval(() => {
+                icons.forEach(icon => icon.classList.remove('animate'));
+                icons[currentIndex].classList.add('animate');
+          
+                currentIndex = (currentIndex + 1) % icons.length;
+              }, 2000);
+            }
+          
+            function stopAnimationLoop() {
+              clearInterval(intervalId);
+            }
+          
+            // Start the loop on load
+            startAnimationLoop();
+          
+            icons.forEach((icon, index) => {
+              icon.addEventListener('mouseenter', () => {
+                stopAnimationLoop();             // Pause the auto loop
+                isPausedByHover = true;
+          
+                icons.forEach(i => i.classList.remove('animate'));
+                icon.classList.add('animate');   // Focus pulse
+              });
+          
+              icon.addEventListener('mouseleave', () => {
+                icon.classList.remove('animate'); // Stop individual pulse
+          
+                if (isPausedByHover) {
+                  isPausedByHover = false;
+                  startAnimationLoop();           // Resume auto loop
+                }
+              });
+            });
+          </script>
+                   
+        </div>
+  
+        <!-- CONTACT FORM -->
+        <div class="contact-form scroll-slide-up">
+          <small class="form-subtitle scroll-slide-up">|| Get In Touch</small>
+          <h2 class="scroll-slide-up">If you have any project or need help. Contact me</h2>
+          <p class="scroll-slide-up">
+            I'm passionate about turning ideas into powerful digital experiences. 
+            Whether it's building responsive websites, crafting clean code, or solving real-world problems with tech — I'm here to help.
+            Let's bring your vision to life with creativity, precision, and purpose.
+          </p>
+        
+          <form action="#" method="POST" class="scroll-slide-up">
+            <div class="form-row scroll-slide-up">
+              <input type="text" name="name" placeholder="Name" required class="scroll-slide-up">
+              <input type="email" name="email" placeholder="Email" required class="scroll-slide-up">
+            </div>
+            <div class="form-row scroll-slide-up">
+              <input type="text" name="phone" placeholder="Phone" required class="scroll-slide-up">
+              <input type="text" name="subject" placeholder="Subject" required class="scroll-slide-up">
+            </div>
+            <textarea name="comment" rows="5" placeholder="Comment" required class="scroll-slide-up"></textarea>
+            <button type="submit" class="submit-btn scroll-slide-up">Submit Message</button>
+          </form>
+        </div>
+
+        <script>
+          if (typeof scrollSlideUpObserver === 'undefined') {
+            const scrollSlideUpObserver = new IntersectionObserver((entries) => {
+              entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                  entry.target.classList.add('active');
+                }
+              });
+            }, {
+              threshold: 0.15
+            });
+        
+            document.querySelectorAll('.scroll-slide-up').forEach(el => {
+              scrollSlideUpObserver.observe(el);
+            });
+          }
+        </script>
+        
+        
+      </div>
+    </div>
+  
+  </section>
+
+
 
   
- 
+<div class="newsletter-section">
+  <!-- Circles -->
+  <div class="circle top-left">
+    <div class="inner-circle"></div>
+  </div>
+
+  <div class="circle top-right">
+    <div class="inner-circle"></div>
+  </div>
+
+  <div class="circle bottom-left"></div>
+  <div class="circle bottom-right"></div>
+
+  <div class="news">
+          <!-- Small label / tagline -->
+     <div class="small-label scroll-animation">|| Get Latest Updates</div>
+
+        <!-- Main heading -->
+     <h2 class="newsletter-title scroll-animation">Subscribe For Newsletter</h2>
+
+      <!-- Newsletter form -->
+     <form class="newsletter-form scroll-animation">
+        <input type="email" placeholder="E-mail @gmail.com" required />
+        <button type="submit">Subscribe Now</button>
+      </form>
+
+  </div>
+
+  
+
+  <!-- Contact row -->
+  <div class="contact-row scroll-animation">
+   
+    <div class="contact-item">
+      <div class="icon-circle">
+        <i class="fa fa-phone"></i>
+      </div>
+      <span><a href="tel:+233534829603" class="contact-link">+233 53 482 9603</a></span>
+    </div>
+    
+    <!-- Email -->
+    <div class="contact-item">
+      <div class="icon-circle">
+        <i class="fa fa-envelope"></i>
+      </div>
+      <span><a href="mailto:lawrenceantwi63@gmail.com" class="contact-link">lawrenceantwi63@gmail.com</a></span>
+    </div>
     
 
+    <!-- Social Icons -->
+    <div class="contact-item social-icons scroll-animation">
+      <div class="icon-circle">
+        <i class="fab fa-facebook-f"></i>
+      </div>
+      <div class="icon-circle">
+        <i class="fab fa-youtube"></i> <!-- Updated to YouTube icon -->
+      </div>
+      <div class="icon-circle">
+        <i class="fab fa-linkedin-in"></i>
+      </div>
+      <div class="icon-circle">
+        <i class="fab fa-x-twitter"></i>
+      </div>
+    </div>
+  </div>
 
   
-  <!-- Font Awesome for download icon -->
-  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+  <!-- Footer -->
+  <div class="footer-container">
+    <div class="footer-divider"></div> <!-- Full-width line -->
+    <div class="footer-info">
+      <div class="footer-left">
+        © 2025 A+ Softek. Made with <span style="color: red;">&#10084;</span> by Lawrence
+      </div>
+      <div class="footer-right">
+        <div class="footer-brand">
+          <div class="footer-brand-logo">
+            <img src="Logo.jpg" alt="A+ Softek Logo">
+          </div>
+          <span class="footer-brand-name">A+ SOFTEK</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+ 
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+  const elements = document.querySelectorAll(".scroll-animation");
+
+  function checkScroll() {
+    elements.forEach((el) => {
+      const rect = el.getBoundingClientRect();
+      if (rect.top < window.innerHeight * 0.85) {
+        el.classList.add("show"); // Add class to trigger animation
+      }
+    });
+  }
+
+  window.addEventListener("scroll", checkScroll);
+  checkScroll(); // Run once on load
+});
+
+  </script>
+
+  
+
+
+
+
+
+
+
+
+
+  
+
+
 
 
 </body>
