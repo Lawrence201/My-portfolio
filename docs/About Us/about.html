@@ -198,6 +198,126 @@
 
 
 
+  <div class="resume-wrapper">
+    <div class="resume-section">
+      <div class="resume-tabs">
+        <div class="resume-tab tab-selected">Education</div>
+        <div class="resume-tab">Experience</div>
+      </div>
+
+      <div class="resume-content" id="education-details">
+
+        <div class="resume-content">
+          <div class="resume-timeline-container">
+            <div class="resume-timeline">
+              <div class="resume-time time-1">2021 – 2023</div>
+              <div class="resume-time time-2">2024 – 2025</div>
+              <div class="resume-time time-3">2015 – 2018</div>
+            </div>
+          </div>
+          
+    
+          <div class="resume-details">
+            <div class="resume-block">
+              <h3 class="resume-title">Bachelor of Science in Information Technology (Diploma)</h3>
+              <h4 class="resume-subtitle">Ghana Communication Technology University</h4>
+              <p class="resume-description">
+                A dynamic program that equips students with the essential knowledge and skills in Information Technology. 
+                The program focuses on the practical application of IT, preparing graduates for a broad range of technical careers. 
+                Throughout the course, students will gain experience in various areas including software development, network management, 
+                and data analysis, laying the foundation for a successful career in the ever-evolving tech industry.
+              </p>
+            </div>
+            
+    
+            <div class="resume-block">
+              <h3 class="resume-title">Bachelor of Science in Information Technology (Degree)</h3>
+              <h4 class="resume-subtitle">Ghana Communication Technology University</h4>
+              <p class="resume-description">
+                  The BSc in Information Technology at Ghana Communication Technology University equips students with essential IT skills, covering areas like software development, network security, and database management. The program focuses on practical knowledge and problem-solving, preparing graduates for successful careers in the tech industry.
+              </p>
+  
+            </div>
+    
+            <div class="resume-block">
+              <h3 class="resume-title">Bachelor of Graphic Arts</h3>
+              <h4 class="resume-subtitle">IPMC, Accra</h4>
+              <p class="resume-description">
+                Passionate about visual communication, I pursued a Bachelor of Graphic Arts to harness the power of design in transforming ideas into engaging experiences. At UC Berkeley, I explored the intersection of creativity and technology, developing innovative solutions that resonated with diverse audiences. This journey fueled my purpose to create impactful designs that solve real-world challenges, from branding to digital media. Throughout my studies, I honed skills in visual storytelling, typography, and digital design tools, preparing me for a career focused on designing meaningful experiences.
+              </p>
+            </div>
+            
+          </div>
+        </div>
+        
+      </div>
+      
+  
+      
+
+      <div class="resume-details experience-section" id="experience-details" style="display: none;">
+        <div class="resume">
+          <h3 class="resume-title">Software Engineer Intern</h3>
+          <h4 class="resume-subtitle">Tech Innovations Ltd, Accra</h4>
+          <p class="resume-description">
+            During my internship at Tech Innovations, I worked on the development of web applications using JavaScript and Python, contributing to the design and implementation of key features that improved the user experience. I collaborated with the engineering team to troubleshoot and debug existing systems and was involved in the integration of new APIs, enhancing the overall functionality of client solutions.
+          </p>
+        </div>
+      
+        <div class="resume">
+          <h3 class="resume-title">Junior Web Developer</h3>
+          <h4 class="resume-subtitle">Dev Solutions, Accra</h4>
+          <p class="resume-description">
+            As a Junior Web Developer at Dev Solutions, I contributed to building responsive websites using HTML, CSS, and JavaScript. I focused on ensuring cross-browser compatibility and improving performance by optimizing code. My role also included collaborating with clients to ensure their needs were met and providing timely updates on project milestones.
+          </p>
+        </div>
+      
+        <div class="resume">
+          <h3 class="resume-title">Graphic Design Intern</h3>
+          <h4 class="resume-subtitle">Creative Minds Studio, Accra</h4>
+          <p class="resume-description">
+            As an intern at Creative Minds Studio, I worked on creating branding materials, including logos, brochures, and digital assets for marketing campaigns. I collaborated closely with the senior designers and contributed to projects from concept to completion, honing my skills in visual design software such as Adobe Illustrator and Photoshop.
+          </p>
+        </div>
+         
+      </div>
+
+      <script>
+        const educationTab = document.querySelector('.resume-tab:nth-child(1)');
+        const experienceTab = document.querySelector('.resume-tab:nth-child(2)');
+        const educationSection = document.getElementById('education-details');
+        const experienceSection = document.getElementById('experience-details');
+      
+        // On page load, make sure Education is visible
+        window.addEventListener('DOMContentLoaded', () => {
+          educationSection.classList.add('show-section');
+          educationTab.classList.add('tab-selected');
+          experienceSection.classList.remove('show-section');
+          experienceTab.classList.remove('tab-selected');
+        });
+      
+        educationTab.addEventListener('click', function() {
+          educationSection.classList.add('show-section');
+          experienceSection.classList.remove('show-section');
+          educationTab.classList.add('tab-selected');
+          experienceTab.classList.remove('tab-selected');
+        });
+      
+        experienceTab.addEventListener('click', function() {
+          experienceSection.classList.add('show-section');
+          educationSection.classList.remove('show-section');
+          experienceTab.classList.add('tab-selected');
+          educationTab.classList.remove('tab-selected');
+        });
+      </script>
+      
+      
+      
+      
+
+      
+    </div>
+  </div>
 
 
 
