@@ -45,11 +45,11 @@
       <nav id="mainNav">
         
         <ul>
-          <li><a href="../Home/index.html" id="homeLink">Home <i class="fas fa-home icon-home"></i></a></li>
-          <li><a href="../Services/Service.html" id="serviceLink">Service <i class="fas fa-cogs icon-service"></i></a></li>
+          <li><a href="../index.html" id="homeLink">Home <i class="fas fa-home icon-home"></i></a></li>
+          <li><a href="../services/service.html" id="serviceLink">Service <i class="fas fa-cogs icon-service"></i></a></li>
           <li><a href="../Blog/blog.html" id="blogLink">Blog <i class="fas fa-blog icon-blog"></i></a></li>
           <li><a href="../About%20Us/about.html" id="aboutLink">About Us <i class="fas fa-user icon-pages"></i></a></li>
-          <li><a href="../Contact%20Us/contact.html" id="contactLink">Contact <i class="fas fa-phone icon-contact"></i></a></li> 
+          <li><a href="../Contact%20Us/contact.html" id="contactLink">Contact <i class="fas fa-phone icon-contact"></i></a></li>
         </ul>
 
         <script>
@@ -141,7 +141,7 @@
       
       </nav>
   
-      <a href="#" class="hire-me-btn">Let's Talk</a>
+      <a href="../Hire%20Me/hire.html" class="hire-me-btn">Let's Talk</a>
     </div>
   </header>
 
@@ -178,6 +178,27 @@
       <span class="divider">||</span>
       <span class="button active">About-us</span>
     </div>
+    <script>
+      /**
+       * Set dynamic viewport height to handle mobile browser UI shifts,
+       * especially useful for PWAs and fullscreen experiences.
+       */
+      function setFullVh() {
+        const vh = window.visualViewport
+          ? window.visualViewport.height * 0.01
+          : window.innerHeight * 0.01;
+        document.documentElement.style.setProperty('--vh', `${vh}px`);
+      }
+    
+      // Run once when the page loads
+      window.addEventListener('load', setFullVh);
+    
+      // Recalculate on device orientation change (e.g., portrait to landscape)
+      window.addEventListener('orientationchange', () => {
+        // Delay ensures visualViewport has updated dimensions
+        setTimeout(setFullVh, 300);
+      });
+    </script>
   </section> 
 
 

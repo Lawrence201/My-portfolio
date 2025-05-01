@@ -357,7 +357,7 @@ transition: all 0.3s ease;
   }
 
   .custom-social-link.website:hover {
-    background-color: red /* Vibrant Orange */
+    background-color: red; /* Vibrant Orange */
   }
 
   .custom-social-link.linkedin:hover {
@@ -460,7 +460,7 @@ transition: all 0.3s ease;
     height: 100vh;
     width: 0;
     overflow: hidden;
-    background-color: #1c1e2f;
+    background-color: #121424;
     transition: width 0.8s ease;
     z-index: 999;
   }
@@ -571,7 +571,7 @@ transition: all 0.3s ease;
    height: 100vh;
    width: 0;
    overflow: hidden;
-   background-color: #1c1e2f;
+   background-color: #121424;
    transition: width 0.8s ease;
    z-index: 999;
  }
@@ -682,7 +682,7 @@ transition: all 0.3s ease;
   height: 100vh;
   width: 0;
   overflow: hidden;
-  background-color: #1c1e2f;
+  background-color: #121424;
   transition: width 0.8s ease;
   z-index: 999;
 }
@@ -765,97 +765,150 @@ transition: all 0.3s ease;
 }
 
 
+ 
   
 /* Add padding-top to avoid overlap */
 .services-section {
-    position: relative;
-    background-color:#121424;
-    height: 80vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
-    z-index: 0;
-    padding-top: 80px; /* Adjust based on your header height */
+  position: relative;
+  background-color:#121424;
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  z-index: 0;
+  padding-top: 80px; /* Adjust based on your header height */
+}
+
+.title {
+  font-family: 'Georgia', serif;
+  color: #ffffff;
+  font-size: 70px;
+  margin-bottom: 30px;
+  font-weight: 400; /* or use lighter for even softer look */
+  z-index: 2;
+}
+
+.button-group {
+  display: inline-flex;
+  align-items: center;
+  background-color: #1c1e2f;
+  border-radius: 40px;
+  padding: 10px 20px;
+  z-index: 2;
+  position: relative;
+}
+
+.button {
+  color: #777c96;
+  padding: 8px 16px;
+  font-size: 18px;
+  font-weight: 500;
+  border-radius: 30px;
+}
+
+.button.active {
+  color: #ffffff;
+}
+
+.divider {
+  color: #555;
+  margin: 0 10px;
+  font-weight: bold;
+}
+/* Add the slide-up animation */
+@keyframes slideUp {
+  0% {
+    transform: translateY(30px); /* Start from below the screen */
+    opacity: 0; /* Make it invisible at the start */
   }
-  
-  .title {
-    font-family: 'Georgia', serif;
-    color: #ffffff;
-    font-size: 70px;
-    margin-bottom: 30px;
-    font-weight: 400; /* or use lighter for even softer look */
-    z-index: 2;
+  100% {
+    transform: translateY(0); /* End at the normal position */
+    opacity: 1; /* Make it fully visible */
   }
-  
-  .button-group {
-    display: inline-flex;               /* Display buttons side-by-side */
-    align-items: center;               /* Vertically center contents */
-    background-color: #2c2e3f;         /* Dark but soft background */
-    border-radius: 40px;               /* Smooth pill-shaped corners */
-    padding: 10px 24px;                /* Padding for breathing room */  
-    position: relative;                /* Needed for layering with z-index */
-    z-index: 2;                        /* Ensure it stays above background items */
-    gap: 20px;                         /* Space between buttons */
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
-    transition: background-color 0.3s ease;   /* Smooth background transition */
-  }
-  
-  .button {
-    color: #777c96;
-    padding: 8px 16px;
-    font-size: 18px;
-    font-weight: 500;
-    border-radius: 30px;
-  }
-  
-  .button.active {
-    color: #ffffff;
-  }
-  
-  .divider {
-    color: #555;
-    margin: 0 10px;
-    font-weight: bold;
-  }
-  /* Add the slide-up animation */
-  @keyframes slideUp {
-    0% {
-      transform: translateY(30px); /* Start from below the screen */
-      opacity: 0; /* Make it invisible at the start */
-    }
-    100% {
-      transform: translateY(0); /* End at the normal position */
-      opacity: 1; /* Make it fully visible */
-    }
-  }
-  
-  /* Apply animation to the title and button group */
-  .title, .button-group {
-    animation: slideUp 1s ease-out; /* Slide in from the bottom */
-    animation-fill-mode: both; /* Ensure the final state remains after animation */
-  }
-  
-  /* Delay the animation for each element */
-  .title {
-    animation-delay: 0.3s; /* Delay for title */
-  }
-  
-  .button-group {
-    animation-delay: 0.6s; /* Delay for button group */
-  }
-  
-  
-  
-  
-  @media (max-width: 1023px) {
-     
+}
+
+/* Apply animation to the title and button group */
+.title, .button-group {
+  animation: slideUp 1s ease-out; /* Slide in from the bottom */
+  animation-fill-mode: both; /* Ensure the final state remains after animation */
+}
+
+/* Delay the animation for each element */
+.title {
+  animation-delay: 0.3s; /* Delay for title */
+}
+
+.button-group {
+  animation-delay: 0.6s; /* Delay for button group */
+}
+
+
+
+
+@media (max-width: 1023px) {
+   
+/* Add padding-top to avoid overlap */
+.services-section {
+  position: relative;
+  background-color: #121424;
+  min-height: calc(var(--vh) * 40);
+  height: auto; /* Let it grow */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  z-index: 0;
+  padding-top: 80px; /* Adjust based on your header height */
+}
+
+.title {
+  font-family: 'Georgia', serif;
+  color: #ffffff;
+  font-size: 50px;
+  margin-bottom: 30px;
+  font-weight: 400; /* or use lighter for even softer look */
+  z-index: 2;
+}
+
+.button-group {
+  display: inline-flex;
+  align-items: center;
+  background-color: #1c1e2f;
+  border-radius: 40px;
+  padding: 10px 20px;
+  z-index: 2;
+  position: relative;
+}
+
+.button {
+  color: #777c96;
+  padding: 8px 16px;
+  font-size: 18px;
+  font-weight: 500;
+  border-radius: 30px;
+}
+
+.button.active {
+  color: #ffffff;
+}
+
+.divider {
+  color: #555;
+  margin: 0 10px;
+  font-weight: bold;
+}
+}
+@media (max-width: 1023px)and (orientation: landscape) {
+   
   /* Add padding-top to avoid overlap */
   .services-section {
     position: relative;
-    background-color:#121424;
-    height: 40vh;
+    background-color: #121424;
+    min-height: calc(var(--vh) * 90);
+    height: auto; /* Let it grow */
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -902,165 +955,219 @@ transition: all 0.3s ease;
     font-weight: bold;
   }
   }
-  
-  
-  @media (min-width: 401px) and (max-width: 760px){ 
-    .services-section {
-      height: 60vh; 
+
+@media (min-width: 401px) and (max-width: 760px){ 
+  .services-section {
+    min-height: calc(var(--vh) * 60);
+    height: auto; /* Let it grow */
+  }
+    /* Adjust title size */
+    .title {
+      font-size: 40px; /* Decrease font size */
+      margin-bottom: 20px; /* Reduce margin for tighter layout */
     }
-      /* Adjust title size */
-      .title {
-        font-size: 40px; /* Decrease font size */
-        margin-bottom: 20px; /* Reduce margin for tighter layout */
-      }
+  
+    /* Adjust button group layout */
+    .button-group {
+      padding: 8px 15px; /* Reduce padding */
+    }
+  
+    /* Adjust individual button size */
+    .button {
+      font-size: 18px; /* Reduce font size */
+      padding: 6px 12px; /* Reduce padding */
+    }
     
-      /* Adjust button group layout */
-      .button-group {
-        padding: 8px 15px; /* Reduce padding */
-      }
-    
-      /* Adjust individual button size */
-      .button {
-        font-size: 18px; /* Reduce font size */
-        padding: 6px 12px; /* Reduce padding */
-      }
-      
-      /* Optional: Adjust button spacing */
-      .divider {
-        font-size: 18px; /* Make divider smaller */
-        margin: 0 8px; /* Adjust margin for tighter spacing */
-      }
-      .circle-bg-alt {
-        top: -80px; /* Adjust position if needed */
-        right: 80%; /* Adjust to position more centered */
-        width: 300px; /* Reduce size for smaller screens */
-        height: 300px;
-        transform: translate(0%, 10%); /* Adjust to move it down slightly */
-      }
-    
-      /* First inner circle */
-      .circle-bg-alt::after {
-        width: 250px; /* Adjust size for the smaller screen */
-        height: 250px;
-        top: 25px;
-        left: 25px;
-      }
-    
-      /* Second inner circle with gold tint */
-      .circle-bg-alt::before {
-        width: 200px; /* Adjust size for the smaller screen */
-        height: 200px;
-        top: 50px;
-        left: 50px;
-      }
+    /* Optional: Adjust button spacing */
+    .divider {
+      font-size: 18px; /* Make divider smaller */
+      margin: 0 8px; /* Adjust margin for tighter spacing */
+    }
+    .circle-bg-alt {
+      top: -80px; /* Adjust position if needed */
+      right: 80%; /* Adjust to position more centered */
+      width: 300px; /* Reduce size for smaller screens */
+      height: 300px;
+      transform: translate(0%, 10%); /* Adjust to move it down slightly */
+    }
+  
+    /* First inner circle */
+    .circle-bg-alt::after {
+      width: 250px; /* Adjust size for the smaller screen */
+      height: 250px;
+      top: 25px;
+      left: 25px;
+    }
+  
+    /* Second inner circle with gold tint */
+    .circle-bg-alt::before {
+      width: 200px; /* Adjust size for the smaller screen */
+      height: 200px;
+      top: 50px;
+      left: 50px;
+    }
+}
+/* Services Section Tablet Landscape Styles */
+@media (min-width: 401px) and (max-width: 760px) and (orientation: landscape) {
+  .services-section {
+    min-height: calc(var(--vh) * 90); /* Slightly reduce height for landscape */
+    height: auto; /* Let it grow */
   }
   
-  @media (min-width: 351px) and (max-width: 400px) {
-    .services-section {
-      height: 60vh; 
-    }
-      /* Adjust title size */
-      .title {
-        font-size: 40px; /* Decrease font size */
-        margin-bottom: 20px; /* Reduce margin for tighter layout */
-      }
-    
-      /* Adjust button group layout */
-      .button-group {
-        padding: 8px 15px; /* Reduce padding */
-      }
-    
-      /* Adjust individual button size */
-      .button {
-        font-size: 18px; /* Reduce font size */
-        padding: 6px 12px; /* Reduce padding */
-      }
-      
-      /* Optional: Adjust button spacing */
-      .divider {
-        font-size: 18px; /* Make divider smaller */
-        margin: 0 8px; /* Adjust margin for tighter spacing */
-      }
-      .circle-bg-alt {
-        top: -80px; /* Adjust position if needed */
-        right: 80%; /* Adjust to position more centered */
-        width: 300px; /* Reduce size for smaller screens */
-        height: 300px;
-        transform: translate(0%, 10%); /* Adjust to move it down slightly */
-      }
-    
-      /* First inner circle */
-      .circle-bg-alt::after {
-        width: 250px; /* Adjust size for the smaller screen */
-        height: 250px;
-        top: 25px;
-        left: 25px;
-      }
-    
-      /* Second inner circle with gold tint */
-      .circle-bg-alt::before {
-        width: 200px; /* Adjust size for the smaller screen */
-        height: 200px;
-        top: 50px;
-        left: 50px;
-      }
-  }
-  
-  @media (max-width: 350px) {
-    .services-section {
-      height: 70vh; 
-    }
-      /* Adjust title size */
+  /* Adjust title size for landscape */
   .title {
-    font-size: 28px; /* Decrease font size */
-    margin-bottom: 15px; /* Reduce margin for tighter layout */
+    font-size: 36px; /* Smaller font size */
+    margin-bottom: 15px; /* Reduced bottom margin for tighter spacing */
   }
-  
+
   /* Adjust button group layout */
   .button-group {
-    padding: 6px 12px; /* Reduce padding */
+    padding: 6px 12px; /* Reduced padding */
   }
-  
+
   /* Adjust individual button size */
   .button {
-    font-size: 16px; /* Reduce font size */
-    padding: 5px 10px; /* Reduce padding */
+    font-size: 16px; /* Reduced font size */
+    padding: 6px 10px; /* Adjust padding for a tighter look */
   }
-  
+
   /* Optional: Adjust button spacing */
   .divider {
-    font-size: 16px; /* Make divider smaller */
+    font-size: 16px; /* Smaller divider size */
     margin: 0 6px; /* Adjust margin for tighter spacing */
   }
-  
+
+  /* Adjust background circle positioning */
   .circle-bg-alt {
-    top: -60px; /* Adjust position for tighter placement */
-    right: 75%; /* Adjust to position more centered */
-    width: 250px; /* Adjust size for smaller screens */
+    top: -60px; /* Adjust position */
+    right: 70%; /* Position more centered */
+    width: 250px; /* Reduce size for landscape */
     height: 250px;
     transform: translate(0%, 10%); /* Adjust to move it down slightly */
   }
-  
+
   /* First inner circle */
   .circle-bg-alt::after {
-    width: 200px; /* Adjust size for the smaller screen */
+    width: 200px; /* Smaller size for landscape */
     height: 200px;
-    top: 25px;
-    left: 25px;
+    top: 20px; /* Adjust position */
+    left: 20px; /* Adjust position */
   }
-  
+
   /* Second inner circle with gold tint */
   .circle-bg-alt::before {
-    width: 150px; /* Adjust size for the smaller screen */
+    width: 150px; /* Smaller size for landscape */
     height: 150px;
-    top: 50px;
-    left: 50px;
+    top: 40px; /* Adjust position */
+    left: 40px; /* Adjust position */
   }
-  
-  } 
-  
- 
+}
 
+@media (min-width: 351px) and (max-width: 400px) {
+  .services-section {
+    min-height: calc(var(--vh) * 60);
+    height: auto; /* Let it grow */
+  }
+    /* Adjust title size */
+    .title {
+      font-size: 40px; /* Decrease font size */
+      margin-bottom: 20px; /* Reduce margin for tighter layout */
+    }
+  
+    /* Adjust button group layout */
+    .button-group {
+      padding: 8px 15px; /* Reduce padding */
+    }
+  
+    /* Adjust individual button size */
+    .button {
+      font-size: 18px; /* Reduce font size */
+      padding: 6px 12px; /* Reduce padding */
+    }
+    
+    /* Optional: Adjust button spacing */
+    .divider {
+      font-size: 18px; /* Make divider smaller */
+      margin: 0 8px; /* Adjust margin for tighter spacing */
+    }
+    .circle-bg-alt {
+      top: -80px; /* Adjust position if needed */
+      right: 80%; /* Adjust to position more centered */
+      width: 300px; /* Reduce size for smaller screens */
+      height: 300px;
+      transform: translate(0%, 10%); /* Adjust to move it down slightly */
+    }
+  
+    /* First inner circle */
+    .circle-bg-alt::after {
+      width: 250px; /* Adjust size for the smaller screen */
+      height: 250px;
+      top: 25px;
+      left: 25px;
+    }
+  
+    /* Second inner circle with gold tint */
+    .circle-bg-alt::before {
+      width: 200px; /* Adjust size for the smaller screen */
+      height: 200px;
+      top: 50px;
+      left: 50px;
+    }
+}
+
+@media (max-width: 350px) {
+  .services-section {
+    height: 70vh; 
+  }
+    /* Adjust title size */
+.title {
+  font-size: 28px; /* Decrease font size */
+  margin-bottom: 15px; /* Reduce margin for tighter layout */
+}
+
+/* Adjust button group layout */
+.button-group {
+  padding: 6px 12px; /* Reduce padding */
+}
+
+/* Adjust individual button size */
+.button {
+  font-size: 16px; /* Reduce font size */
+  padding: 5px 10px; /* Reduce padding */
+}
+
+/* Optional: Adjust button spacing */
+.divider {
+  font-size: 16px; /* Make divider smaller */
+  margin: 0 6px; /* Adjust margin for tighter spacing */
+}
+
+.circle-bg-alt {
+  top: -60px; /* Adjust position for tighter placement */
+  right: 75%; /* Adjust to position more centered */
+  width: 250px; /* Adjust size for smaller screens */
+  height: 250px;
+  transform: translate(0%, 10%); /* Adjust to move it down slightly */
+}
+
+/* First inner circle */
+.circle-bg-alt::after {
+  width: 200px; /* Adjust size for the smaller screen */
+  height: 200px;
+  top: 25px;
+  left: 25px;
+}
+
+/* Second inner circle with gold tint */
+.circle-bg-alt::before {
+  width: 150px; /* Adjust size for the smaller screen */
+  height: 150px;
+  top: 50px;
+  left: 50px;
+}
+
+} 
+  
  .hero-section {
     display: flex;
     align-items: center;
