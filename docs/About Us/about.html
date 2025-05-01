@@ -198,6 +198,158 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <!-- START OF TRUSTED COMPANY SECTION -->
+<div class="trusted-company-section">
+  
+  <div class="content-wrapper">
+    <p class="favourite-clients-label">|| Favourite Clients</p>
+    
+    <!-- Main heading -->
+    <h2 class="trusted-company-heading">Work With Trusted Company.</h2>
+    
+    <!-- Carousel container for mobile -->
+    <div class="logos-carousel-container">
+      <div class="logos-row">
+        <!-- Logo item #1 -->
+        <div class="logo-item active">
+          <img src="logos/divshot.svg" alt="Divshot Logo">
+          <p>Divshot COMPANY</p>
+        </div>
+        
+        <!-- Logo item #2 -->
+        <div class="logo-item">
+          <img src="logos/f1-1.svg" alt="F1-1 Logo">
+          <p>F1 Enterprise</p>
+        </div>
+        
+        <!-- Logo item #3 -->
+        <div class="logo-item">
+          <img src="logos/gatsby.svg" alt="Gatsby Logo">
+          <p>COMPANY</p>
+        </div>
+        
+      </div>
+    </div>
+    <script>
+      
+
+// JavaScript sliding of the logo (Phone Mode Only)
+document.addEventListener('DOMContentLoaded', function () {
+  const logos = document.querySelectorAll('.logos-row .logo-item');
+  let currentIndex = 0;
+
+  function isPhoneMode() {
+    return window.innerWidth <= 768; // Adjust as needed
+  }
+
+  // Function to display the active logo
+  function showLogo(index) {
+    logos.forEach((logo, i) => {
+      if (i === index) {
+        logo.classList.add('active');
+        logo.style.display = "flex"; // Ensure the current one is visible
+      } else {
+        logo.classList.remove('active');
+        logo.style.display = "none"; // Hide others
+      }
+    });
+  }
+
+  // Initialize: Show only the first logo
+  if (isPhoneMode()) {
+    showLogo(currentIndex);
+  }
+
+  // Variables to track touch positions
+  let touchstartX = 0;
+  let touchendX = 0;
+  const threshold = 50; // Minimum swipe distance to register
+
+  const logosRow = document.querySelector('.logos-row');
+
+  function addTouchListeners() {
+    if (isPhoneMode()) {
+      logosRow.addEventListener('touchstart', touchStartHandler);
+      logosRow.addEventListener('touchend', touchEndHandler);
+    } else {
+      logosRow.removeEventListener('touchstart', touchStartHandler);
+      logosRow.removeEventListener('touchend', touchEndHandler);
+    }
+  }
+
+  function touchStartHandler(e) {
+    touchstartX = e.touches[0].clientX; // Get initial touch X position
+  }
+
+  function touchEndHandler(e) {
+    touchendX = e.changedTouches[0].clientX; // Get final touch X position
+    handleSwipe();
+  }
+
+  // Handle swipe logic
+  function handleSwipe() {
+    if (!isPhoneMode()) return; // Ensure function only runs in phone mode
+
+    let swipeDistance = touchendX - touchstartX;
+
+    if (swipeDistance < -threshold) {
+      // Swipe Left: Show next logo
+      currentIndex = (currentIndex + 1) % logos.length; // Loop to the beginning
+      showLogo(currentIndex);
+    } else if (swipeDistance > threshold) {
+      // Swipe Right: Show previous logo
+      currentIndex = (currentIndex - 1 + logos.length) % logos.length; // Loop to the end
+      showLogo(currentIndex);
+    }
+  }
+
+  // Run once on page load
+  addTouchListeners();
+
+  // Check for screen size changes (e.g., resizing the window)
+  window.addEventListener('resize', addTouchListeners);
+});
+
+
+    </script>
+  </div>
+  
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+    const elements = document.querySelectorAll(".logos-row, .content-wrapper");
+
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add("show");
+            }
+        });
+    }, { threshold: 0.2 });
+
+    elements.forEach(el => observer.observe(el));
+});
+
+  </script>
+</div>
+
+
+
+
+
+
   
 <div class="newsletter-section">
   <!-- Circles -->
