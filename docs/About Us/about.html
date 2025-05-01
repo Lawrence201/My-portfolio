@@ -196,9 +196,62 @@
 
 
 
- 
+  <div class="hero-section">
+    
+    <div class="hero-left">
+        <div class="left-bg">
+          <div class="play-button" id="openVideo">
+            <div class="play-icon"></div>
+          </div>
+          
+          <div class="video-overlay" id="videoOverlay">
+            <div class="video-content">
+              <button class="close-btn" id="closeVideo">×</button>
+              <video controls id="popupVideo">
+                <source src="Our Service.MP4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+            </div>
+          </div>
+          <script>
+            const openBtn = document.getElementById('openVideo'); // the play-button
+            const closeBtn = document.getElementById('closeVideo');
+            const overlay = document.getElementById('videoOverlay');
+            const video = document.getElementById('popupVideo');
+          
+            openBtn.addEventListener('click', () => {
+              overlay.style.display = 'flex';
+              video.currentTime = 0;
+              video.play();
+            });
+          
+            closeBtn.addEventListener('click', () => {
+              overlay.style.display = 'none';
+              video.pause();
+              video.currentTime = 0;
+            });
+          </script>
+          
 
 
+          <a href="#" class="resume-button">
+            Get Resume <i class="fa fa-download"></i>
+          </a>
+        </div>
+    </div>
+      
+  
+    <div class="hero-right">
+      <h1>I’m Lawrence Egyin</h1>
+      <h2>Tech Enthusiast & Developer</h2>
+      <h3>Specializing in Programming, Web, and App Development</h3>
+      <p>Driven by a passion for technology, I’m focused on crafting innovative solutions through programming and development. With a keen interest in both web and app development, I’m constantly expanding my skills to create seamless, user-friendly experiences. Whether it’s building responsive websites or developing dynamic applications, I’m committed to pushing the boundaries of what’s possible in tech.</p>
+
+    </div>
+
+  </div>
+
+  
 
   <div class="resume-wrapper">
     <div class="resume-section">
