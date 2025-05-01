@@ -202,18 +202,7 @@
     </script>
   </section> 
 
-  <section class="contact">
-
-    <div class="contact-section">
-      <!-- MAP -->
-      <div class="contact-map">
-        <iframe 
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3151.83482473909!2d-0.2538489992666604!3d5.529156357316918!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad65d43fbf3a4ef%3A0x3d76e4f3cce6da27!2s[YourLocation]!5e0!3m2!1sen!2sgh!4v1618989200981!5m2!1sen!2sgh" 
-          allowfullscreen="" 
-          loading="lazy"
-          referrerpolicy="no-referrer-when-downgrade">
-        </iframe>
-      </div>
+ 
       
       
       
@@ -221,138 +210,537 @@
       
       
   
-      <!-- CONTENT AREA -->
-       
-      <div class="contact-content">
-        <!-- CONTACT INFO -->
-         
-        <div class="contact-info">
-          <div class="info-box">
-            <h4><i class="fas fa-phone"></i> Phone:</h4>
-            <p><a href="tel:+233534829203" class="phone-link">+233534829203</a></p>
+ 
+  <div class="hero-section">
+    
+    <div class="hero-left">
+        <div class="left-bg">
+          <div class="play-button" id="openVideo">
+            <div class="play-icon"></div>
           </div>
           
-          
-          <div class="info-box">
-            <h4><i class="fas fa-envelope"></i> Email:</h4>
-            <p><a href="mailto:lawrenceantwi63@gmail.com" class="email-link">lawrenceantwi63@gmail.com</a></p>
-          </div>
-          
-          <div class="info-box">
-            <h4><i class="fas fa-globe"></i> Portfolio:</h4>
-            <p><a href="https://www.linkedin.com/in/yourusername" target="_blank" class="portfolio-link">LinkedIn Profile</a></p>
-          </div>
-          
-          <div class="info-box">
-            <h4><i class="fas fa-map-marker-alt"></i> Address:</h4>
-            <p>Greater Accra Region, Ghana</p>
-          </div>
-  
-          <!-- FOLLOW ME -->
-          <div class="follow-me">
-            <h4>Follow Me</h4>
-            <div class="follow-icons">
-              <a href="#" class="social-link facebook"><i class="fab fa-facebook-f"></i></a>
-              <a href="#" class="social-link twitter"><i class="fab fa-x-twitter"></i></a> <!-- changed from fa-twitter -->
-              <a href="#" class="social-link website"><i class="fab fa-instagram"></i></a> <!-- assuming Instagram for "website" -->
-              <a href="#" class="social-link linkedin"><i class="fab fa-linkedin-in"></i></a>
+          <div class="video-overlay" id="videoOverlay">
+            <div class="video-content">
+              <button class="close-btn" id="closeVideo">×</button>
+              <video controls id="popupVideo">
+                <source src="Our Service.MP4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
             </div>
-          </div> 
+          </div>
           <script>
-            const icons = document.querySelectorAll('.social-link');
-            let currentIndex = 0;
-            let intervalId = null;
-            let isPausedByHover = false;
+            const openBtn = document.getElementById('openVideo'); // the play-button
+            const closeBtn = document.getElementById('closeVideo');
+            const overlay = document.getElementById('videoOverlay');
+            const video = document.getElementById('popupVideo');
           
-            function startAnimationLoop() {
-              intervalId = setInterval(() => {
-                icons.forEach(icon => icon.classList.remove('animate'));
-                icons[currentIndex].classList.add('animate');
+            openBtn.addEventListener('click', () => {
+              overlay.style.display = 'flex';
+              video.currentTime = 0;
+              video.play();
+            });
           
-                currentIndex = (currentIndex + 1) % icons.length;
-              }, 2000);
-            }
-          
-            function stopAnimationLoop() {
-              clearInterval(intervalId);
-            }
-          
-            // Start the loop on load
-            startAnimationLoop();
-          
-            icons.forEach((icon, index) => {
-              icon.addEventListener('mouseenter', () => {
-                stopAnimationLoop();             // Pause the auto loop
-                isPausedByHover = true;
-          
-                icons.forEach(i => i.classList.remove('animate'));
-                icon.classList.add('animate');   // Focus pulse
-              });
-          
-              icon.addEventListener('mouseleave', () => {
-                icon.classList.remove('animate'); // Stop individual pulse
-          
-                if (isPausedByHover) {
-                  isPausedByHover = false;
-                  startAnimationLoop();           // Resume auto loop
-                }
-              });
+            closeBtn.addEventListener('click', () => {
+              overlay.style.display = 'none';
+              video.pause();
+              video.currentTime = 0;
             });
           </script>
-                   
-        </div>
-  
-        <!-- CONTACT FORM -->
-        <div class="contact-form scroll-slide-up">
-          <small class="form-subtitle scroll-slide-up">|| Get In Touch</small>
-          <h2 class="scroll-slide-up">If you have any project or need help. Contact me</h2>
-          <p class="scroll-slide-up">
-            I'm passionate about turning ideas into powerful digital experiences. 
-            Whether it's building responsive websites, crafting clean code, or solving real-world problems with tech — I'm here to help.
-            Let's bring your vision to life with creativity, precision, and purpose.
-          </p>
-        
-          <form action="#" method="POST" class="scroll-slide-up">
-            <div class="form-row scroll-slide-up">
-              <input type="text" name="name" placeholder="Name" required class="scroll-slide-up">
-              <input type="email" name="email" placeholder="Email" required class="scroll-slide-up">
-            </div>
-            <div class="form-row scroll-slide-up">
-              <input type="text" name="phone" placeholder="Phone" required class="scroll-slide-up">
-              <input type="text" name="subject" placeholder="Subject" required class="scroll-slide-up">
-            </div>
-            <textarea name="comment" rows="5" placeholder="Comment" required class="scroll-slide-up"></textarea>
-            <button type="submit" class="submit-btn scroll-slide-up">Submit Message</button>
-          </form>
-        </div>
+          
 
-        <script>
-          if (typeof scrollSlideUpObserver === 'undefined') {
-            const scrollSlideUpObserver = new IntersectionObserver((entries) => {
-              entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                  entry.target.classList.add('active');
-                }
-              });
-            }, {
-              threshold: 0.15
-            });
-        
-            document.querySelectorAll('.scroll-slide-up').forEach(el => {
-              scrollSlideUpObserver.observe(el);
-            });
-          }
-        </script>
-        
+
+          <a href="#" class="resume-button">
+            Get Resume <i class="fa fa-download"></i>
+          </a>
+        </div>
+    </div>
+      
+  
+    <div class="hero-right">
+      <h1>I’m Lawrence Egyin</h1>
+      <h2>Tech Enthusiast & Developer</h2>
+      <h3>Specializing in Programming, Web, and App Development</h3>
+      <p>Driven by a passion for technology, I’m focused on crafting innovative solutions through programming and development. With a keen interest in both web and app development, I’m constantly expanding my skills to create seamless, user-friendly experiences. Whether it’s building responsive websites or developing dynamic applications, I’m committed to pushing the boundaries of what’s possible in tech.</p>
+
+    </div>
+
+  </div>
+
+
+
+  <div class="resume-wrapper">
+    <div class="resume-section">
+      <div class="resume-tabs">
+        <div class="resume-tab tab-selected">Education</div>
+        <div class="resume-tab">Experience</div>
+      </div>
+
+      <div class="resume-content" id="education-details">
+
+        <div class="resume-content">
+          <div class="resume-timeline-container">
+            <div class="resume-timeline">
+              <div class="resume-time time-1">2021 – 2023</div>
+              <div class="resume-time time-2">2024 – 2025</div>
+              <div class="resume-time time-3">2015 – 2018</div>
+            </div>
+          </div>
+          
+    
+          <div class="resume-details">
+            <div class="resume-block">
+              <h3 class="resume-title">Bachelor of Science in Information Technology (Diploma)</h3>
+              <h4 class="resume-subtitle">Ghana Communication Technology University</h4>
+              <p class="resume-description">
+                A dynamic program that equips students with the essential knowledge and skills in Information Technology. 
+                The program focuses on the practical application of IT, preparing graduates for a broad range of technical careers. 
+                Throughout the course, students will gain experience in various areas including software development, network management, 
+                and data analysis, laying the foundation for a successful career in the ever-evolving tech industry.
+              </p>
+            </div>
+            
+    
+            <div class="resume-block">
+              <h3 class="resume-title">Bachelor of Science in Information Technology (Degree)</h3>
+              <h4 class="resume-subtitle">Ghana Communication Technology University</h4>
+              <p class="resume-description">
+                  The BSc in Information Technology at Ghana Communication Technology University equips students with essential IT skills, covering areas like software development, network security, and database management. The program focuses on practical knowledge and problem-solving, preparing graduates for successful careers in the tech industry.
+              </p>
+  
+            </div>
+    
+            <div class="resume-block">
+              <h3 class="resume-title">Bachelor of Graphic Arts</h3>
+              <h4 class="resume-subtitle">IPMC, Accra</h4>
+              <p class="resume-description">
+                Passionate about visual communication, I pursued a Bachelor of Graphic Arts to harness the power of design in transforming ideas into engaging experiences. At UC Berkeley, I explored the intersection of creativity and technology, developing innovative solutions that resonated with diverse audiences. This journey fueled my purpose to create impactful designs that solve real-world challenges, from branding to digital media. Throughout my studies, I honed skills in visual storytelling, typography, and digital design tools, preparing me for a career focused on designing meaningful experiences.
+              </p>
+            </div>
+            
+          </div>
+        </div>
         
       </div>
-    </div>
+      
   
+      
+
+      <div class="resume-details experience-section" id="experience-details" style="display: none;">
+        <div class="resume">
+          <h3 class="resume-title">Software Engineer Intern</h3>
+          <h4 class="resume-subtitle">Tech Innovations Ltd, Accra</h4>
+          <p class="resume-description">
+            During my internship at Tech Innovations, I worked on the development of web applications using JavaScript and Python, contributing to the design and implementation of key features that improved the user experience. I collaborated with the engineering team to troubleshoot and debug existing systems and was involved in the integration of new APIs, enhancing the overall functionality of client solutions.
+          </p>
+        </div>
+      
+        <div class="resume">
+          <h3 class="resume-title">Junior Web Developer</h3>
+          <h4 class="resume-subtitle">Dev Solutions, Accra</h4>
+          <p class="resume-description">
+            As a Junior Web Developer at Dev Solutions, I contributed to building responsive websites using HTML, CSS, and JavaScript. I focused on ensuring cross-browser compatibility and improving performance by optimizing code. My role also included collaborating with clients to ensure their needs were met and providing timely updates on project milestones.
+          </p>
+        </div>
+      
+        <div class="resume">
+          <h3 class="resume-title">Graphic Design Intern</h3>
+          <h4 class="resume-subtitle">Creative Minds Studio, Accra</h4>
+          <p class="resume-description">
+            As an intern at Creative Minds Studio, I worked on creating branding materials, including logos, brochures, and digital assets for marketing campaigns. I collaborated closely with the senior designers and contributed to projects from concept to completion, honing my skills in visual design software such as Adobe Illustrator and Photoshop.
+          </p>
+        </div>
+         
+      </div>
+
+      <script>
+        const educationTab = document.querySelector('.resume-tab:nth-child(1)');
+        const experienceTab = document.querySelector('.resume-tab:nth-child(2)');
+        const educationSection = document.getElementById('education-details');
+        const experienceSection = document.getElementById('experience-details');
+      
+        // On page load, make sure Education is visible
+        window.addEventListener('DOMContentLoaded', () => {
+          educationSection.classList.add('show-section');
+          educationTab.classList.add('tab-selected');
+          experienceSection.classList.remove('show-section');
+          experienceTab.classList.remove('tab-selected');
+        });
+      
+        educationTab.addEventListener('click', function() {
+          educationSection.classList.add('show-section');
+          experienceSection.classList.remove('show-section');
+          educationTab.classList.add('tab-selected');
+          experienceTab.classList.remove('tab-selected');
+        });
+      
+        experienceTab.addEventListener('click', function() {
+          experienceSection.classList.add('show-section');
+          educationSection.classList.remove('show-section');
+          experienceTab.classList.add('tab-selected');
+          educationTab.classList.remove('tab-selected');
+        });
+      </script>
+      
+      
+      
+      
+
+      
+    </div>
+  </div>
+
+
+
+  <!-- === Stats Section Start === -->
+    <section class="stats-section">
+      <!-- Happy Clients -->
+      <div class="stat-box">
+        <div class="stat-icon-wrapper">
+          <i class="fas fa-user stat-icon"></i>
+        </div>
+        <span class="stat-number count" data-count="75">0</span><span>+</span>
+        <div class="stat-label">Happy Clients</div>
+      </div>
+    
+      <!-- Project Complete -->
+      <div class="stat-box">
+        <div class="stat-icon-wrapper">
+          <i class="fas fa-globe stat-icon"></i>
+        </div>
+        <span class="stat-number count" data-count="120">0</span><span>+</span>
+        <div class="stat-label">Projects Completed</div>
+      </div>
+    
+      <!-- Years of Experience -->
+      <div class="stat-box">
+        <div class="stat-icon-wrapper">
+          <i class="fas fa-calendar-alt stat-icon"></i>
+        </div>
+        <span class="stat-number count" data-count="3">0</span><span>+</span>
+        <div class="stat-label">Years of Experience</div>
+      </div>
+  
+      <div class="stat-box">
+        <div class="stat-icon-wrapper">
+          <i class="fas fa-code stat-icon"></i>
+        </div>
+        <span class="stat-number count" data-count="10">0</span><span>+</span>
+        <div class="stat-label">Technologies Mastered</div>
+      </div>
+      
+      <script>
+        
+// Grab all elements with class 'count' the counting section
+const counters = document.querySelectorAll('.count');
+    
+    // Intersection Observer to trigger counting when in view
+    const options = {
+      root: null,       // viewport
+      rootMargin: '0px',
+      threshold: 0.2    // trigger when 20% of the element is visible
+    };
+    
+    const callback = (entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          // Start counting
+          const counter = entry.target;
+          const updateCount = () => {
+            const target = +counter.getAttribute('data-count');
+            const current = +counter.innerText;
+            // You can adjust speed by changing the divisor below
+            const increment = Math.ceil(target / 100);
+    
+            if (current < target) {
+              counter.innerText = current + increment;
+              setTimeout(updateCount, 30); // 30ms for smoother animation
+            } else {
+              counter.innerText = target; // final value
+            }
+          };
+          
+          updateCount();
+          // Once counted, unobserve so it doesn't trigger again
+          observer.unobserve(counter);
+        }
+      });
+    };
+    
+    const observer = new IntersectionObserver(callback, options);
+    counters.forEach(counter => observer.observe(counter));
+    
+    
+      </script>
   </section>
 
 
 
+
+  <div class="testimonial-section">
+    <!-- Section Title + Subtitle -->
+    <div class="testimonial-header">
+      <span class="testimonial-subtitle">|| Testimonial</span>
+      <h2 class="testimonial-title">Satisfied Clients Say</h2>
+    </div>
+
+    <div class="testimonial-slider-wrapper">
+      <div class="testimonial-slider-container">
+        <div class="testimonial-slider">
+          <!-- Slide 1 -->
+          <div class="testimonial-slide">
+            <div class="testimonial-quote">
+              <span class="quote-icon">“</span>
+              Lawrence is a creative and resourceful developer, 
+              always innovating and solving problems with excellence.
+            </div>
+            <div class="testimonial-author">
+              <h4>Sampson Boateng</h4>
+              <p>CEO, A+ Softeck Company</p>
+            </div>
+            <div class="testimonial-stars">
+              <span>&#9733;</span>
+              <span>&#9733;</span>
+              <span>&#9733;</span>
+              <span>&#9733;</span>
+              <span>&#9733;</span>
+            </div>
+          </div>
+    
+          <!-- Slide 2 -->
+          <div class="testimonial-slide">
+            <div class="testimonial-quote">
+              <span class="quote-icon">“</span>
+              Lawrence is a dedicated and innovative developer, 
+              always delivering creative and efficient solutions with precision and commitment.
+            </div>
+            <div class="testimonial-author">
+              <h4>Godfred Owusu</h4>
+              <p>CEO, Godsplan Enterprise</p>
+            </div>
+            <div class="testimonial-stars">
+              <span>&#9733;</span>
+              <span>&#9733;</span>
+              <span>&#9733;</span>
+              <span>&#9733;</span>
+              <span>&#9733;</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="testimonial-nav">
+      <button class="testimonial-prev">&#10094;</button>
+      <button class="testimonial-next">&#10095;</button>
+    </div>
+
+    <script>
+      
+//JS for the testemonal
+document.addEventListener('DOMContentLoaded', function() {
+  const slides = document.querySelectorAll('.testimonial-slide');
+  const nextButton = document.querySelector('.testimonial-next');
+  const prevButton = document.querySelector('.testimonial-prev');
+  let currentSlide = 0;
+
+  // Function to show the current slide
+  function showSlide(index) {
+    slides.forEach((slide, i) => {
+      slide.style.display = (i === index) ? 'block' : 'none';
+    });
+  }
+
+  // Function to go to the next slide
+  function nextSlide() {
+    currentSlide = (currentSlide + 1) % slides.length; // Loop back to the first slide
+    showSlide(currentSlide);
+  }
+
+  // Function to go to the previous slide
+  function prevSlide() {
+    currentSlide = (currentSlide - 1 + slides.length) % slides.length; // Loop back to the last slide
+    showSlide(currentSlide);
+  }
+
+  // Function to check screen size and activate slider only on 1028px and below
+  function handleScreenSizeChange() {
+    if (window.matchMedia("(max-width: 1028px)").matches) {
+      nextButton.addEventListener('click', nextSlide);
+      prevButton.addEventListener('click', prevSlide);
+      showSlide(currentSlide); // Show the first slide initially
+    } else {
+      // Reset styles if screen size is above 1028px
+      slides.forEach(slide => slide.style.display = 'block');
+      nextButton.removeEventListener('click', nextSlide);
+      prevButton.removeEventListener('click', prevSlide);
+    }
+  }
+
+  // Run on page load and whenever the screen is resized
+  handleScreenSizeChange();
+  window.addEventListener('resize', handleScreenSizeChange);
+});
+    </script>   
+
+    <!-- Scroll Animation Script -->
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const sliderWrapper = document.querySelector(".testimonial-slider-wrapper");
+    
+        function revealOnScroll() {
+          const sliderPosition = sliderWrapper.getBoundingClientRect().top;
+          const screenPosition = window.innerHeight / 1.3;
+    
+          if (sliderPosition < screenPosition) {
+            sliderWrapper.classList.add("active"); // Apply animation when in view
+            window.removeEventListener("scroll", revealOnScroll); // Optimize performance
+          }
+        }
+    
+        window.addEventListener("scroll", revealOnScroll);
+      });
+    </script>
+    
+  </div> 
+
+
+
+  <!-- START OF TRUSTED COMPANY SECTION -->
+<div class="trusted-company-section">
   
+  <div class="content-wrapper">
+    <p class="favourite-clients-label">|| Favourite Clients</p>
+    
+    <!-- Main heading -->
+    <h2 class="trusted-company-heading">Work With Trusted Company.</h2>
+    
+    <!-- Carousel container for mobile -->
+    <div class="logos-carousel-container">
+      <div class="logos-row">
+        <!-- Logo item #1 -->
+        <div class="logo-item active">
+          <img src="logos/divshot.svg" alt="Divshot Logo">
+          <p>Divshot COMPANY</p>
+        </div>
+        
+        <!-- Logo item #2 -->
+        <div class="logo-item">
+          <img src="logos/f1-1.svg" alt="F1-1 Logo">
+          <p>F1 Enterprise</p>
+        </div>
+        
+        <!-- Logo item #3 -->
+        <div class="logo-item">
+          <img src="logos/gatsby.svg" alt="Gatsby Logo">
+          <p>COMPANY</p>
+        </div>
+        
+      </div>
+    </div>
+    <script>
+      
+
+// JavaScript sliding of the logo (Phone Mode Only)
+document.addEventListener('DOMContentLoaded', function () {
+  const logos = document.querySelectorAll('.logos-row .logo-item');
+  let currentIndex = 0;
+
+  function isPhoneMode() {
+    return window.innerWidth <= 768; // Adjust as needed
+  }
+
+  // Function to display the active logo
+  function showLogo(index) {
+    logos.forEach((logo, i) => {
+      if (i === index) {
+        logo.classList.add('active');
+        logo.style.display = "flex"; // Ensure the current one is visible
+      } else {
+        logo.classList.remove('active');
+        logo.style.display = "none"; // Hide others
+      }
+    });
+  }
+
+  // Initialize: Show only the first logo
+  if (isPhoneMode()) {
+    showLogo(currentIndex);
+  }
+
+  // Variables to track touch positions
+  let touchstartX = 0;
+  let touchendX = 0;
+  const threshold = 50; // Minimum swipe distance to register
+
+  const logosRow = document.querySelector('.logos-row');
+
+  function addTouchListeners() {
+    if (isPhoneMode()) {
+      logosRow.addEventListener('touchstart', touchStartHandler);
+      logosRow.addEventListener('touchend', touchEndHandler);
+    } else {
+      logosRow.removeEventListener('touchstart', touchStartHandler);
+      logosRow.removeEventListener('touchend', touchEndHandler);
+    }
+  }
+
+  function touchStartHandler(e) {
+    touchstartX = e.touches[0].clientX; // Get initial touch X position
+  }
+
+  function touchEndHandler(e) {
+    touchendX = e.changedTouches[0].clientX; // Get final touch X position
+    handleSwipe();
+  }
+
+  // Handle swipe logic
+  function handleSwipe() {
+    if (!isPhoneMode()) return; // Ensure function only runs in phone mode
+
+    let swipeDistance = touchendX - touchstartX;
+
+    if (swipeDistance < -threshold) {
+      // Swipe Left: Show next logo
+      currentIndex = (currentIndex + 1) % logos.length; // Loop to the beginning
+      showLogo(currentIndex);
+    } else if (swipeDistance > threshold) {
+      // Swipe Right: Show previous logo
+      currentIndex = (currentIndex - 1 + logos.length) % logos.length; // Loop to the end
+      showLogo(currentIndex);
+    }
+  }
+
+  // Run once on page load
+  addTouchListeners();
+
+  // Check for screen size changes (e.g., resizing the window)
+  window.addEventListener('resize', addTouchListeners);
+});
+
+
+    </script>
+  </div>
+  
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+    const elements = document.querySelectorAll(".logos-row, .content-wrapper");
+
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add("show");
+            }
+        });
+    }, { threshold: 0.2 });
+
+    elements.forEach(el => observer.observe(el));
+});
+
+  </script>
+</div>
+
+
+
 <div class="newsletter-section">
   <!-- Circles -->
   <div class="circle top-left">
@@ -385,7 +773,7 @@
 
   <!-- Contact row -->
   <div class="contact-row scroll-animation">
-   
+    
     <div class="contact-item">
       <div class="icon-circle">
         <i class="fa fa-phone"></i>
@@ -400,7 +788,6 @@
       </div>
       <span><a href="mailto:lawrenceantwi63@gmail.com" class="contact-link">lawrenceantwi63@gmail.com</a></span>
     </div>
-    
 
     <!-- Social Icons -->
     <div class="contact-item social-icons scroll-animation">
@@ -458,6 +845,25 @@
 });
 
   </script>
+
+  
+  
+
+ 
+
+
+  
+ 
+    
+
+
+  
+  <!-- Font Awesome for download icon -->
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+
+       
+
 
   
 
