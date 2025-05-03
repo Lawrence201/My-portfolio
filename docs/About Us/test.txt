@@ -2147,6 +2147,8 @@ transition: all 0.3s ease;
   object-fit: cover;
   background: #000;
 }
+
+
 /* Tablet screens */
 @media screen and (max-width: 1026px) {
   .video-content {
