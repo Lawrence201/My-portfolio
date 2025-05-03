@@ -1219,35 +1219,7 @@ transition: all 0.3s ease;
   z-index: 9999;
 }
 
-/* Container for video and close button */
-.video-content {
-  position: relative;
-  width: 90%;
-  max-width: 800px;
-}
-/* ❌ Close button - always visible and clean */
-.close-btn {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  width: 35px;
-  height: 35px;
-  color: #fff;
-  font-size: 24px;
-  background: rgba(0, 0, 0, 0.6);
-  border: none;
-  border-radius: 50%;
-  cursor: pointer;
-  z-index: 10000;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: background 0.3s ease;
-}
 
-.close-btn:hover {
-  background: rgba(255, 255, 255, 0.3);
-}
 
 
 
