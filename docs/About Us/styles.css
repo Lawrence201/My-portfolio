@@ -1183,7 +1183,13 @@ transition: all 0.3s ease;
   gap: 40px; /* Reduced the space between left and right sections */
 
 }
-
+.hero-left {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+  margin-top: 80px; /* 👈 Moves the entire content down */
+}
 
 
 
