@@ -1219,6 +1219,12 @@ transition: all 0.3s ease;
   z-index: 9999;
 }
 
+/* Container for video and close button */
+.video-content {
+  position: relative;
+  width: 90%;
+  max-width: 800px;
+}
 
 
 
