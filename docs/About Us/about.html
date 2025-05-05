@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Contact Us</title>
+  <title>About Us</title>
   <link rel="icon" href="Logo2.png" type="image/png">
     <!-- Example Google Font import (Replace with whichever font is actually used) -->
     <link rel="preconnect" href="https://fonts.gstatic.com" />
@@ -45,37 +45,44 @@
       <nav id="mainNav">
         
         <ul>
-          <li><a href="../index.html" id="homeLink">Home <i class="fas fa-home icon-home"></i></a></li>
-          <li><a href="../services/service.html" id="serviceLink">Service <i class="fas fa-cogs icon-service"></i></a></li>
+          <li><a href="../Home/index.html" id="homeLink">Home <i class="fas fa-home icon-home"></i></a></li>
+          <li><a href="../Services/Service.html" id="serviceLink">Service <i class="fas fa-cogs icon-service"></i></a></li>
           <li><a href="../Blog/blog.html" id="blogLink">Blog <i class="fas fa-blog icon-blog"></i></a></li>
           <li><a href="../About%20Us/about.html" id="aboutLink">About Us <i class="fas fa-user icon-pages"></i></a></li>
-          <li><a href="../Contact%20Us/contact.html" id="contactLink">Contact <i class="fas fa-phone icon-contact"></i></a></li>
+          <li><a href="../Contact%20Us/contact.html" id="contactLink">Contact <i class="fas fa-phone icon-contact"></i></a></li> 
         </ul>
 
         <script>
-            // Get the current page URL
-            const currentPage = window.location.pathname.split("/").pop();
-          
-            // Select all navigation links
-            const homeLink = document.getElementById("homeLink");
-            const serviceLink = document.getElementById("serviceLink");
-            const contactLink = document.getElementById("contactLink");
-          
-            // Add 'active' class to the corresponding link based on the current page
-            if (currentPage === "index.html") {
-              homeLink.classList.add("active");
-            } else if (currentPage === "service.html") {
-              serviceLink.classList.add("active");
-            }else if (currentPage === "contact.html") {
-                contactLink.classList.add("active");
-            }
+          // Get the current page URL
+          const currentPage = window.location.pathname.split("/").pop();
+        
+          // Select all navigation links
+          const homeLink = document.getElementById("homeLink");
+          const serviceLink = document.getElementById("serviceLink");
+          const blogLink = document.getElementById("blogLink");
+          const contactLink = document.getElementById("contactLink");
+          const aboutLink = document.getElementById("aboutLink");
+        
+          // Add 'active' class to the corresponding link based on the current page
+          if (currentPage === "index.html") {
+            homeLink.classList.add("active");
+          } else if (currentPage === "Service.html") {
+            serviceLink.classList.add("active");
+          } else if (currentPage === "blog.html") {
+            blogLink.classList.add("active");
+          } else if (currentPage === "contact.html") {
+            contactLink.classList.add("active");
+          } else if (currentPage === "about.html") {
+            aboutLink.classList.add("active");
+          }
         </script>
+        
           
         
   
         <!-- Unique social media links -->
         <div class="custom-social-links">
-          <a href="https://wa.me/233534829203" class="custom-social-link facebook" target="_blank">  <i class="fab fa-whatsapp"></i> </a>
+          <a href="https://wa.me/233534829203" class="custom-social-link facebook" target="_blank">  <i class="fab fa-whatsapp"></i> </a> 
           <a href="https://youtube.com/@asoftekitconsult?si=2nksTSydQtCHQztC" class="custom-social-link website"><i class="fab fa-youtube"></i></a>
           <a href="#" class="custom-social-link linkedin"><i class="fab fa-linkedin-in"></i></a>
           <a href="#" class="custom-social-link twitter"><i class="fab fa-x-twitter"></i></a>
@@ -134,7 +141,7 @@
       
       </nav>
   
-      <a href="../Hire%20Me/hire.html" class="hire-me-btn">Let's Talk</a>
+      <a href="#" class="hire-me-btn">Let's Talk</a>
     </div>
   </header>
 
@@ -165,78 +172,43 @@
 
   <section class="services-section">
     <div class="circle-bg-alt"></div>
-    <h1 class="title">Contact Me</h1>
+    <h1 class="title">About Us</h1>
     <div class="button-group">
       <span class="button">Home</span>
       <span class="divider">||</span>
-      <span class="button active">Contact</span>
+      <span class="button active">About-us</span>
     </div>
-    <script>
-      /**
-       * Set dynamic viewport height to handle mobile browser UI shifts,
-       * especially useful for PWAs and fullscreen experiences.
-       */
-      function setFullVh() {
-        const vh = window.visualViewport
-          ? window.visualViewport.height * 0.01
-          : window.innerHeight * 0.01;
-        document.documentElement.style.setProperty('--vh', `${vh}px`);
-      }
-    
-      // Run once when the page loads
-      window.addEventListener('load', setFullVh);
-    
-      // Recalculate on device orientation change (e.g., portrait to landscape)
-      window.addEventListener('orientationchange', () => {
-        // Delay ensures visualViewport has updated dimensions
-        setTimeout(setFullVh, 300);
-      });
-    </script>
   </section> 
 
 
+  
   <div class="hero-section">
     
-    <div class="hero-left">
-        <div class="left-bg">
-          <div class="play-button" id="openVideo">
-            <div class="play-icon"></div>
-          </div>
-          
-          <div class="video-overlay" id="videoOverlay">
-            <div class="video-content">
-              <button class="close-btn" id="closeVideo">×</button>
-              <video controls id="popupVideo">
-                <source src="Our Service.MP4" type="video/mp4">
-                Your browser does not support the video tag.
-              </video>
-            </div>
-          </div>
-          <script>
-            const openBtn = document.getElementById('openVideo'); // the play-button
-            const closeBtn = document.getElementById('closeVideo');
-            const overlay = document.getElementById('videoOverlay');
-            const video = document.getElementById('popupVideo');
-          
-            openBtn.addEventListener('click', () => {
-              overlay.style.display = 'flex';
-              video.currentTime = 0;
-              video.play();
-            });
-          
-            closeBtn.addEventListener('click', () => {
-              overlay.style.display = 'none';
-              video.pause();
-              video.currentTime = 0;
-            });
-          </script>
-          
-
-
-          <a href="#" class="resume-button">
-            Get Resume <i class="fa fa-download"></i>
-          </a>
+   <div class="hero-left">
+      <div class="left-bg">
+        <div class="play-button" id="openVideo">
+          <div class="play-icon"></div>
         </div>
+        <div class="video-overlay" id="videoOverlay">
+          <div class="video-content">
+            <button class="close-btn" id="closeVideo">×</button>
+            <video controls id="popupVideo">
+              <source src="Our Service.MP4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+          </div>
+        </div>
+
+       
+
+        
+
+        <a href="#" class="resume-button">
+          Get Resume <i class="fa fa-download"></i>
+        </a>
+      
+      </div>
+   
     </div>
       
   
@@ -249,6 +221,26 @@
     </div>
 
   </div>
+
+  <script>
+    const openBtn = document.getElementById('openVideo'); // the play-button
+    const closeBtn = document.getElementById('closeVideo');
+    const overlay = document.getElementById('videoOverlay');
+    const video = document.getElementById('popupVideo');
+  
+    openBtn.addEventListener('click', () => {
+      overlay.style.display = 'flex';
+      video.currentTime = 0;
+      video.play();
+    });
+  
+    closeBtn.addEventListener('click', () => {
+      overlay.style.display = 'none';
+      video.pause();
+      video.currentTime = 0;
+    });
+  </script>
+
 
 
 
@@ -375,88 +367,87 @@
 
 
 
-
   <!-- === Stats Section Start === -->
-  <section class="stats-section">
-    <!-- Happy Clients -->
-    <div class="stat-box">
-      <div class="stat-icon-wrapper">
-        <i class="fas fa-user stat-icon"></i>
+    <section class="stats-section">
+      <!-- Happy Clients -->
+      <div class="stat-box">
+        <div class="stat-icon-wrapper">
+          <i class="fas fa-user stat-icon"></i>
+        </div>
+        <span class="stat-number count" data-count="75">0</span><span>+</span>
+        <div class="stat-label">Happy Clients</div>
       </div>
-      <span class="stat-number count" data-count="75">0</span><span>+</span>
-      <div class="stat-label">Happy Clients</div>
-    </div>
-  
-    <!-- Project Complete -->
-    <div class="stat-box">
-      <div class="stat-icon-wrapper">
-        <i class="fas fa-globe stat-icon"></i>
-      </div>
-      <span class="stat-number count" data-count="120">0</span><span>+</span>
-      <div class="stat-label">Projects Completed</div>
-    </div>
-  
-    <!-- Years of Experience -->
-    <div class="stat-box">
-      <div class="stat-icon-wrapper">
-        <i class="fas fa-calendar-alt stat-icon"></i>
-      </div>
-      <span class="stat-number count" data-count="3">0</span><span>+</span>
-      <div class="stat-label">Years of Experience</div>
-    </div>
-
-    <div class="stat-box">
-      <div class="stat-icon-wrapper">
-        <i class="fas fa-code stat-icon"></i>
-      </div>
-      <span class="stat-number count" data-count="10">0</span><span>+</span>
-      <div class="stat-label">Technologies Mastered</div>
-    </div>
     
-    <script>
+      <!-- Project Complete -->
+      <div class="stat-box">
+        <div class="stat-icon-wrapper">
+          <i class="fas fa-globe stat-icon"></i>
+        </div>
+        <span class="stat-number count" data-count="120">0</span><span>+</span>
+        <div class="stat-label">Projects Completed</div>
+      </div>
+    
+      <!-- Years of Experience -->
+      <div class="stat-box">
+        <div class="stat-icon-wrapper">
+          <i class="fas fa-calendar-alt stat-icon"></i>
+        </div>
+        <span class="stat-number count" data-count="3">0</span><span>+</span>
+        <div class="stat-label">Years of Experience</div>
+      </div>
+  
+      <div class="stat-box">
+        <div class="stat-icon-wrapper">
+          <i class="fas fa-code stat-icon"></i>
+        </div>
+        <span class="stat-number count" data-count="10">0</span><span>+</span>
+        <div class="stat-label">Technologies Mastered</div>
+      </div>
       
+      <script>
+        
 // Grab all elements with class 'count' the counting section
 const counters = document.querySelectorAll('.count');
-  
-  // Intersection Observer to trigger counting when in view
-  const options = {
-    root: null,       // viewport
-    rootMargin: '0px',
-    threshold: 0.2    // trigger when 20% of the element is visible
-  };
-  
-  const callback = (entries, observer) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        // Start counting
-        const counter = entry.target;
-        const updateCount = () => {
-          const target = +counter.getAttribute('data-count');
-          const current = +counter.innerText;
-          // You can adjust speed by changing the divisor below
-          const increment = Math.ceil(target / 100);
-  
-          if (current < target) {
-            counter.innerText = current + increment;
-            setTimeout(updateCount, 30); // 30ms for smoother animation
-          } else {
-            counter.innerText = target; // final value
-          }
-        };
-        
-        updateCount();
-        // Once counted, unobserve so it doesn't trigger again
-        observer.unobserve(counter);
-      }
-    });
-  };
-  
-  const observer = new IntersectionObserver(callback, options);
-  counters.forEach(counter => observer.observe(counter));
-  
-  
-    </script>
-</section>
+    
+    // Intersection Observer to trigger counting when in view
+    const options = {
+      root: null,       // viewport
+      rootMargin: '0px',
+      threshold: 0.2    // trigger when 20% of the element is visible
+    };
+    
+    const callback = (entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          // Start counting
+          const counter = entry.target;
+          const updateCount = () => {
+            const target = +counter.getAttribute('data-count');
+            const current = +counter.innerText;
+            // You can adjust speed by changing the divisor below
+            const increment = Math.ceil(target / 100);
+    
+            if (current < target) {
+              counter.innerText = current + increment;
+              setTimeout(updateCount, 30); // 30ms for smoother animation
+            } else {
+              counter.innerText = target; // final value
+            }
+          };
+          
+          updateCount();
+          // Once counted, unobserve so it doesn't trigger again
+          observer.unobserve(counter);
+        }
+      });
+    };
+    
+    const observer = new IntersectionObserver(callback, options);
+    counters.forEach(counter => observer.observe(counter));
+    
+    
+      </script>
+  </section>
 
 
 
@@ -587,11 +578,6 @@ document.addEventListener('DOMContentLoaded', function() {
     </script>
     
   </div> 
-
-
-
-
-
 
 
 
@@ -731,10 +717,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 
-
-
-
-  
 <div class="newsletter-section">
   <!-- Circles -->
   <div class="circle top-left">
@@ -767,7 +749,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
   <!-- Contact row -->
   <div class="contact-row scroll-animation">
-   
+    
     <div class="contact-item">
       <div class="icon-circle">
         <i class="fa fa-phone"></i>
@@ -782,7 +764,6 @@ document.addEventListener('DOMContentLoaded', function () {
       </div>
       <span><a href="mailto:lawrenceantwi63@gmail.com" class="contact-link">lawrenceantwi63@gmail.com</a></span>
     </div>
-    
 
     <!-- Social Icons -->
     <div class="contact-item social-icons scroll-animation">
@@ -842,18 +823,17 @@ document.addEventListener('DOMContentLoaded', function () {
   </script>
 
   
+  
 
-
-
-
-
-
-
+ 
+  
+ 
+    
 
 
   
-
-
+  <!-- Font Awesome for download icon -->
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 
 
 </body>
