@@ -38,31 +38,27 @@
         <div class="loading-bar"></div>
       </div>
     </div>
-
-    <script>
-      window.addEventListener('load', () => {
-        const loadingBar = document.querySelector('.loading-bar');
-        let width = 0;
-        const interval = setInterval(() => {
-          if (width >= 100) {
-            clearInterval(interval);
-            setTimeout(() => {
-              document.querySelector('.loading-container').style.display = 'none';
-              document.body.classList.remove('no-scroll');
-            }, 500); // Delay to hide loading screen after completion
-          } else {
-            width++;
-            loadingBar.style.width = width + '%';
-          }
-        }, 50); // Interval adjusted for a 7-second loading time
-      });
-    </script>
-    
-    
-    
-
-    
+   
   </body>
+
+  <script>
+    window.addEventListener('load', () => {
+      const loadingBar = document.querySelector('.loading-bar');
+      let width = 0;
+      const interval = setInterval(() => {
+        if (width >= 100) {
+          clearInterval(interval);
+          setTimeout(() => {
+            document.querySelector('.loading-container').style.display = 'none';
+            document.body.classList.remove('no-scroll');
+          }, 500); // Delay to hide loading screen after completion
+        } else {
+          width++;
+          loadingBar.style.width = width + '%';
+        }
+      }, 50); // Interval adjusted for a 7-second loading time
+    });
+  </script>
   
   
   
