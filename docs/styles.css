@@ -11,6 +11,199 @@ body {
   color: #FFFFFF; /* White text */
   overflow-x: hidden;
   background-color: #0F1116;
+  height: 100%;
+  background: #0d0d0d;
+  font-family: 'Helvetica Neue', sans-serif;
+}
+
+body.no-scroll {
+  overflow: hidden;
+}
+
+.loading-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #000;
+  z-index: 10000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.circle {
+  position: relative;
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(0, 255, 255, 0.2) 0%, transparent 70%);
+  animation: pulse 2s infinite ease-in-out;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 0 10px #0ff, 0 0 20px rgba(0, 255, 255, 0.4) inset;
+}
+
+.text {
+  text-align: center;
+  color: #0ff;
+  font-family: 'Orbitron', sans-serif;
+  letter-spacing: 2px;
+  animation: flicker 2s infinite alternate;
+  z-index: 1;
+}
+
+.text p {
+  font-size: 1.2rem;
+  margin: 0;
+  font-weight: bold;
+  text-shadow: 0 0 4px #0ff;
+  margin-bottom: 10px; /* Adjust the value to increase the gap */
+}
+
+.text span {
+  font-size: 0.9rem;
+  opacity: 0.8;
+  text-shadow: 0 0 3px #0ff;
+}
+
+
+/* Corrected placement of loading bar */
+.loading-bar-container {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 5px;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 2px;
+  margin: 0; /* Ensure no extra margin on bottom */
+}
+
+.loading-bar {
+  height: 100%;
+  width: 0;
+  background-color: #0ff;
+  border-radius: 2px;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.03); opacity: 0.7; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+@keyframes flicker {
+  0% { opacity: 1; }
+  50% { opacity: 0.85; }
+  100% { opacity: 1; }
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap');
+
+/* Media Query for 1028px screens */
+@media screen and (max-width: 1028px) {
+  .loading-container {
+    flex-direction: column; /* Adjust the layout if needed */
+  }
+
+  .circle {
+    width: 150px;
+    height: 150px; /* Resize the circle for smaller screens */
+  }
+
+  .text p {
+    font-size: 1rem; /* Adjust font size for better readability */
+  }
+
+  .text span {
+    font-size: 0.8rem;
+  }
+
+  .loading-bar-container {
+    height: 4px; /* Smaller loading bar */
+  }
+}
+
+/* Media Query for 780px screens */
+@media screen and (max-width: 780px) {
+  .loading-container {
+    flex-direction: column; /* Adjust layout */
+    padding: 10px; /* Add padding for better spacing */
+  }
+
+  .circle {
+    width: 120px;
+    height: 120px; /* Smaller circle */
+  }
+
+  .text p {
+    font-size: 0.9rem;
+    margin-bottom: 8px; /* Adjust margin */
+  }
+
+  .text span {
+    font-size: 0.75rem;
+  }
+
+  .loading-bar-container {
+    height: 3px; /* Even smaller loading bar */
+  }
+}
+
+/* Media Query for 370px screens */
+@media screen and (max-width: 370px) {
+  .loading-container {
+    flex-direction: column; /* Keep the layout vertical */
+    padding: 5px; /* Less padding */
+  }
+
+  .circle {
+    width: 100px;
+    height: 100px; /* Even smaller circle */
+  }
+
+  .text p {
+    font-size: 0.8rem; /* Smaller text */
+    margin-bottom: 6px;
+  }
+
+  .text span {
+    font-size: 0.7rem;
+  }
+
+  .loading-bar-container {
+    height: 2px; /* Tiny loading bar */
+  }
+}
+
+/* Media Query for 320px screens */
+@media screen and (max-width: 320px) {
+  .loading-container {
+    flex-direction: column; /* Maintain vertical layout */
+    padding: 5px; /* Keep minimal padding for small screens */
+  }
+
+  .circle {
+    width: 90px;
+    height: 90px; /* Even smaller circle for compact screens */
+  }
+
+  .text p {
+    font-size: 0.7rem; /* Further reduce font size */
+    margin-bottom: 5px; /* Reduce the margin between text */
+  }
+
+  .text span {
+    font-size: 0.6rem; /* Smaller span text */
+  }
+
+  .loading-bar-container {
+    height: 1px; /* Tiny loading bar for small screens */
+  }
 }
 
 

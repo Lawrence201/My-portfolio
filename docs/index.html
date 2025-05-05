@@ -26,6 +26,47 @@
 
 <body>
 
+  <body class="no-scroll">
+    <div class="loading-container">
+      <div class="circle">
+        <div class="text">
+          <p>LOADING PORTFOLIO</p>
+          <span>LAWRENCE EGYIN</span>
+        </div>
+      </div>
+      <div class="loading-bar-container">
+        <div class="loading-bar"></div>
+      </div>
+    </div>
+
+    <script>
+      window.addEventListener('load', () => {
+        const loadingBar = document.querySelector('.loading-bar');
+        let width = 0;
+        const interval = setInterval(() => {
+          if (width >= 100) {
+            clearInterval(interval);
+            setTimeout(() => {
+              document.querySelector('.loading-container').style.display = 'none';
+              document.body.classList.remove('no-scroll');
+            }, 500); // Delay to hide loading screen after completion
+          } else {
+            width++;
+            loadingBar.style.width = width + '%';
+          }
+        }, 70); // Interval adjusted for a 7-second loading time
+      });
+    </script>
+    
+    
+    
+
+    
+  </body>
+  
+  
+  
+
   <!-- HEADER / NAV -->
 <header>
   <div class="container">
@@ -438,7 +479,7 @@
       <div class="skill">
         <div class="skill-info">
           <span class="skill-name">Communication</span>
-          <span class="skill-value">75%</span>
+          <span class="skill-value">85%</span>
         </div>
         <div class="skill-bar">
           <div class="skill-bar-fill" data-percentage="83"></div>
@@ -449,7 +490,7 @@
       <div class="skill">
         <div class="skill-info">
           <span class="skill-name">Time Management</span>
-          <span class="skill-value">72%</span>
+          <span class="skill-value">82%</span>
         </div>
         <div class="skill-bar">
           <div class="skill-bar-fill" data-percentage="85"></div>
@@ -471,7 +512,7 @@
       <div class="skill">
         <div class="skill-info">
           <span class="skill-name">Problem Solving</span>
-          <span class="skill-value">78%</span>
+          <span class="skill-value">88%</span>
         </div>
         <div class="skill-bar">
           <div class="skill-bar-fill" data-percentage="78"></div>
@@ -482,7 +523,7 @@
       <div class="skill">
         <div class="skill-info">
           <span class="skill-name">Work Ethic</span>
-          <span class="skill-value">82%</span>
+          <span class="skill-value">90%</span>
         </div>
         <div class="skill-bar">
           <div class="skill-bar-fill" data-percentage="82"></div>
