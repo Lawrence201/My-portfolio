@@ -104,106 +104,75 @@ body.no-scroll {
 @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap');
 
 /* Media Query for 1028px screens */
-@media screen and (max-width: 1028px) {
-  .loading-container {
-    flex-direction: column; /* Adjust the layout if needed */
-  }
 
-  .circle {
-    width: 150px;
-    height: 150px; /* Resize the circle for smaller screens */
+
+/* Tablet screens (max-width: 1028px) */
+@media (max-width: 1028px) {
+  .pulse-glow {
+    width: 400px;
+    height: 400px;
   }
 
   .text p {
-    font-size: 1rem; /* Adjust font size for better readability */
+    font-size: 1.1rem;
+  }
+
+  .text span {
+    font-size: 0.85rem;
+  }
+}
+
+/* Small tablets or large phones (max-width: 780px) */
+@media (max-width: 780px) {
+  .pulse-glow {
+    width: 300px;
+    height: 300px;
+  }
+
+  .text p {
+    font-size: 1rem;
   }
 
   .text span {
     font-size: 0.8rem;
   }
-
-  .loading-bar-container {
-    height: 4px; /* Smaller loading bar */
-  }
 }
 
-/* Media Query for 780px screens */
-@media screen and (max-width: 780px) {
-  .loading-container {
-    flex-direction: column; /* Adjust layout */
-    padding: 10px; /* Add padding for better spacing */
-  }
-
-  .circle {
-    width: 120px;
-    height: 120px; /* Smaller circle */
+/* Small phones (max-width: 380px) */
+@media (max-width: 380px) {
+  .pulse-glow {
+    width: 220px;
+    height: 220px;
   }
 
   .text p {
-    font-size: 0.9rem;
-    margin-bottom: 8px; /* Adjust margin */
+    font-size: 0.95rem;
   }
 
   .text span {
     font-size: 0.75rem;
   }
-
-  .loading-bar-container {
-    height: 3px; /* Even smaller loading bar */
-  }
 }
 
-/* Media Query for 370px screens */
-@media screen and (max-width: 370px) {
-  .loading-container {
-    flex-direction: column; /* Keep the layout vertical */
-    padding: 5px; /* Less padding */
-  }
-
-  .circle {
-    width: 100px;
-    height: 100px; /* Even smaller circle */
+/* Extra small phones (max-width: 320px) */
+@media (max-width: 320px) {
+  .pulse-glow {
+    width: 180px;
+    height: 180px;
   }
 
   .text p {
-    font-size: 0.8rem; /* Smaller text */
-    margin-bottom: 6px;
+    font-size: 0.85rem;
   }
 
   .text span {
     font-size: 0.7rem;
   }
-
-  .loading-bar-container {
-    height: 2px; /* Tiny loading bar */
-  }
 }
 
-/* Media Query for 320px screens */
-@media screen and (max-width: 320px) {
-  .loading-container {
-    flex-direction: column; /* Maintain vertical layout */
-    padding: 5px; /* Keep minimal padding for small screens */
-  }
 
-  .circle {
-    width: 90px;
-    height: 90px; /* Even smaller circle for compact screens */
-  }
 
-  .text p {
-    font-size: 0.7rem; /* Further reduce font size */
-    margin-bottom: 5px; /* Reduce the margin between text */
-  }
 
-  .text span {
-    font-size: 0.6rem; /* Smaller span text */
-  }
-
-  .loading-bar-container {
-    height: 1px; /* Tiny loading bar for small screens */
-  }
-}
 
 
 /* Style for active link */
