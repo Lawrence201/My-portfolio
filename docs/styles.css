@@ -12,7 +12,6 @@ body {
   overflow-x: hidden;
   background-color: #0F1116;
   height: 100%;
-  background: #0d0d0d;
   font-family: 'Helvetica Neue', sans-serif;
 }
 
@@ -26,7 +25,7 @@ body.no-scroll {
   left: 0;
   width: 100vw;
   height: 100vh;
-  background-color: #000;
+  background-color: #0F1116;
   z-index: 10000;
   display: flex;
   justify-content: center;
@@ -4779,7 +4778,6 @@ nav ul li a:hover i {
 
 /* Root container simulating the dark background & spacing */
 .testimonial-section {
-  background-color: #0F1114;
   color: #ffffff;
   width: 100%;
   max-width: 1200px;
