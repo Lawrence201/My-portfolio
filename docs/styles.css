@@ -4379,11 +4379,13 @@ nav ul li a:hover i {
   border-radius: 8px;
   text-align: center;
   padding: 20px;
-  color: white; /* Ensures text visibility */
-  background-image: url('flower.png'); /* Replace with your image */
+  color: white;
+  background-image: url('flower.png');
   background-size: cover;
   background-position: center;
-  overflow: hidden; /* Prevents overlay from spilling outside the border-radius */
+  overflow: hidden;
+  max-height: 480px;
+  /* or height: 400px; */
 }
 
 .portfolio-item::before {
@@ -4393,7 +4395,7 @@ nav ul li a:hover i {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(44, 44, 44, 0.8); /* Dark overlay with 50% opacity */
+  background: rgba(19, 19, 19, 0.9); /* Dark overlay with 50% opacity */
   z-index: 1; /* Places overlay above the background image */
 }
 
@@ -4403,25 +4405,54 @@ nav ul li a:hover i {
 }
 
 /* Ensures the image inside portfolio-item is not covered by the overlay */
-.portfolio-item img {
-  position: relative;
-  width: 100%; /* Ensures it adapts to the container */
-  height: 300px; /* Adjust this to your preferred height */
-  object-fit: fill; /* Maintains aspect ratio */
+.portfolio-item video {
+  width: 100%;
+  height: 300px;
+  /* Match this with your design */
+  object-fit: cover;
   border-radius: 4px;
   margin-bottom: 15px;
-  z-index: 2; /* Keeps it above the overlay */
+  z-index: 2;
+}
+
+.view-site-btn {
+  display: inline-block;
+  margin-top: 12px;
+  padding: 12px 28px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #ffffff;
+  background-color: #4da6ff;
+  /* Light Blue */
+  border: none;
+  border-radius: 10px;
+  text-decoration: none;
+  box-shadow: inset 0 0 12px rgba(255, 255, 255, 0.4);
+  transition: all 0.3s ease;
+}
+
+.view-site-btn:hover {
+  background-color: #3399ff;
+  box-shadow: inset 0 0 20px rgba(255, 255, 255, 0.5);
+  transform: scale(1.02);
+}
+@media screen and (max-width: 600px) {
+  .view-site-btn {
+    padding: 10px 20px;
+    font-size: 14px;
+    border-radius: 8px;
+  }
 }
 
 .portfolio-item h3 {
   font-size: 20px;
   font-weight: 600;
   margin-bottom: 10px;
-  z-index: 10; /* Ensures it's on top */
+  z-index: 100; /* Ensures it's on top */
 }
 
 .portfolio-item p {
-  z-index: 10; /* Ensures it's on top */
+  z-index: 100; /* Ensures it's on top */
   font-size: 14px;
   color: #cccccc;
   margin: 0;
@@ -4532,6 +4563,11 @@ nav ul li a:hover i {
     width: 100%;
     margin-top: 10px;
   }
+    .portfolio-item video {
+      height: 270px;
+      /* smaller height for mobile */
+      border-radius: 6px;
+    }
 
   .portfolio-item {
     display: none; /* Hide all items */
@@ -4542,7 +4578,7 @@ nav ul li a:hover i {
   }
 }
 
-@media screen and (max-width: 360px) {
+@media screen and (max-width: 380px) {
   /* Adjust header wrapper for compact layout */
   .portfolio-header-wrapper {
     padding: 0 20px;
@@ -4582,18 +4618,20 @@ nav ul li a:hover i {
   .portfolio-item {
     display: none; /* Hide all items */
   }
+    
 
   .portfolio-item.visible {
     display: block; /* Show only the one with 'visible' class */
   }
 
   /* Image scaling for better fit */
-  .portfolio-item img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 10px;
-  }
-
+  
+    .portfolio-item video {
+      height: 260px;
+      /* smaller height for mobile */
+      border-radius: 6px;
+    }
+  
   /* Adjust text size */
   .portfolio-item h3 {
     font-size: 16px;
